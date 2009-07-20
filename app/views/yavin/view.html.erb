@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%= stylesheet_link_tag 'http://www.propublica.org/css/master3.css' %>
+<%= stylesheet_link_tag 'table-fu' %>
+<% if @sortable %>
+  <script type="text/javascript" src="http://www.propublica.org/js/jquery-1.2.3.js"></script>
+  <script type="text/javascript" src="http://www.propublica.org/js/jquery.tablesorter.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      //configure a widget to highlight columns
+      $.tablesorter.addWidget({
+        id: "columnHighlight",
+        format: function(table) {
+          $("td", table.tBodies[0]).removeClass("sorted");         
+          var ascSort = "th." + table.config.cssAsc;
+          var descSort = "th." + table.config.cssDesc;
+
+          $(table.tHead[0]).find(ascSort).add($(table.tHead[0]).find(descSort)).each(function() {
+            $("tr:visible", table.tBodies[0]).find("td:nth-child(" + ($("thead th", table).index(this) + 1) + ")")
+              .filter(':even').addClass("sorted").end()
+              .filter(':odd').addClass("sorted");
+          });
+        }
+      }); 
+
+      //initialize the table
+      $("#data").tablesorter({
+        widgets: ['columnHighlight'],
+        sortList: [[<%= @sort_by_index ? @sort_by_index : 0 %>,<%= @sort_order_bit ? @sort_order_bit : 0 %>]],
+      });
+    });
+  </script>
+<% end %>
+<title><%= @title %></title>
+</head>
+<body>
+<div id="wrapper">
+
+  <div id="special-col">
+    <h2><%= @title %></h2>
+    <div id="deck"><%= @deck %></div>
+    <% if @facets %>
+      <table class="yavin faceted">
+        <thead>
+          <tr>
+            <th class="spacer"></th>
+          <% for col in @headers %>
+            <th><%= col %></th>
+          <% end %>
+          </tr>
+        </thead>
+        <% for facet in @facets %>
+          <tr class="facet">
+            <td class="spacer"></td>
+            <% for i in 0..@facet_totals[facet[0]].length - 1 %>
+              <td class="subtot"<%= if @column_styles then " style=\"#{@column_styles[i]}\"" end %>>
+                <% if i == 0%>
+                  <div class="facet_fudge" style="text-indent: -2em"><%= facet[0] %></div>
+                <% end %>
+                <% if @facet_subtotal_columns.index(i) %>
+                  <%= fmt(@column_number_styles[i], @facet_totals[facet[0]][i])%>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+          <% for row in facet[1] %>
+            <tr>
+              <td class="spacer"></td>
+            <% for i in 0..row.length - 1 %>
+              <td<%= if @column_styles then " style=\"#{@column_styles[i]}\"" end %>><%= fmt(@column_number_styles[i], row[i]) %></td>
+            <% end %>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    <% else %>
+      <table id="data" class="yavin tabular">
+        <thead>
+          <tr>
+          <% for i in 0..@headers.length - 1 %>
+            <th<%= if @column_styles then " style=\"#{@column_styles[i]}\"" end %>><%= @headers[i] %></th>
+          <% end %>
+          </tr>
+        </thead>
+        <tbody>
+        <% for row in @data %>
+          <% if not (@fix_last_row and row == @data.last) %>
+          <tr>
+          <% for i in 0..row.length %>
+            <td<%= if @column_styles then " style=\"#{@column_styles[i]}\"" end %>><%= fmt(@column_number_styles[i], row[i]) %></td>
+          <% end %>
+          </tr>
+          <% end %>
+        <% end %>
+        </tbody>
+        <% if @fix_last_row %>
+         <tfoot>
+          <tr>
+          <% for i in 0..@data.last.length %>
+            <td<%= if @column_styles then " style=\"#{@column_styles[i]}\"" end %>><%= fmt(@column_number_styles[i],@data.last[i]) %></td>
+          <% end %>
+          <tr>
+         </tfoot>
+        <% end %>
+      </table>
+      <% if @per_page %>
+        <%= will_paginate @data %>
+      <% end %>
+    <% end %>
+    <div><%= @footer %></div>
+  </div>
+</div>
+
+</body>
+</html>

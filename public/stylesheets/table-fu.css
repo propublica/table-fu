@@ -1,0 +1,16 @@
+div#special-col{line-height:1.2em;}
+div#skFooter {padding-top: 2em;}
+div#deck {margin-bottom: 1em;}
+table.yavin {width:100%;}
+table.yavin th, table.yavin td {padding:.8em; vertical-align:middle; text-align:center;}
+table.yavin td {border-bottom:1px black solid;}
+table.yavin tfoot tr td {border-top:2px black solid;border-bottom:0;}
+table.tabular th {background-color:#ecece4; border-bottom:2px solid black; font-weight:bold; cursor:pointer;}
+table.tabular th.headerSortUp {background-color:#cacae4; background-image:url(http://www.propublica.org/images/th_arrow_asc.gif); background-repeat:no-repeat; background-position:center right;} 
+table.tabular th.headerSortDown {background-color:#cacae4; background-image:url(http://www.propublica.org/images/th_arrow_desc.gif); background-repeat:no-repeat; background-position:center right;}
+table.tabular td.sorted {background-color:#f1f1f8;}
+table.faceted th {font-weight:bold; font-size:1.2em;}
+table.faceted tr.facet td {text-align:left; background-color:#ecece4; border-bottom:2px solid black; font-weight:bold;}
+table.faceted tr.facet td.subtot{text-align:center;}
+table.yavin .spacer {width:.5em;}
+div.pagination {margin-bottom:2em; font-size:1.2em; font-weight:bold;text-align:center;}

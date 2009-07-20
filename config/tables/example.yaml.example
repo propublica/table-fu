@@ -1,0 +1,31 @@
+table:
+  title:  "This is a title"
+  url:    http://spreadsheets.google.com/the_rest_of_the_url
+  deck:
+    This is a deck. It's awesomes, no?
+    It can be multi-line, and contain <strong>HTML</strong> elements like
+    <ul>
+      <li>Lists</li>
+      <li><a href="http://propublica.org">Links</a></li>
+      <li style="text-decoration: blink;">and styles</li>
+    </ul>
+  footer:
+    The footer works like the deck. As you can see below, you can comment out lines of YAML with #.
+    Optional parameters follow.
+#  facet_column: "AGENCY"
+#  facet_subtotal_columns: [4,5]
+#  column_styles:
+#    - 'text-align:left;'
+#    - 'text-align:right;'
+#    - 'text-align:right;'
+#    - 'text-align:right;'
+#  column_number_styles: # to be implemented.
+#    - [5, dollar]
+#    - [3, comma]
+#    - [2, currency]
+#  dead_columns: [5]
+#  dead_rows:    [4, 5, 6, 7]
+#  per_page: 2
+#  sort_by: Column One
+#  sort_order: ascending
+#  fix_last_row: true
