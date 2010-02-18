@@ -8,21 +8,21 @@ Gem::Specification.new do |s|
   s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Mark Percival"]
+  s.authors = ["Mark Percival", "Jeff Larson"]
   s.date = %q{2010-02-18}
   s.description = %q{A library for manipulating tables as arrays}
-  s.email = %q{mark@mpercival.com}
+  s.email = %q{jeff.larson@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README",
-     "README.markdown"
+     "README"
   ]
   s.files = [
-    "LICENSE",
+    ".gitignore",
+     "LICENSE",
      "README",
-     "README.markdown",
      "Rakefile",
-     "VERSION",
+     "VERSION.yml",
+     "index.html",
      "lib/table_fu.rb",
      "lib/table_fu/formatting.rb",
      "pkg/table_fu-1.0.1.gem",
@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
      "spec/table_fu_spec.rb",
      "table_fu.gemspec"
   ]
-  s.homepage = %q{http://github.com/markpercival/table_fu}
+  s.homepage = %q{http://github.com/propublica/table_fu}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
