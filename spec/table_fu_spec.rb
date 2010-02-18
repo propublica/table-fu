@@ -21,11 +21,11 @@ describe TableFu do
   end
   
   it 'should sort rows' do
-    @spreadsheet.sorted_by = {'State' => {:order => 'descending'}}
+    @spreadsheet.sorted_by = {'State' => {"order" => 'descending'}}
     @spreadsheet.rows[0].column_for("State").to_s.should eql "Wyoming"
-    @spreadsheet.sorted_by = {'Party' => {:order => 'descending'}}
+    @spreadsheet.sorted_by = {'Party' => {"order" => 'descending'}}
     @spreadsheet.rows[0].column_for("Party").to_s.should eql "Republican"
-    @spreadsheet.sorted_by = {'Representative' => {:order => 'ascending', :format => 'last_name'}}
+    @spreadsheet.sorted_by = {'Representative' => {"order" => 'ascending', "format" => 'last_name'}}
     @spreadsheet.rows[2].column_for("Representative").to_s.should eql "Jo Bonner"
     @spreadsheet.col_opts[:columns] = {'State', 'Party', 'Total Appropriations', 'URL'}
     @spreadsheet.rows.each do |row|
@@ -51,7 +51,7 @@ describe TableFu, 'with a complicated setup' do
     @spreadsheet.col_opts[:style] = {'Leadership' => "text-align: left;", 'URL' => 'text-align: right;'}
     @spreadsheet.col_opts[:foo] = ['Leadership', 'URL']
     @spreadsheet.delete_rows! [8]
-    @spreadsheet.sorted_by = {'State' => {:order => 'descending'}}
+    @spreadsheet.sorted_by = {'State' => {"order" => 'descending'}}
     @spreadsheet.col_opts[:columns] = ['State', 'Leadership', 'Total Appropriation', 'Party', 'URL']
   end
 

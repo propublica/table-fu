@@ -40,7 +40,7 @@ class TableFu
     all_rows = []
     @table.each_with_index do |r, i|
       all_rows << TableFu::Row.new(r, i, self)
-    end
+    end    
     all_rows.sort
   end
   
@@ -143,7 +143,6 @@ class TableFu
     attr_reader :row_num
     
     def initialize(row, row_num, spreadsheet)
-      p row
       self.replace row
       @row_num = row_num
       @spreadsheet = spreadsheet
@@ -180,8 +179,8 @@ class TableFu
     def <=>(b)
       if @spreadsheet.sorted_by
         column = @spreadsheet.sorted_by.keys.first
-        order = @spreadsheet.sorted_by.keys.first[:order] || @spreadsheet.sorted_by.keys.first['order']
-        format = @spreadsheet.sorted_by.keys.first[:format]
+        order = @spreadsheet.sorted_by[@spreadsheet.sorted_by.keys.first]["order"]
+        format = @spreadsheet.sorted_by[@spreadsheet.sorted_by.keys.first]["format"]
         a = column_for(column).value || ''
         b = b.column_for(column).value || ''
         if format
@@ -189,7 +188,7 @@ class TableFu
           b = TableFu::Formatting.send(format, b) || ''
         end
         result = a <=> b
-        result = result == 1 ? -1 : 1 if order == 'descending'
+        result = result * -1 if order == 'descending'
         result
       else
         -1
