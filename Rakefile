@@ -7,9 +7,9 @@ begin
     gem.name = "table_fu"
     gem.summary = %Q{TableFu makes arrays act like spreadsheets}
     gem.description = %Q{A library for manipulating tables as arrays}
-    gem.email = "mark@mpercival.com"
-    gem.homepage = "http://github.com/markpercival/table_fu"
-    gem.authors = ["Mark Percival"]
+    gem.email = "jeff.larson@gmail.com"
+    gem.homepage = "http://github.com/propublica/table_fu"
+    gem.authors = ["Mark Percival", "Jeff Larson"]
     gem.add_development_dependency "spec"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -42,7 +42,7 @@ Rake::RDocTask.new do |rdoc|
   end
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "rturk-gem #{version}"
+  rdoc.title = "TableFu #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

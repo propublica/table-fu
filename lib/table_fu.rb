@@ -12,8 +12,10 @@ class TableFu
     @table = table
     @totals = {}
     @col_opts = column_opts
-    yield self if block_given? 
+    yield self if block_given?
   end
+
+
   
   # Pass it an array and it will delete it from the table, but save the data in
   # @deleted_rows@ for later perusal.
@@ -178,6 +180,7 @@ class TableFu
     #
     def <=>(b)
       if @spreadsheet.sorted_by
+        
         column = @spreadsheet.sorted_by.keys.first
         order = @spreadsheet.sorted_by[@spreadsheet.sorted_by.keys.first]["order"]
         format = @spreadsheet.sorted_by[@spreadsheet.sorted_by.keys.first]["format"]
