@@ -4,33 +4,17 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />    
     <title>TableFu</title>
+    <link rel="stylesheet" type="text/css" href="documentation/css/styles.css" />
+    
     <link rel="stylesheet" type="text/css" href="documentation/css/dawn.css" />
-    <style>
 
-      
-      body {
-        font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
-        font-size: 16px;
-        line-height:20px;
-        width: 600px;
-        margin-left:auto;
-        margin-right:auto;
-      }
-      pre {
-        font-family: Monaco, Courier, monospace;
-        font-size: 12px;
-        line-height: 16px;
-        padding:1em;
-        overflow: auto;
-      }
-
-    </style>
   </head>
   
   <body>
+    <a href="http://www.propublica.org" class="propublica">&nbsp;</a>
     <h1>TableFu</h1>
-    <p><strong>TableFu</strong> is a utility for spreadsheet-style handling of arrays.</p>
-    <p>For example, <strong>TableFu</strong> can consume a csv file and provide sorting on a column:
+    <p><strong>TableFu</strong> is a utility for spreadsheet-style handling for arrays (e.g. filtering, formatting, and sorting). In addition, it has the ability to <a href="#facet">facet</a> &mdash; or group &mdash; rows according to cell value. It was developed as a backend for its sister project <a href="http://www.github.com/propublica/table-setter">Table Setter</a>.</p>
+    <p>For example, <strong>TableFu</strong> can consume a csv file and sort on a column:
         <pre class="dawn"><span class="Keyword">require</span> 'table_fu'
 <span class="Keyword">require</span> 'FasterCSV'
 
@@ -45,26 +29,29 @@ CSV
 <span class="Variable"><span class="Variable">@</span>spreadsheet</span> <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(<span class="Support">FasterCSV</span><span class="PunctuationSeparator">.</span><span class="Entity">parse</span>(csv)) <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">s</span><span class="PunctuationSeparator">|</span>
   s<span class="PunctuationSeparator">.</span><span class="Entity">sorted_by</span> <span class="Keyword">=</span> {'Best Book' <span class="PunctuationSeparator">=&gt;</span> {'order' <span class="PunctuationSeparator">=&gt;</span> 'ascending'}}
 <span class="Keyword">end</span>
-</pre><p>Produces</p><pre class="dawn">[[&quot;Samuel Beckett&quot;<span class="PunctuationSeparator">,</span> &quot;Malone Muert&quot;<span class="PunctuationSeparator">,</span> &quot;120&quot;<span class="PunctuationSeparator">,</span> &quot;Modernism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Nicholson Baker&quot;<span class="PunctuationSeparator">,</span> &quot;Mezannine&quot;<span class="PunctuationSeparator">,</span> &quot;150&quot;<span class="PunctuationSeparator">,</span> &quot;Minimalism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Vladimir Sorokin&quot;<span class="PunctuationSeparator">,</span> &quot;The Queue&quot;<span class="PunctuationSeparator">,</span> &quot;263&quot;<span class="PunctuationSeparator">,</span> &quot;Satire&quot;]<span class="PunctuationSeparator">,</span> [&quot;James Joyce&quot;<span class="PunctuationSeparator">,</span> &quot;Ulysses&quot;<span class="PunctuationSeparator">,</span> &quot;644&quot;<span class="PunctuationSeparator">,</span> &quot;Modernism&quot;]]
-</pre>
-        <pre class="dawn"><span class="Keyword">require</span> 'table_fu'
-<span class="Keyword">require</span> 'FasterCSV'
-
-csv <span class="Keyword">=</span>&lt;&lt;-CSV
-Author,Best Book,Number of Pages,Style
-Samuel Beckett,Malone Muert,120,Modernism
-James Joyce,Ulysses,644,Modernism
-Nicholson Baker,Mezannine,150,Minimalism
-Vladimir Sorokin,The Queue,263,Satire
-CSV
-
-<span class="Variable"><span class="Variable">@</span>spreadsheet</span> <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(<span class="Support">FasterCSV</span><span class="PunctuationSeparator">.</span><span class="Entity">parse</span>(csv)) <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">s</span><span class="PunctuationSeparator">|</span>
-  s<span class="PunctuationSeparator">.</span><span class="Entity">sorted_by</span> <span class="Keyword">=</span> {'Best Book' <span class="PunctuationSeparator">=&gt;</span> {'order' <span class="PunctuationSeparator">=&gt;</span> 'ascending'}}
-<span class="Keyword">end</span>
+</pre><p><em>Produces:</em></p><pre class="dawn">[[&quot;Samuel Beckett&quot;<span class="PunctuationSeparator">,</span> &quot;Malone Muert&quot;<span class="PunctuationSeparator">,</span> &quot;120&quot;<span class="PunctuationSeparator">,</span> &quot;Modernism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Nicholson Baker&quot;<span class="PunctuationSeparator">,</span> &quot;Mezannine&quot;<span class="PunctuationSeparator">,</span> &quot;150&quot;<span class="PunctuationSeparator">,</span> &quot;Minimalism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Vladimir Sorokin&quot;<span class="PunctuationSeparator">,</span> &quot;The Queue&quot;<span class="PunctuationSeparator">,</span> &quot;263&quot;<span class="PunctuationSeparator">,</span> &quot;Satire&quot;]<span class="PunctuationSeparator">,</span> [&quot;James Joyce&quot;<span class="PunctuationSeparator">,</span> &quot;Ulysses&quot;<span class="PunctuationSeparator">,</span> &quot;644&quot;<span class="PunctuationSeparator">,</span> &quot;Modernism&quot;]]
 </pre>
     </p>
+    <h2>Table of Contents</h2>
+    <ul>
+      <li>Installation</li>
+      <li>Usage</li>
+      <li>Faceting</li>
+      <li>Macros</li>
+    </ul>
+    <h2>Installation</h2>
+    <p><strong>TableFu</strong> is available as a rubygem:
+<pre class="dawn">
+ gem install table_fu</pre>
+  
+    or from the actual source:
+    
+<pre class="dawn">
+ git clone git://github.com/propublica/table-fu.git
+ cd table-fu
+ rake install</pre>
+    </p>
+    <h2>Usage</h2>
     <p>
-      
-    </p>
   </body>
 </html>

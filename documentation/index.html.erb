@@ -1,5 +1,8 @@
 <%
 require 'uv'
+require 'table_fu'
+require 'FasterCSV'
+
 def code_for(file, output=true)
   return '' unless File.exists?("examples/#{file}.rb")
   file = File.open("examples/#{file}.rb").read
@@ -7,7 +10,7 @@ def code_for(file, output=true)
   out = ''
   if output
     out = yield file if block_given?
-    out = "<p>Produces</p>" + Uv.parse(out, 'xhtml', 'ruby', false, 'dawn', false)
+    out = "<p><em>Produces:</em></p>" + Uv.parse(out, 'xhtml', 'ruby', false, 'dawn', false)
   end
   "#{html}#{out}"
 end
@@ -17,40 +20,42 @@ end
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />    
     <title>TableFu</title>
+    <link rel="stylesheet" type="text/css" href="documentation/css/styles.css" />
+    
     <link rel="stylesheet" type="text/css" href="documentation/css/dawn.css" />
-    <style>
 
-      
-      body {
-        font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
-        font-size: 16px;
-        line-height:20px;
-        width: 600px;
-        margin-left:auto;
-        margin-right:auto;
-      }
-      pre {
-        font-family: Monaco, Courier, monospace;
-        font-size: 12px;
-        line-height: 16px;
-        padding:1em;
-        overflow: auto;
-      }
-
-    </style>
   </head>
   
   <body>
+    <a href="http://www.propublica.org" class="propublica">&nbsp;</a>
     <h1>TableFu</h1>
-    <p><strong>TableFu</strong> is a utility for spreadsheet-style handling of arrays.</p>
-    <p>For example, <strong>TableFu</strong> can consume a csv file and provide sorting on a column:
+    <p><strong>TableFu</strong> is a utility for spreadsheet-style handling for arrays (e.g. filtering, formatting, and sorting). In addition, it has the ability to <a href="#facet">facet</a> &mdash; or group &mdash; rows according to cell value. It was developed as a backend for its sister project <a href="http://www.github.com/propublica/table-setter">Table Setter</a>.</p>
+    <p>For example, <strong>TableFu</strong> can consume a csv file and sort on a column:
         <%= code_for "sort_by_column" do |html|
               eval(html).rows.inspect
             end
         %>
     </p>
     <h2>Table of Contents</h2>
-    <ol>
-      <li>
+    <ul>
+      <li>Installation</li>
+      <li>Usage</li>
+      <li>Faceting</li>
+      <li>Macros</li>
+    </ul>
+    <h2>Installation</h2>
+    <p><strong>TableFu</strong> is available as a rubygem:
+<pre class="dawn">
+ gem install table_fu</pre>
+  
+    or from the actual source:
+    
+<pre class="dawn">
+ git clone git://github.com/propublica/table-fu.git
+ cd table-fu
+ rake install</pre>
+    </p>
+    <h2>Usage</h2>
+    <p>
   </body>
 </html>
