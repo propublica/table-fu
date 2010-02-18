@@ -9,7 +9,7 @@ def code_for(file, output=true)
   html = Uv.parse(file, "xhtml", "ruby", false, "dawn", false)
   out = ''
   if output
-    out = yield file if block_given?
+    out = yield eval(file) if block_given?
     out = "<p><em>Produces:</em></p>" + Uv.parse(out, 'xhtml', 'ruby', false, 'dawn', false)
   end
   "#{html}#{out}"
@@ -28,11 +28,15 @@ end
   
   <body>
     <a href="http://www.propublica.org" class="propublica">&nbsp;</a>
-    <h1>TableFu</h1>
+    <h1>TableFu <small>&ndash; Version: <%= 
+    config = YAML.load(File.read('VERSION.yml'))
+    "#{config[:major]}.#{config[:minor]}.#{config[:patch]}"
+    %></small></h1>
+
     <p><strong>TableFu</strong> is a utility for spreadsheet-style handling for arrays (e.g. filtering, formatting, and sorting). In addition, it has the ability to <a href="#facet">facet</a> &mdash; or group &mdash; rows according to cell value. It was developed as a backend for its sister project <a href="http://www.github.com/propublica/table-setter">Table Setter</a>.</p>
     <p>For example, <strong>TableFu</strong> can consume a csv file and sort on a column:
-        <%= code_for "sort_by_column" do |html|
-              eval(html).rows.inspect
+        <%= code_for "sort_by_column" do |ret|
+              ret.rows.inspect
             end
         %>
     </p>
@@ -41,7 +45,9 @@ end
       <li>Installation</li>
       <li>Usage</li>
       <li>Faceting</li>
-      <li>Macros</li>
+      <li>Macros / Formatting</li>
+      <li>Credits</li>
+      <li>License</li>
     </ul>
     <h2>Installation</h2>
     <p><strong>TableFu</strong> is available as a rubygem:
@@ -57,5 +63,11 @@ end
     </p>
     <h2>Usage</h2>
     <p>
+      
+    </p>
+    
+    
+    <h2>License</h2>
+    <pre><%= File.open("LICENSE").read %></pre>
   </body>
 </html>
