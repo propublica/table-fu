@@ -1,17 +1,70 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />    
     <title>TableFu</title>
+    <link rel="stylesheet" type="text/css" href="documentation/css/dawn.css" />
     <style>
+
+      
       body {
-        font-family: "Gill Sans", Arial;
+        font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+        font-size: 16px;
+        line-height:20px;
+        width: 600px;
+        margin-left:auto;
+        margin-right:auto;
       }
+      pre {
+        font-family: Monaco, Courier, monospace;
+        font-size: 12px;
+        line-height: 16px;
+        padding:1em;
+        overflow: auto;
+      }
+
     </style>
   </head>
   
   <body>
     <h1>TableFu</h1>
-    <p><strong>TableFu</strong> is a utility for spreadsheet-style handling of arrays. </p>
+    <p><strong>TableFu</strong> is a utility for spreadsheet-style handling of arrays.</p>
+    <p>For example, <strong>TableFu</strong> can consume a csv file and provide sorting on a column:
+        <pre class="dawn"><span class="Keyword">require</span> 'table_fu'
+<span class="Keyword">require</span> 'FasterCSV'
+
+csv <span class="Keyword">=</span>&lt;&lt;-CSV
+Author,Best Book,Number of Pages,Style
+Samuel Beckett,Malone Muert,120,Modernism
+James Joyce,Ulysses,644,Modernism
+Nicholson Baker,Mezannine,150,Minimalism
+Vladimir Sorokin,The Queue,263,Satire
+CSV
+
+<span class="Variable"><span class="Variable">@</span>spreadsheet</span> <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(<span class="Support">FasterCSV</span><span class="PunctuationSeparator">.</span><span class="Entity">parse</span>(csv)) <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">s</span><span class="PunctuationSeparator">|</span>
+  s<span class="PunctuationSeparator">.</span><span class="Entity">sorted_by</span> <span class="Keyword">=</span> {'Best Book' <span class="PunctuationSeparator">=&gt;</span> {'order' <span class="PunctuationSeparator">=&gt;</span> 'ascending'}}
+<span class="Keyword">end</span>
+</pre><p>Produces</p><pre class="dawn">[[&quot;Samuel Beckett&quot;<span class="PunctuationSeparator">,</span> &quot;Malone Muert&quot;<span class="PunctuationSeparator">,</span> &quot;120&quot;<span class="PunctuationSeparator">,</span> &quot;Modernism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Nicholson Baker&quot;<span class="PunctuationSeparator">,</span> &quot;Mezannine&quot;<span class="PunctuationSeparator">,</span> &quot;150&quot;<span class="PunctuationSeparator">,</span> &quot;Minimalism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Vladimir Sorokin&quot;<span class="PunctuationSeparator">,</span> &quot;The Queue&quot;<span class="PunctuationSeparator">,</span> &quot;263&quot;<span class="PunctuationSeparator">,</span> &quot;Satire&quot;]<span class="PunctuationSeparator">,</span> [&quot;James Joyce&quot;<span class="PunctuationSeparator">,</span> &quot;Ulysses&quot;<span class="PunctuationSeparator">,</span> &quot;644&quot;<span class="PunctuationSeparator">,</span> &quot;Modernism&quot;]]
+</pre>
+        <pre class="dawn"><span class="Keyword">require</span> 'table_fu'
+<span class="Keyword">require</span> 'FasterCSV'
+
+csv <span class="Keyword">=</span>&lt;&lt;-CSV
+Author,Best Book,Number of Pages,Style
+Samuel Beckett,Malone Muert,120,Modernism
+James Joyce,Ulysses,644,Modernism
+Nicholson Baker,Mezannine,150,Minimalism
+Vladimir Sorokin,The Queue,263,Satire
+CSV
+
+<span class="Variable"><span class="Variable">@</span>spreadsheet</span> <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(<span class="Support">FasterCSV</span><span class="PunctuationSeparator">.</span><span class="Entity">parse</span>(csv)) <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">s</span><span class="PunctuationSeparator">|</span>
+  s<span class="PunctuationSeparator">.</span><span class="Entity">sorted_by</span> <span class="Keyword">=</span> {'Best Book' <span class="PunctuationSeparator">=&gt;</span> {'order' <span class="PunctuationSeparator">=&gt;</span> 'ascending'}}
+<span class="Keyword">end</span>
+</pre>
+    </p>
+    <p>
+      
+    </p>
   </body>
 </html>

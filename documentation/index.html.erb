@@ -1,17 +1,56 @@
+<%
+require 'uv'
+def code_for(file, output=true)
+  return '' unless File.exists?("examples/#{file}.rb")
+  file = File.open("examples/#{file}.rb").read
+  html = Uv.parse(file, "xhtml", "ruby", false, "dawn", false)
+  out = ''
+  if output
+    out = yield file if block_given?
+    out = "<p>Produces</p>" + Uv.parse(out, 'xhtml', 'ruby', false, 'dawn', false)
+  end
+  "#{html}#{out}"
+end
+%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />    
     <title>TableFu</title>
+    <link rel="stylesheet" type="text/css" href="documentation/css/dawn.css" />
     <style>
+
+      
       body {
-        font-family: "Gill Sans", Arial;
+        font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+        font-size: 16px;
+        line-height:20px;
+        width: 600px;
+        margin-left:auto;
+        margin-right:auto;
       }
+      pre {
+        font-family: Monaco, Courier, monospace;
+        font-size: 12px;
+        line-height: 16px;
+        padding:1em;
+        overflow: auto;
+      }
+
     </style>
   </head>
   
   <body>
     <h1>TableFu</h1>
-    <p><strong>TableFu</strong> is a utility for spreadsheet-style handling of arrays. </p>
+    <p><strong>TableFu</strong> is a utility for spreadsheet-style handling of arrays.</p>
+    <p>For example, <strong>TableFu</strong> can consume a csv file and provide sorting on a column:
+        <%= code_for "sort_by_column" do |html|
+              eval(html).rows.inspect
+            end
+        %>
+    </p>
+    <h2>Table of Contents</h2>
+    <ol>
+      <li>
   </body>
 </html>
