@@ -71,7 +71,7 @@ end %>
 </p>
     <h2><a name="usage" href="#toc">Usage</a></h2>
     <p>
-      The <strong>TableFu</strong> constructor takes two arguments: a 2 dimensional array and a hash of column options or a block. The simple options are:</p>
+      The <strong>TableFu</strong> constructor takes two arguments; a 2 dimensional array and a hash of column options or a block. The simple options are:</p>
       <p><code>=> sorted_by:</code> the column to sort by.
       <%= code_for "sort_by_column" do |ret|
             ret.rows.inspect
@@ -92,7 +92,7 @@ end %>
     <p>For example, you can use the <code>last_name</code> formatter to extract the last name of a cell containing a person's name:
       <%= code_for "last_name" %>
     </p>
-    <p>Or you can build a meta column from two others containing an html like so:
+    <p>Or you can build a meta column from two others containing an html link like so:
       <%= code_for "link" %>
     </p>
     <p>Of course, you can provide your own macros by patching <a href="http://github.com/propublica/table-fu/blob/master/lib/table_fu/formatting.rb"><code>TableFu::Formatting</code></a>. <a href="http://www.github.com/propublica/table-setter">TableSetter</a> includes rails view helpers directly in <code>TableFu::Formatting</code>.
@@ -109,8 +109,8 @@ end %>
       }.join('')
     end %>
     </p>
-
     <h2><a name="manipulation" href="#toc">Manipulation</a></h2>
+    
     <h2><a name="links" href="#toc">Links</a></h2>
     <ul>
       <li><a href="http://github.com/propublica/table-setter">TableSetter</a><br>A Rails app that uses <strong>TableFu</strong> to render public Google Spreadsheets in HTML.</li>

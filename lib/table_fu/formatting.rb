@@ -6,7 +6,7 @@ class TableFu::Formatting
 # formatting and style.
 # a method that
 
-  class<<self
+  class << self
     # Returns a currency formatted number
     def currency(num)
       "$#{num.to_s}"
