@@ -1054,12 +1054,12 @@ Set up the cherry picked columns
       <pre class="lines">
 
 
-141
 142
-143</pre>
+143
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 142</span>
 
 <span class='def def kw'>def</span> <span class='columns= identifier id'>columns=</span><span class='lparen token'>(</span><span class='a identifier id'>a</span><span class='rparen token'>)</span>
   <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:columns</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='a identifier id'>a</span>
@@ -1157,12 +1157,12 @@ Return true if this table is faceted
       <pre class="lines">
 
 
-116
 117
-118</pre>
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 117</span>
 
 <span class='def def kw'>def</span> <span class='faceted? fid id'>faceted?</span>
   <span class='not not kw'>not</span> <span class='faceted_on identifier id'>faceted_on</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
@@ -1197,7 +1197,6 @@ Return an array of TableFu instances grouped by a column.
       <pre class="lines">
 
 
-69
 70
 71
 72
@@ -1229,10 +1228,11 @@ Return an array of TableFu instances grouped by a column.
 98
 99
 100
-101</pre>
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 70</span>
 
 <span class='def def kw'>def</span> <span class='faceted_by identifier id'>faceted_by</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='comma token'>,</span> <span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='faceted_spreadsheets identifier id'>faceted_spreadsheets</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
@@ -1297,12 +1297,12 @@ Return the formatting hash
       <pre class="lines">
 
 
-131
 132
-133</pre>
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 132</span>
 
 <span class='def def kw'>def</span> <span class='formatting identifier id'>formatting</span>
   <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:formatting</span><span class='rbrack token'>]</span>
@@ -1337,12 +1337,12 @@ Set the formatting hash
       <pre class="lines">
 
 
-136
 137
-138</pre>
+138
+139</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 137</span>
 
 <span class='def def kw'>def</span> <span class='formatting= identifier id'>formatting=</span><span class='lparen token'>(</span><span class='h identifier id'>h</span><span class='rparen token'>)</span>
   <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:formatting</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='h identifier id'>h</span>
@@ -1513,12 +1513,12 @@ Return the sorted_by column
       <pre class="lines">
 
 
-121
 122
-123</pre>
+123
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 122</span>
 
 <span class='def def kw'>def</span> <span class='sorted_by identifier id'>sorted_by</span>
   <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:sorted_by</span><span class='rbrack token'>]</span>
@@ -1553,12 +1553,12 @@ Set the sorted_by column
       <pre class="lines">
 
 
-126
 127
-128</pre>
+128
+129</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 126</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 127</span>
 
 <span class='def def kw'>def</span> <span class='sorted_by= identifier id'>sorted_by=</span><span class='lparen token'>(</span><span class='h identifier id'>h</span><span class='rparen token'>)</span>
   <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:sorted_by</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='h identifier id'>h</span>
@@ -1593,12 +1593,12 @@ Sum the values of a particular column
       <pre class="lines">
 
 
-59
 60
-61</pre>
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 60</span>
 
 <span class='def def kw'>def</span> <span class='sum_totals_for identifier id'>sum_totals_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span>
   <span class='@totals ivar id'>@totals</span><span class='lbrack token'>[</span><span class='column identifier id'>column</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rows identifier id'>rows</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span><span class='lparen token'>(</span><span class='integer val'>0</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='sum identifier id'>sum</span><span class='comma token'>,</span> <span class='r identifier id'>r</span><span class='bitor op'>|</span> <span class='to_numeric identifier id'>to_numeric</span><span class='lparen token'>(</span><span class='r identifier id'>r</span><span class='dot token'>.</span><span class='datum_for identifier id'>datum_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='sum identifier id'>sum</span> <span class='rbrace token'>}</span>
@@ -1634,7 +1634,6 @@ return 1, this way if we total up a series of strings it&#8217;s a count
       <pre class="lines">
 
 
-105
 106
 107
 108
@@ -1642,10 +1641,11 @@ return 1, this way if we total up a series of strings it&#8217;s a count
 110
 111
 112
-113</pre>
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 106</span>
 
 <span class='def def kw'>def</span> <span class='to_numeric identifier id'>to_numeric</span><span class='lparen token'>(</span><span class='num identifier id'>num</span><span class='rparen token'>)</span>
   <span class='if if kw'>if</span> <span class='num identifier id'>num</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
@@ -1686,12 +1686,12 @@ Sum the values of a particular column and return a Datum
       <pre class="lines">
 
 
-64
 65
-66</pre>
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 65</span>
 
 <span class='def def kw'>def</span> <span class='total_for identifier id'>total_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span>
   <span class='Datum constant id'>Datum</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@totals ivar id'>@totals</span><span class='lbrack token'>[</span><span class='column identifier id'>column</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='column identifier id'>column</span><span class='comma token'>,</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='rparen token'>)</span>
@@ -1707,7 +1707,7 @@ Sum the values of a particular column and return a Datum
 </div>
     
     <div id="footer">
-  Generated on Fri Feb 19 18:16:19 2010 by 
+  Generated on Fri Feb 19 18:22:30 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.3 (ruby-1.8.7).
 </div>

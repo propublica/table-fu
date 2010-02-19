@@ -293,15 +293,15 @@ way to go about doing this. Subclass?
       <pre class="lines">
 
 
-215
 216
 217
 218
 219
-220</pre>
+220
+221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 215</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 216</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='datum identifier id'>datum</span><span class='comma token'>,</span> <span class='col_name identifier id'>col_name</span><span class='comma token'>,</span> <span class='row_num identifier id'>row_num</span><span class='comma token'>,</span> <span class='spreadsheet identifier id'>spreadsheet</span><span class='rparen token'>)</span>
   <span class='@datum ivar id'>@datum</span> <span class='assign token'>=</span> <span class='datum identifier id'>datum</span>
@@ -397,7 +397,6 @@ And it&#8217;s not in the list col_opts[:invisible] = [&#8216;State&#8217;]
       <pre class="lines">
 
 
-304
 305
 306
 307
@@ -409,10 +408,11 @@ And it&#8217;s not in the list col_opts[:invisible] = [&#8216;State&#8217;]
 313
 314
 315
-316</pre>
+316
+317</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 304</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 305</span>
 
 <span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span><span class='lparen token'>(</span><span class='method identifier id'>method</span><span class='rparen token'>)</span>
   <span class='if if kw'>if</span> <span class='val identifier id'>val</span> <span class='assign token'>=</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='col_opts identifier id'>col_opts</span><span class='lbrack token'>[</span><span class='method identifier id'>method</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='col_opts identifier id'>col_opts</span><span class='lbrack token'>[</span><span class='method identifier id'>method</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='column_name identifier id'>column_name</span><span class='rbrack token'>]</span>
@@ -465,12 +465,12 @@ Returns the value of attribute column_name
       <pre class="lines">
 
 
-210
 211
-212</pre>
+212
+213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 211</span>
 
 <span class='def def kw'>def</span> <span class='column_name identifier id'>column_name</span>
   <span class='@column_name ivar id'>@column_name</span>
@@ -508,12 +508,12 @@ Returns the value of attribute options
       <pre class="lines">
 
 
-210
 211
-212</pre>
+212
+213</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 211</span>
 
 <span class='def def kw'>def</span> <span class='options identifier id'>options</span>
   <span class='@options ivar id'>@options</span>
@@ -558,7 +558,6 @@ Returns: The macro value if it exists, otherwise nil
       <pre class="lines">
 
 
-248
 249
 250
 251
@@ -573,10 +572,11 @@ Returns: The macro value if it exists, otherwise nil
 260
 261
 262
-263</pre>
+263
+264</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 248</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 249</span>
 
 <span class='def def kw'>def</span> <span class='macro_value identifier id'>macro_value</span>
   <span class='comment val'># Grab the macro method first</span>
@@ -637,7 +637,6 @@ And finally we return a empty string object or the value.
       <pre class="lines">
 
 
-234
 235
 236
 237
@@ -645,10 +644,11 @@ And finally we return a empty string object or the value.
 239
 240
 241
-242</pre>
+242
+243</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 234</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 235</span>
 
 <span class='def def kw'>def</span> <span class='to_s identifier id'>to_s</span>
   <span class='if if kw'>if</span> <span class='macro_value identifier id'>macro_value</span> 
@@ -692,12 +692,12 @@ Returns: raw value of the datum, could be nil
       <pre class="lines">
 
 
-269
 270
-271</pre>
+271
+272</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 269</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 270</span>
 
 <span class='def def kw'>def</span> <span class='value identifier id'>value</span>
   <span class='@datum ivar id'>@datum</span>
@@ -713,7 +713,7 @@ Returns: raw value of the datum, could be nil
 </div>
     
     <div id="footer">
-  Generated on Fri Feb 19 18:16:19 2010 by 
+  Generated on Fri Feb 19 18:22:29 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.3 (ruby-1.8.7).
 </div>
