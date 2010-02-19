@@ -55,6 +55,7 @@ class TableFu
     end
     all_columns
   end
+  
   # Sum the values of a particular column
   def sum_totals_for(column)
     @totals[column.to_s] = rows.inject(0) { |sum, r| to_numeric(r.datum_for(column).value) + sum }

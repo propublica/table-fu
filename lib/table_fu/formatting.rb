@@ -2,7 +2,6 @@
 # 
 # Methods expect one or more arguments, which could be nil, and should return the appropriate
 # formatting and style.
-
 class TableFu::Formatting
 
   class << self
