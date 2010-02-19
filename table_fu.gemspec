@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mark Percival", "Jeff Larson"]
-  s.date = %q{2010-02-18}
+  s.date = %q{2010-02-19}
   s.description = %q{A library for manipulating tables as arrays}
   s.email = %q{jeff.larson@gmail.com}
   s.extra_rdoc_files = [
@@ -22,10 +22,17 @@ Gem::Specification.new do |s|
      "README",
      "Rakefile",
      "VERSION.yml",
+     "documentation/css/dawn.css",
+     "documentation/css/styles.css",
+     "documentation/images/proplogo.png",
+     "documentation/index.html.erb",
+     "examples/columns.rb",
+     "examples/columns_hidden.rb",
+     "examples/sort_by_column.rb",
+     "examples/sort_by_number.rb",
      "index.html",
      "lib/table_fu.rb",
      "lib/table_fu/formatting.rb",
-     "pkg/table_fu-1.0.1.gem",
      "spec/assets/sample.csv",
      "spec/assets/test.csv",
      "spec/assets/test_macro.csv",
@@ -44,7 +51,11 @@ Gem::Specification.new do |s|
   s.test_files = [
     "spec/readme_example_spec.rb",
      "spec/spec_helper.rb",
-     "spec/table_fu_spec.rb"
+     "spec/table_fu_spec.rb",
+     "examples/columns.rb",
+     "examples/columns_hidden.rb",
+     "examples/sort_by_column.rb",
+     "examples/sort_by_number.rb"
   ]
 
   if s.respond_to? :specification_version then
