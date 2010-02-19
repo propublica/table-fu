@@ -10,7 +10,7 @@
   
   <body>
     <a href="http://www.propublica.org" class="propublica">&nbsp;</a>
-    <h1>TableFu <small>&ndash; Version: 0.0.1</small></h1>
+    <h1>TableFu <small>&ndash; Version: 0.1.0</small></h1>
 
     <p><strong>TableFu</strong> is a utility for spreadsheet-style handling for arrays (e.g. filtering, formatting, and sorting). In addition, it has the ability to <a href="#facet">facet</a> &mdash; or group &mdash; rows according to cell value. It was developed as a backend for its sister project <a href="http://www.github.com/propublica/table-setter">TableSetter</a>.</p>
     <p>For example, <strong>TableFu</strong> can consume a csv file and sort on a column:
@@ -51,7 +51,7 @@ spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><
 </p>
     <h2><a name="usage" href="#toc">Usage</a></h2>
     <p>
-      The <strong>TableFu</strong> constructor takes two arguments: a 2 dimensional array and a hash of column options or a block. The simple options are:</p>
+      The <strong>TableFu</strong> constructor takes two arguments; a 2 dimensional array and a hash of column options or a block. The simple options are:</p>
       <p><code>=> sorted_by:</code> the column to sort by.
       <pre class="dawn">csv <span class="Keyword">=</span>&lt;&lt;-CSV
 Author,Best Book,Number of Pages,Style
@@ -106,7 +106,7 @@ spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">rows<
 </pre><em>Produces:</em><pre class="dawn">&quot;Beckett&quot;
 </pre>
     </p>
-    <p>Or you can build a meta column from two others containing an html like so:
+    <p>Or you can build a meta column from two others containing an html link like so:
       <pre class="dawn">csv <span class="Keyword">=</span> &lt;&lt;-EOF
 Website,URL
 Propublica,http://www.propublica.org/
@@ -138,8 +138,8 @@ table<span class="PunctuationSeparator">.</span><span class="Entity">faceted_on<
 table<span class="PunctuationSeparator">.</span><span class="Entity">faceted_on</span> <span class="PunctuationSeparator">=&gt;</span> <span class="Variable">Satire</span><span class="PunctuationSeparator">,</span> table<span class="PunctuationSeparator">.</span><span class="Entity">rows</span> <span class="PunctuationSeparator">=&gt;</span> [[&quot;Vladimir Sorokin&quot;<span class="PunctuationSeparator">,</span> &quot;The Queue&quot;<span class="PunctuationSeparator">,</span> &quot;263&quot;<span class="PunctuationSeparator">,</span> &quot;Satire&quot;]]
 </pre>
     </p>
-
     <h2><a name="manipulation" href="#toc">Manipulation</a></h2>
+    
     <h2><a name="links" href="#toc">Links</a></h2>
     <ul>
       <li><a href="http://github.com/propublica/table-setter">TableSetter</a><br>A Rails app that uses <strong>TableFu</strong> to render public Google Spreadsheets in HTML.</li>
