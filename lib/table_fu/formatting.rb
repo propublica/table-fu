@@ -25,8 +25,8 @@ class TableFu::Formatting
     end
     
     # Returns an html link constructed from link, linkname
-    def link(linkname, link)
-      "<a href='#{link}' title='#{linkname}'>#{linkname}</a>"
+    def link(linkname, href)
+      "<a href='#{href}' title='#{linkname}'>#{linkname}</a>"
     end
     
     # Returns an error message if the given formatter isn't available

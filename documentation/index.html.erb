@@ -24,17 +24,14 @@ Vladimir Sorokin,The Queue,263,Satire
     out = "<em>Produces:</em>" + Uv.parse(out, 'xhtml', 'ruby', false, 'dawn', false)
   end
   "#{html}#{out}"
-end
-%>
+end %>
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />    
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title>TableFu</title>
     <link rel="stylesheet" type="text/css" href="documentation/css/styles.css" />
-    
     <link rel="stylesheet" type="text/css" href="documentation/css/dawn.css" />
-
   </head>
   
   <body>
@@ -44,7 +41,7 @@ end
     "#{config[:major]}.#{config[:minor]}.#{config[:patch]}"
     %></small></h1>
 
-    <p><strong>TableFu</strong> is a utility for spreadsheet-style handling for arrays (e.g. filtering, formatting, and sorting). In addition, it has the ability to <a href="#facet">facet</a> &mdash; or group &mdash; rows according to cell value. It was developed as a backend for its sister project <a href="http://www.github.com/propublica/table-setter">Table Setter</a>.</p>
+    <p><strong>TableFu</strong> is a utility for spreadsheet-style handling for arrays (e.g. filtering, formatting, and sorting). In addition, it has the ability to <a href="#facet">facet</a> &mdash; or group &mdash; rows according to cell value. It was developed as a backend for its sister project <a href="http://www.github.com/propublica/table-setter">TableSetter</a>.</p>
     <p>For example, <strong>TableFu</strong> can consume a csv file and sort on a column:
         <%= code_for "sort_by_column" do |ret|
               ret.rows.inspect
@@ -55,9 +52,10 @@ end
     <ul>
       <li><a href="#installation">Installation</a></li>
       <li><a href="#usage">Usage</a></li>
-      <li><a href="#faceting">Faceting</a></li>
       <li><a href="#macros">Macros / Formatting</a></li>
+      <li><a href="#faceting">Faceting</a></li>
       <li><a href="#manipulation">Manipulation</a></li>
+      <li><a href="#links">Links</a></li>
       <li><a href="#credits">Credits</a></li>
       <li><a href="#license">License</a></li>
     </ul>
@@ -73,29 +71,53 @@ end
 </p>
     <h2><a name="usage" href="#toc">Usage</a></h2>
     <p>
-      The <strong>TableFu</strong> constructor takes two arguments: a 2 dimensional array and a hash of column options or a block. The simple options are:
-      <ul>
-        <li><code>=> sorted_by</code> the column to sort by.
-          <%= code_for "sort_by_column" do |ret|
-                ret.rows.inspect
-              end
-          %>
-        </li>
-        <li><code>=> columns</code> the columns to include in the table, useful when reordering and filtering extraneous columns.
-        <%= code_for "columns" %>
-        Note that the columns are still accessible directly even if they're not in the columns array.
-        <%= code_for "columns_hidden" %>
-        </li>
-      </ul>
-      The other two options <code>faceting</code> and <code>formatting</code> are described below.
+      The <strong>TableFu</strong> constructor takes two arguments: a 2 dimensional array and a hash of column options or a block. The simple options are:</p>
+      <p><code>=> sorted_by:</code> the column to sort by.
+      <%= code_for "sort_by_column" do |ret|
+            ret.rows.inspect
+          end
+      %>
     </p>
-    <h2><a name="faceting" href="#toc">Faceting</a></h2>
-    
+    <p><code>=> columns:</code> the columns to include in the table, useful when reordering and filtering extraneous columns.
+    <%= code_for "columns" %>
+    Note that the columns are still accessible directly even if they're not in the columns array.
+    <%= code_for "columns_hidden" %>
+    </p>
     <h2><a name="macros" href="#toc">Macros / Formatting</a></h2>
+    <p><strong>TableFu</strong> allows you to format columns of cells through the use of macros. See <a href="http://github.com/propublica/table-fu/blob/master/lib/table_fu/formatting.rb"><code>TableFu::Formatting</code></a> for the predefined macros available. </p>
+    <p>The <code>formatting</code> attribute should be a hash of the form: 
+        <%= code_for "formatting_options", false %>
+        which will call the macro on the column name with the arguments if specified.
+    </p>
+    <p>For example, you can use the <code>last_name</code> formatter to extract the last name of a cell containing a person's name:
+      <%= code_for "last_name" %>
+    </p>
+    <p>Or you can build a meta column from two others containing an html like so:
+      <%= code_for "link" %>
+    </p>
+    <p>Of course, you can provide your own macros by patching <a href="http://github.com/propublica/table-fu/blob/master/lib/table_fu/formatting.rb"><code>TableFu::Formatting</code></a>. <a href="http://www.github.com/propublica/table-setter">TableSetter</a> includes rails view helpers directly in <code>TableFu::Formatting</code>.
+      <%= code_for "rails_helpers", false %>
+    </p>
     
+    <h2><a name="faceting" href="#toc">Faceting</a></h2>
+    <p>Faceting provides a way to group rows together by a cell. Calling <code>TableFu#faceted_by</code> returns an array of table fu instances each with a <code>faceted_on</code> attribute and with only the rows where that value appears.
+    </p>
+    <p>In this example there are 2 rows where "Modernism" appears in the style column, so calling <code>faceted_on</code> with the argument <code>"Style"</code> returns a <strong>TableFu</strong> instance with those rows grouped together:
+    <%= code_for "faceting" do |s|
+      s.map { |table|
+        "table.faceted_on => #{table.faceted_on}, table.rows => #{table.rows.inspect}\n"
+      }.join('')
+    end %>
+    </p>
+
     <h2><a name="manipulation" href="#toc">Manipulation</a></h2>
+    <h2><a name="links" href="#toc">Links</a></h2>
+    <ul>
+      <li><a href="http://github.com/propublica/table-setter">TableSetter</a><br>A Rails app that uses <strong>TableFu</strong> to render public Google Spreadsheets in HTML.</li>
+      <li><a href="http://github.com/propublica/table-fu/issues">Issues</a><br>Post bug reports and feature requests here.</li>
+    </ul>
     <h2><a name="credits" href="#toc">Credits</a></h2>
-    <p>Brian Boyer came up with the idea, Mark Percival extracted the implementation into a gem, and Jeff Larson provided bugfixes and documentation.</p>
+    <p><a href="http://github.com/brianboyer/">Brian Boyer</a> came up with the idea, <a href="http://github.com/markpercival">Mark Percival</a> extracted the implementation into a gem, and <a href="http://github.com/thejefflarson">Jeff Larson</a> provided bugfixes and documentation. <a href="http://github.com/thejefflarson">Jeff Larson</a> is the maintainer of this gem.</p>
     <h2><a name="license" href="#toc">License</a></h2>
     <pre><%= File.open("LICENSE").read %></pre>
   </body>

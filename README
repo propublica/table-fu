@@ -5,7 +5,7 @@ TableFu turns a matric array(from a csv file for example) into a spreadsheet.
 Allows formatting, macros, sorting, and faceting.
 
 Documentation:
-http://propublica.github.com/tablefu
+http://propublica.github.com/table-fu
 
 Installation:
 gem install table-fu
