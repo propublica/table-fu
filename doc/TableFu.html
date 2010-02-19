@@ -1,0 +1,1559 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Class: TableFu</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (T)</a> &raquo; 
+    
+    
+    <span class="title">TableFu</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: TableFu 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">TableFu</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/table_fu.rb<span class="defines">,<br />
+  lib/table_fu.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+  <h2>Instance Attribute Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#col_opts-instance_method" title="#col_opts (instance method)">- (Object) <strong>col_opts</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the value of attribute col_opts.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#column_headers-instance_method" title="#column_headers (instance method)">- (Object) <strong>column_headers</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Adds spreadsheet functionality to an Array.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#deleted_rows-instance_method" title="#deleted_rows (instance method)">- (Object) <strong>deleted_rows</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Adds spreadsheet functionality to an Array.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#faceted_on-instance_method" title="#faceted_on (instance method)">- (Object) <strong>faceted_on</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the value of attribute faceted_on.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#table-instance_method" title="#table (instance method)">- (Object) <strong>table</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Adds spreadsheet functionality to an Array.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#totals-instance_method" title="#totals (instance method)">- (Object) <strong>totals</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Adds spreadsheet functionality to an Array.
+
+</span>
+  
+</li>
+
+    
+  </ul>
+
+
+  <h2>Instance Method Summary</h2>
+
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#columns-instance_method" title="#columns (instance method)">- (Object) <strong>columns</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#columns%3D-instance_method" title="#columns= (instance method)">- (Object) <strong>columns</strong>(a) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_rows%21-instance_method" title="#delete_rows! (instance method)">- (Object) <strong>delete_rows!</strong>(arr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Pass it an array and it will delete it from the table, but save the data in
+@deleted_rows@ for later perusal.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#faceted%3F-instance_method" title="#faceted? (instance method)">- (Boolean) <strong>faceted?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#faceted_by-instance_method" title="#faceted_by (instance method)">- (Object) <strong>faceted_by</strong>(column, opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#formatting-instance_method" title="#formatting (instance method)">- (Object) <strong>formatting</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#formatting%3D-instance_method" title="#formatting= (instance method)">- (Object) <strong>formatting</strong>(h) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#headers-instance_method" title="#headers (instance method)">- (Object) <strong>headers</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (TableFu) <strong>initialize</strong>(table, column_opts = {}) {|_self| ... }</a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Should be initialized with a matrix array, and expects the first array in
+the matrix to be column headers.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#row_at-instance_method" title="#row_at (instance method)">- (Object) <strong>row_at</strong>(row_num) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns a Row object for the row at a certain index.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rows-instance_method" title="#rows (instance method)">- (Object) <strong>rows</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns all the Row objects for this object as a collection.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sorted_by-instance_method" title="#sorted_by (instance method)">- (Object) <strong>sorted_by</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sorted_by%3D-instance_method" title="#sorted_by= (instance method)">- (Object) <strong>sorted_by</strong>(h) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sum_totals_for-instance_method" title="#sum_totals_for (instance method)">- (Object) <strong>sum_totals_for</strong>(column) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_numeric-instance_method" title="#to_numeric (instance method)">- (Object) <strong>to_numeric</strong>(num) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+This returns a numeric instance for a string number, or if it&#8217;s a
+string we return 1, this way if we total up a series of strings it&#8217;s
+a count.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#total_for-instance_method" title="#total_for (instance method)">- (Object) <strong>total_for</strong>(column) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+  </ul>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><a href="" title="TableFu (class)">TableFu</a></tt>) <strong>initialize</strong>(table, column_opts = {}) {|_self| ... }
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Should be initialized with a matrix array, and expects the first array in
+the matrix to be column headers.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Yields:</h3>
+<ul class="yield">
+  
+    <li>
+      
+        <span class='type'>(<tt>_self</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Yield Parameters:</h3>
+<ul class="yieldparam">
+  
+    <li>
+      
+        <span class='type'>(<tt><a href="" title="TableFu (class)">TableFu</a></tt>)</span>
+      
+      
+        <span class='name'>_self</span>
+      
+      
+      
+        &mdash;
+        
+the object that the method was called on
+
+
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12
+13
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 10</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='table identifier id'>table</span><span class='comma token'>,</span> <span class='column_opts identifier id'>column_opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='@column_headers ivar id'>@column_headers</span> <span class='assign token'>=</span> <span class='table identifier id'>table</span><span class='dot token'>.</span><span class='slice! fid id'>slice!</span><span class='lparen token'>(</span><span class='integer val'>0</span><span class='rparen token'>)</span>
+  <span class='@table ivar id'>@table</span> <span class='assign token'>=</span> <span class='table identifier id'>table</span>
+  <span class='@totals ivar id'>@totals</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='@col_opts ivar id'>@col_opts</span> <span class='assign token'>=</span> <span class='column_opts identifier id'>column_opts</span>
+  <span class='yield yield kw'>yield</span> <span class='self self kw'>self</span> <span class='if if_mod kw'>if</span> <span class='block_given? fid id'>block_given?</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="col_opts=-instance_method"></span>
+      <span id="col_opts-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="col_opts-instance_method">
+  
+    - (<tt>Object</tt>) <strong>col_opts</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute col_opts
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 5</span>
+
+<span class='def def kw'>def</span> <span class='col_opts identifier id'>col_opts</span>
+  <span class='@col_opts ivar id'>@col_opts</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="column_headers-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="column_headers-instance_method">
+  
+    - (<tt>Object</tt>) <strong>column_headers</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Adds spreadsheet functionality to an Array
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4
+5
+6</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 4</span>
+
+<span class='def def kw'>def</span> <span class='column_headers identifier id'>column_headers</span>
+  <span class='@column_headers ivar id'>@column_headers</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="deleted_rows-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="deleted_rows-instance_method">
+  
+    - (<tt>Object</tt>) <strong>deleted_rows</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Adds spreadsheet functionality to an Array
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4
+5
+6</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 4</span>
+
+<span class='def def kw'>def</span> <span class='deleted_rows identifier id'>deleted_rows</span>
+  <span class='@deleted_rows ivar id'>@deleted_rows</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="faceted_on=-instance_method"></span>
+      <span id="faceted_on-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="faceted_on-instance_method">
+  
+    - (<tt>Object</tt>) <strong>faceted_on</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute faceted_on
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 5</span>
+
+<span class='def def kw'>def</span> <span class='faceted_on identifier id'>faceted_on</span>
+  <span class='@faceted_on ivar id'>@faceted_on</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="table-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="table-instance_method">
+  
+    - (<tt>Object</tt>) <strong>table</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Adds spreadsheet functionality to an Array
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4
+5
+6</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 4</span>
+
+<span class='def def kw'>def</span> <span class='table identifier id'>table</span>
+  <span class='@table ivar id'>@table</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="totals-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="totals-instance_method">
+  
+    - (<tt>Object</tt>) <strong>totals</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Adds spreadsheet functionality to an Array
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4
+5
+6</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 4</span>
+
+<span class='def def kw'>def</span> <span class='totals identifier id'>totals</span>
+  <span class='@totals ivar id'>@totals</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="columns-instance_method">
+  
+    - (<tt>Object</tt>) <strong>columns</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 49</span>
+
+<span class='def def kw'>def</span> <span class='columns identifier id'>columns</span>
+  <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:columns</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='column_headers identifier id'>column_headers</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="columns=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>columns=</strong>(a) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 136</span>
+
+<span class='def def kw'>def</span> <span class='columns= identifier id'>columns=</span><span class='lparen token'>(</span><span class='a identifier id'>a</span><span class='rparen token'>)</span>
+  <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:columns</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='a identifier id'>a</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="delete_rows!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>delete_rows!</strong>(arr) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Pass it an array and it will delete it from the table, but save the data in
+@deleted_rows@ for later perusal.
+</p>
+<p>
+Returns: nothing
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 26</span>
+
+<span class='def def kw'>def</span> <span class='delete_rows! fid id'>delete_rows!</span><span class='lparen token'>(</span><span class='arr identifier id'>arr</span><span class='rparen token'>)</span>
+  <span class='@deleted_rows ivar id'>@deleted_rows</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='arr identifier id'>arr</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='bitor op'>|</span>
+    <span class='@deleted_rows ivar id'>@deleted_rows</span> <span class='lshft op'>&lt;&lt;</span> <span class='@table ivar id'>@table</span><span class='dot token'>.</span><span class='slice! fid id'>slice!</span><span class='lparen token'>(</span><span class='a identifier id'>a</span><span class='rparen token'>)</span> <span class='comment val'>#account for header and 0 index</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="faceted?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>faceted?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 116</span>
+
+<span class='def def kw'>def</span> <span class='faceted? fid id'>faceted?</span>
+  <span class='not not kw'>not</span> <span class='faceted_on identifier id'>faceted_on</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="faceted_by-instance_method">
+  
+    - (<tt>Object</tt>) <strong>faceted_by</strong>(column, opts = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 69</span>
+
+<span class='def def kw'>def</span> <span class='faceted_by identifier id'>faceted_by</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='comma token'>,</span> <span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='faceted_spreadsheets identifier id'>faceted_spreadsheets</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='rows identifier id'>rows</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='r identifier id'>r</span><span class='bitor op'>|</span>
+    <span class='unless unless kw'>unless</span> <span class='r identifier id'>r</span><span class='dot token'>.</span><span class='column_for identifier id'>column_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+      <span class='faceted_spreadsheets identifier id'>faceted_spreadsheets</span><span class='lbrack token'>[</span><span class='r identifier id'>r</span><span class='dot token'>.</span><span class='column_for identifier id'>column_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+      <span class='faceted_spreadsheets identifier id'>faceted_spreadsheets</span><span class='lbrack token'>[</span><span class='r identifier id'>r</span><span class='dot token'>.</span><span class='column_for identifier id'>column_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span><span class='rbrack token'>]</span> <span class='lshft op'>&lt;&lt;</span> <span class='r identifier id'>r</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  
+  <span class='comment val'># Create new table_fu instances for each facet</span>
+  <span class='tables identifier id'>tables</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='faceted_spreadsheets identifier id'>faceted_spreadsheets</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='k identifier id'>k</span><span class='comma token'>,</span><span class='v identifier id'>v</span><span class='bitor op'>|</span>
+    <span class='new_table identifier id'>new_table</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='@column_headers ivar id'>@column_headers</span><span class='rbrack token'>]</span> <span class='plus op'>+</span> <span class='v identifier id'>v</span>
+    <span class='t identifier id'>t</span> <span class='assign token'>=</span> <span class='TableFu constant id'>TableFu</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='new_table identifier id'>new_table</span><span class='rparen token'>)</span>
+    <span class='t identifier id'>t</span><span class='dot token'>.</span><span class='faceted_on identifier id'>faceted_on</span> <span class='assign token'>=</span> <span class='k identifier id'>k</span>
+    <span class='t identifier id'>t</span><span class='dot token'>.</span><span class='col_opts identifier id'>col_opts</span> <span class='assign token'>=</span> <span class='@col_opts ivar id'>@col_opts</span> <span class='comment val'>#formatting should be carried through</span>
+    <span class='tables identifier id'>tables</span> <span class='lshft op'>&lt;&lt;</span> <span class='t identifier id'>t</span>
+  <span class='end end kw'>end</span>
+  
+  <span class='tables identifier id'>tables</span><span class='dot token'>.</span><span class='sort! fid id'>sort!</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='comma token'>,</span><span class='b identifier id'>b</span><span class='bitor op'>|</span>
+    <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='faceted_on identifier id'>faceted_on</span> <span class='cmp op'>&lt;=&gt;</span> <span class='b identifier id'>b</span><span class='dot token'>.</span><span class='faceted_on identifier id'>faceted_on</span>
+  <span class='end end kw'>end</span>
+  
+  <span class='if if kw'>if</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:total</span><span class='rbrack token'>]</span>
+    <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:total</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='c identifier id'>c</span><span class='bitor op'>|</span>
+      <span class='tables identifier id'>tables</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='f identifier id'>f</span><span class='bitor op'>|</span>
+        <span class='f identifier id'>f</span><span class='dot token'>.</span><span class='sum_totals_for identifier id'>sum_totals_for</span><span class='lparen token'>(</span><span class='c identifier id'>c</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+    
+  <span class='tables identifier id'>tables</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="formatting-instance_method">
+  
+    - (<tt>Object</tt>) <strong>formatting</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128
+129
+130</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 128</span>
+
+<span class='def def kw'>def</span> <span class='formatting identifier id'>formatting</span>
+  <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:formatting</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="formatting=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>formatting=</strong>(h) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 132</span>
+
+<span class='def def kw'>def</span> <span class='formatting= identifier id'>formatting=</span><span class='lparen token'>(</span><span class='h identifier id'>h</span><span class='rparen token'>)</span>
+  <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:formatting</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='h identifier id'>h</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="headers-instance_method">
+  
+    - (<tt>Object</tt>) <strong>headers</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 53</span>
+
+<span class='def def kw'>def</span> <span class='headers identifier id'>headers</span>
+  <span class='all_columns identifier id'>all_columns</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='columns identifier id'>columns</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='h identifier id'>h</span><span class='bitor op'>|</span>
+    <span class='all_columns identifier id'>all_columns</span> <span class='lshft op'>&lt;&lt;</span> <span class='TableFu constant id'>TableFu</span><span class='colon2 op'>::</span><span class='Header constant id'>Header</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='h identifier id'>h</span><span class='comma token'>,</span> <span class='h identifier id'>h</span><span class='comma token'>,</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+  <span class='all_columns identifier id'>all_columns</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="row_at-instance_method">
+  
+    - (<tt>Object</tt>) <strong>row_at</strong>(row_num) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns a Row object for the row at a certain index
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 35</span>
+
+<span class='def def kw'>def</span> <span class='row_at identifier id'>row_at</span><span class='lparen token'>(</span><span class='row_num identifier id'>row_num</span><span class='rparen token'>)</span>
+  <span class='TableFu constant id'>TableFu</span><span class='colon2 op'>::</span><span class='Row constant id'>Row</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@table ivar id'>@table</span><span class='lbrack token'>[</span><span class='row_num identifier id'>row_num</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='row_num identifier id'>row_num</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="rows-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rows</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns all the Row objects for this object as a collection
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 41</span>
+
+<span class='def def kw'>def</span> <span class='rows identifier id'>rows</span>
+  <span class='all_rows identifier id'>all_rows</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='@table ivar id'>@table</span><span class='dot token'>.</span><span class='each_with_index identifier id'>each_with_index</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='r identifier id'>r</span><span class='comma token'>,</span> <span class='i identifier id'>i</span><span class='bitor op'>|</span>
+    <span class='all_rows identifier id'>all_rows</span> <span class='lshft op'>&lt;&lt;</span> <span class='TableFu constant id'>TableFu</span><span class='colon2 op'>::</span><span class='Row constant id'>Row</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='r identifier id'>r</span><span class='comma token'>,</span> <span class='i identifier id'>i</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>    
+  <span class='all_rows identifier id'>all_rows</span><span class='dot token'>.</span><span class='sort identifier id'>sort</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="sorted_by-instance_method">
+  
+    - (<tt>Object</tt>) <strong>sorted_by</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 120</span>
+
+<span class='def def kw'>def</span> <span class='sorted_by identifier id'>sorted_by</span>
+  <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:sorted_by</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="sorted_by=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>sorted_by=</strong>(h) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 124</span>
+
+<span class='def def kw'>def</span> <span class='sorted_by= identifier id'>sorted_by=</span><span class='lparen token'>(</span><span class='h identifier id'>h</span><span class='rparen token'>)</span>
+  <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:sorted_by</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='h identifier id'>h</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="sum_totals_for-instance_method">
+  
+    - (<tt>Object</tt>) <strong>sum_totals_for</strong>(column) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 61</span>
+
+<span class='def def kw'>def</span> <span class='sum_totals_for identifier id'>sum_totals_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span>
+  <span class='@totals ivar id'>@totals</span><span class='lbrack token'>[</span><span class='column identifier id'>column</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rows identifier id'>rows</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span><span class='lparen token'>(</span><span class='integer val'>0</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='sum identifier id'>sum</span><span class='comma token'>,</span> <span class='r identifier id'>r</span><span class='bitor op'>|</span> <span class='to_numeric identifier id'>to_numeric</span><span class='lparen token'>(</span><span class='r identifier id'>r</span><span class='dot token'>.</span><span class='datum_for identifier id'>datum_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='sum identifier id'>sum</span> <span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_numeric-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_numeric</strong>(num) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+This returns a numeric instance for a string number, or if it&#8217;s a
+string we return 1, this way if we total up a series of strings it&#8217;s
+a count
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+106
+107
+108
+109
+110
+111
+112
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 106</span>
+
+<span class='def def kw'>def</span> <span class='to_numeric identifier id'>to_numeric</span><span class='lparen token'>(</span><span class='num identifier id'>num</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='num identifier id'>num</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+    <span class='integer val'>0</span>
+  <span class='elsif elsif kw'>elsif</span> <span class='num identifier id'>num</span><span class='dot token'>.</span><span class='match identifier id'>match</span><span class='lparen token'>(</span><span class='regexp val'>/[0-9]+/</span><span class='rparen token'>)</span>
+    <span class='num identifier id'>num</span><span class='dot token'>.</span><span class='to_i identifier id'>to_i</span>
+  <span class='else else kw'>else</span>
+    <span class='integer val'>1</span> <span class='comment val'># We count each instance of a string this way</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="total_for-instance_method">
+  
+    - (<tt>Object</tt>) <strong>total_for</strong>(column) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 65</span>
+
+<span class='def def kw'>def</span> <span class='total_for identifier id'>total_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span>
+  <span class='Datum constant id'>Datum</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@totals ivar id'>@totals</span><span class='lbrack token'>[</span><span class='column identifier id'>column</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='column identifier id'>column</span><span class='comma token'>,</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Fri Feb 19 17:51:12 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

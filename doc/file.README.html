@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Documentation by YARD 0.5.3</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><p>
+# TableFu
+</p>
+<p>
+TableFu turns a matric array(from a csv file for example) into a
+spreadsheet.
+</p>
+<p>
+Allows formatting, macros, sorting, and faceting.
+</p>
+<p>
+Documentation: http://propublica.github.com/table-fu
+</p>
+<p>
+Installation: gem install table-fu
+</p>
+<p>
+## Usage
+</p>
+<pre class="code">
+    <span class='csv identifier id'>csv</span> <span class='assign token'>=</span><span class='string val'>&quot;Project,Cost,Date,URL\nBuild Supercollider,500_000_000.50,09/15/2009,http://project.com\nHarness Power of Fusion,25_000_000,09/16/2009,http://project2.com\nMotorized Bar Stool,45.00,09/17/2009,http://project3.com\n&quot;</span>
+
+    <span class='matrix identifier id'>matrix</span> <span class='assign token'>=</span> <span class='FasterCSV constant id'>FasterCSV</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='csv identifier id'>csv</span><span class='rparen token'>)</span>
+    <span class='@spreadsheet ivar id'>@spreadsheet</span> <span class='assign token'>=</span> <span class='TableFu constant id'>TableFu</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='matrix identifier id'>matrix</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='s identifier id'>s</span><span class='bitor op'>|</span>
+      <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='formatting identifier id'>formatting</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='string val'>'Cost'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'currency'</span><span class='comma token'>,</span>
+                      <span class='string val'>'Link'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='string val'>'method'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'link'</span><span class='comma token'>,</span> <span class='string val'>'arguments'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='string val'>'Project'</span><span class='comma token'>,</span> <span class='string val'>'URL'</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span><span class='rbrace token'>}</span>
+      <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='sorted_by identifier id'>sorted_by</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='string val'>'Project'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='string val'>'order'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'descending'</span><span class='rbrace token'>}</span><span class='rbrace token'>}</span>
+      <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='columns identifier id'>columns</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='string val'>'Date'</span><span class='comma token'>,</span> <span class='string val'>'Project'</span><span class='comma token'>,</span> <span class='string val'>'Cost'</span><span class='comma token'>,</span> <span class='string val'>'Link'</span><span class='rbrack token'>]</span>
+    <span class='end end kw'>end</span>
+
+    <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='rows identifier id'>rows</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='column_for identifier id'>column_for</span><span class='lparen token'>(</span><span class='string val'>'Cost'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='comment val'>#=&gt; '$45.00'</span>
+
+    <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='rows identifier id'>rows</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='columns identifier id'>columns</span><span class='lbrack token'>[</span><span class='integer val'>1</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='comment val'>#=&gt; 'Motorized Bar Stool'</span>
+
+    <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='rows identifier id'>rows</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='column_for identifier id'>column_for</span><span class='lparen token'>(</span><span class='string val'>'Link'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span>
+    <span class='comment val'>#=&gt; &quot;&lt;a href='http://project.com', title='Build Supercollider'&gt;Build Supercollider&lt;/a&gt;&quot;</span>
+</pre>
+</div></div>
+    
+    <div id="footer">
+  Generated on Fri Feb 19 17:51:11 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

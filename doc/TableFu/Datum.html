@@ -1,0 +1,722 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Class: TableFu::Datum</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (D)</a> &raquo; 
+    <span class='title'><a href="../TableFu.html" title="TableFu (class)">TableFu</a></span>
+     &raquo; 
+    <span class="title">Datum</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: TableFu::Datum 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">TableFu::Datum</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/table_fu.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><a href="Header.html" title="TableFu::Header (class)">Header</a></p>
+</div>
+
+
+  <h2>Instance Attribute Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#column_name-instance_method" title="#column_name (instance method)">- (Object) <strong>column_name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the value of attribute column_name.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options-instance_method" title="#options (instance method)">- (Object) <strong>options</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the value of attribute options.
+
+</span>
+  
+</li>
+
+    
+  </ul>
+
+
+  <h2>Instance Method Summary</h2>
+
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Datum) <strong>initialize</strong>(datum, col_name, row_num, spreadsheet) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Each piece of datum should know where it is by column and row number, along
+with the spreadsheet it&#8217;s apart of.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#macro_value-instance_method" title="#macro_value (instance method)">- (Object) <strong>macro_value</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the macro&#8217;d format if there is one .
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#method_missing-instance_method" title="#method_missing (instance method)">- (Object) <strong>method_missing</strong>(method) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+This method missing looks for 4 matches.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Our standard formatter for the datum.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#value-instance_method" title="#value (instance method)">- (Object) <strong>value</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the raw value of a datum .
+
+</span>
+  
+</li>
+
+    
+  </ul>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><a href="" title="TableFu::Datum (class)">Datum</a></tt>) <strong>initialize</strong>(datum, col_name, row_num, spreadsheet) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Each piece of datum should know where it is by column and row number, along
+with the spreadsheet it&#8217;s apart of. There&#8217;s probably a better
+way to go about doing this. Subclass?
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+210
+211
+212
+213
+214
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 210</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='datum identifier id'>datum</span><span class='comma token'>,</span> <span class='col_name identifier id'>col_name</span><span class='comma token'>,</span> <span class='row_num identifier id'>row_num</span><span class='comma token'>,</span> <span class='spreadsheet identifier id'>spreadsheet</span><span class='rparen token'>)</span>
+  <span class='@datum ivar id'>@datum</span> <span class='assign token'>=</span> <span class='datum identifier id'>datum</span>
+  <span class='@column_name ivar id'>@column_name</span> <span class='assign token'>=</span>  <span class='col_name identifier id'>col_name</span>
+  <span class='@row_num ivar id'>@row_num</span> <span class='assign token'>=</span> <span class='row_num identifier id'>row_num</span>
+  <span class='@spreadsheet ivar id'>@spreadsheet</span> <span class='assign token'>=</span> <span class='spreadsheet identifier id'>spreadsheet</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+<div id="method_missing_details" class="method_details_list">
+  <h2>Dynamic Method Handling</h2>
+  <p class="notice this">
+    This class handles dynamic methods through the <tt>method_missing</tt> method
+    
+  </p>
+  
+    <div class="method_details first">
+  <p class="signature first" id="method_missing-instance_method">
+  
+    - (<tt>Object</tt>) <strong>method_missing</strong>(method) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+This method missing looks for 4 matches
+</p>
+<p>
+First Option We have a column option by that method name and it applies to
+this column Example -
+</p>
+<pre class="code">
+  <span class='rshft op'>&gt;&gt;</span> <span class='@data ivar id'>@data</span><span class='dot token'>.</span><span class='column_name identifier id'>column_name</span>
+  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Total'</span>
+  <span class='rshft op'>&gt;&gt;</span> <span class='@datum ivar id'>@datum</span><span class='dot token'>.</span><span class='style identifier id'>style</span>
+</pre>
+<p>
+Finds col_opt[:style] = {&#8216;Total&#8217; =&gt;
+&#8216;text-align:left;&#8217;}
+</p>
+<pre class="code">
+  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'text-align:left;'</span>
+</pre>
+<p>
+Second Option We have a column option by that method name, but no attribute
+</p>
+<pre class="code">
+  <span class='rshft op'>&gt;&gt;</span> <span class='@data ivar id'>@data</span><span class='dot token'>.</span><span class='column_name identifier id'>column_name</span>
+  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Total'</span>
+  <span class='rshft op'>&gt;&gt;</span> <span class='@datum ivar id'>@datum</span><span class='dot token'>.</span><span class='style identifier id'>style</span>
+  <span class='Finds constant id'>Finds</span> <span class='col_opt identifier id'>col_opt</span><span class='lbrack token'>[</span><span class='symbol val'>:style</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='string val'>'State'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'text-align:left;'</span><span class='rbrace token'>}</span>
+  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>''</span>
+</pre>
+<p>
+Third Option The boolean
+</p>
+<pre class="code">
+  <span class='rshft op'>&gt;&gt;</span> <span class='@data ivar id'>@data</span><span class='dot token'>.</span><span class='invisible? fid id'>invisible?</span>
+</pre>
+<p>
+And we&#8217;ve set it col_opts[:invisible] = [&#8216;Total&#8217;]
+</p>
+<pre class="code">
+  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span>
+</pre>
+<p>
+Fourth Option The boolean that&#8217;s false
+</p>
+<pre class="code">
+  <span class='rshft op'>&gt;&gt;</span> <span class='@data ivar id'>@data</span><span class='dot token'>.</span><span class='invisible? fid id'>invisible?</span>
+</pre>
+<p>
+And it&#8217;s not in the list col_opts[:invisible] = [&#8216;State&#8217;]
+</p>
+<pre class="code">
+  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span>
+</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 299</span>
+
+<span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span><span class='lparen token'>(</span><span class='method identifier id'>method</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='val identifier id'>val</span> <span class='assign token'>=</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='col_opts identifier id'>col_opts</span><span class='lbrack token'>[</span><span class='method identifier id'>method</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='col_opts identifier id'>col_opts</span><span class='lbrack token'>[</span><span class='method identifier id'>method</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='column_name identifier id'>column_name</span><span class='rbrack token'>]</span>
+    <span class='val identifier id'>val</span>
+  <span class='elsif elsif kw'>elsif</span> <span class='val identifier id'>val</span> <span class='assign token'>=</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='col_opts identifier id'>col_opts</span><span class='lbrack token'>[</span><span class='method identifier id'>method</span><span class='rbrack token'>]</span> <span class='andop op'>&amp;&amp;</span> <span class='notop op'>!</span><span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='col_opts identifier id'>col_opts</span><span class='lbrack token'>[</span><span class='method identifier id'>method</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='column_name identifier id'>column_name</span><span class='rbrack token'>]</span>
+    <span class='string val'>''</span>
+  <span class='elsif elsif kw'>elsif</span> <span class='method identifier id'>method</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='match op'>=~</span> <span class='regexp val'>/\?$/</span> <span class='andop op'>&amp;&amp;</span> <span class='col_opts identifier id'>col_opts</span> <span class='assign token'>=</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='col_opts identifier id'>col_opts</span><span class='lbrack token'>[</span><span class='method identifier id'>method</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='chop identifier id'>chop</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='rbrack token'>]</span>
+    <span class='col_opts identifier id'>col_opts</span><span class='dot token'>.</span><span class='index identifier id'>index</span><span class='lparen token'>(</span><span class='column_name identifier id'>column_name</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='false false kw'>false</span>
+  <span class='elsif elsif kw'>elsif</span> <span class='method identifier id'>method</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='match op'>=~</span> <span class='regexp val'>/\?$/</span> <span class='andop op'>&amp;&amp;</span> <span class='notop op'>!</span><span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='col_opts identifier id'>col_opts</span><span class='lbrack token'>[</span><span class='method identifier id'>method</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='chop identifier id'>chop</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span><span class='rbrack token'>]</span>
+    <span class='nil nil kw'>nil</span>
+  <span class='else else kw'>else</span>
+    <span class='super super kw'>super</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="column_name-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="column_name-instance_method">
+  
+    - (<tt>Object</tt>) <strong>column_name</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute column_name
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+205
+206
+207</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 205</span>
+
+<span class='def def kw'>def</span> <span class='column_name identifier id'>column_name</span>
+  <span class='@column_name ivar id'>@column_name</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="options-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="options-instance_method">
+  
+    - (<tt>Object</tt>) <strong>options</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute options
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+205
+206
+207</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 205</span>
+
+<span class='def def kw'>def</span> <span class='options identifier id'>options</span>
+  <span class='@options ivar id'>@options</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="macro_value-instance_method">
+  
+    - (<tt>Object</tt>) <strong>macro_value</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the macro&#8217;d format if there is one
+</p>
+<p>
+Returns: The macro value if it exists, otherwise nil
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 243</span>
+
+<span class='def def kw'>def</span> <span class='macro_value identifier id'>macro_value</span>
+  <span class='comment val'># Grab the macro method first</span>
+  <span class='comment val'># Then get a array of the values in the columns listed as arguments</span>
+  <span class='comment val'># Splat the arguments to the macro method.</span>
+  <span class='comment val'># Example:</span>
+  <span class='comment val'>#   @spreadsheet.col_opts[:formatting] = </span>
+  <span class='comment val'>#    {'Total Appropriation' =&gt; :currency,</span>
+  <span class='comment val'>#     'AppendedColumn' =&gt; {'method' =&gt; 'append', 'arguments' =&gt; ['Projects','State']}}</span>
+  <span class='comment val'># </span>
+  <span class='comment val'># in the above case we handle the AppendedColumn in this method</span>
+  <span class='if if kw'>if</span> <span class='@row_num ivar id'>@row_num</span> <span class='andop op'>&amp;&amp;</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='formatting identifier id'>formatting</span> <span class='andop op'>&amp;&amp;</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='formatting identifier id'>formatting</span><span class='lbrack token'>[</span><span class='@column_name ivar id'>@column_name</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='Hash constant id'>Hash</span><span class='rparen token'>)</span>
+    <span class='method identifier id'>method</span> <span class='assign token'>=</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='formatting identifier id'>formatting</span><span class='lbrack token'>[</span><span class='@column_name ivar id'>@column_name</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>'method'</span><span class='rbrack token'>]</span>
+    <span class='arguments identifier id'>arguments</span> <span class='assign token'>=</span>  <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='formatting identifier id'>formatting</span><span class='lbrack token'>[</span><span class='@column_name ivar id'>@column_name</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>'arguments'</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span><span class='lparen token'>(</span><span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='arr identifier id'>arr</span><span class='comma token'>,</span><span class='arg identifier id'>arg</span><span class='bitor op'>|</span> <span class='arr identifier id'>arr</span> <span class='lshft op'>&lt;&lt;</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='rows identifier id'>rows</span><span class='lbrack token'>[</span><span class='@row_num ivar id'>@row_num</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='column_for identifier id'>column_for</span><span class='lparen token'>(</span><span class='arg identifier id'>arg</span><span class='rparen token'>)</span><span class='semicolon token'>;</span> <span class='arr identifier id'>arr</span><span class='rbrace token'>}</span>
+    <span class='TableFu constant id'>TableFu</span><span class='colon2 op'>::</span><span class='Formatting constant id'>Formatting</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='method identifier id'>method</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='arguments identifier id'>arguments</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_s-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_s</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Our standard formatter for the datum
+</p>
+<p>
+Returns: the formatted value, macro value, or a empty string
+</p>
+<p>
+First we test to see if this Datum has a macro attached to it. If so we let
+the macro method do it&#8217;s magic
+</p>
+<p>
+Then we test for a simple formatter method.
+</p>
+<p>
+And finally we return a empty string object or the value.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+229
+230
+231
+232
+233
+234
+235
+236
+237</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 229</span>
+
+<span class='def def kw'>def</span> <span class='to_s identifier id'>to_s</span>
+  <span class='if if kw'>if</span> <span class='macro_value identifier id'>macro_value</span> 
+    <span class='macro_value identifier id'>macro_value</span>
+  <span class='elsif elsif kw'>elsif</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='formatting identifier id'>formatting</span> <span class='andop op'>&amp;&amp;</span> <span class='format_method identifier id'>format_method</span> <span class='assign token'>=</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='formatting identifier id'>formatting</span><span class='lbrack token'>[</span><span class='column_name identifier id'>column_name</span><span class='rbrack token'>]</span>
+    <span class='TableFu constant id'>TableFu</span><span class='colon2 op'>::</span><span class='Formatting constant id'>Formatting</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='format_method identifier id'>format_method</span><span class='comma token'>,</span> <span class='@datum ivar id'>@datum</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='string val'>''</span>
+  <span class='else else kw'>else</span>
+    <span class='@datum ivar id'>@datum</span> <span class='orop op'>||</span> <span class='string val'>''</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="value-instance_method">
+  
+    - (<tt>Object</tt>) <strong>value</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the raw value of a datum
+</p>
+<p>
+Returns: raw value of the datum, could be nil
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+264
+265
+266</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 264</span>
+
+<span class='def def kw'>def</span> <span class='value identifier id'>value</span>
+  <span class='@datum ivar id'>@datum</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Fri Feb 19 17:51:11 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

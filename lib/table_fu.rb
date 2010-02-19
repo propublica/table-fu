@@ -1,12 +1,11 @@
+# Adds spreadsheet functionality to an Array
 class TableFu
-  # Adds spreadsheet functionality to an Array
   
   attr_reader :deleted_rows, :table, :totals, :column_headers
   attr_accessor :faceted_on, :col_opts
   
   # Should be initialized with a matrix array, and expects the first
   # array in the matrix to be column headers.
-  #
   def initialize(table, column_opts = {})
     @column_headers = table.slice!(0)
     @table = table
@@ -20,9 +19,8 @@ class TableFu
   # Pass it an array and it will delete it from the table, but save the data in
   # @deleted_rows@ for later perusal.
   # 
-  # == Returns: 
+  # Returns: 
   # nothing
-  # 
   def delete_rows!(arr)
     @deleted_rows ||= []
     arr.each do |a|
@@ -31,13 +29,11 @@ class TableFu
   end
 
   # Returns a Row object for the row at a certain index
-  #
   def row_at(row_num)
     TableFu::Row.new(@table[row_num], row_num, self)
   end
   
   # Returns all the Row objects for this object as a collection
-  #
   def rows
     all_rows = []
     @table.each_with_index do |r, i|
@@ -102,7 +98,6 @@ class TableFu
   
   # This returns a numeric instance for a string number, or if it's a string we
   # return 1, this way if we total up a series of strings it's a count
-  # 
   def to_numeric(num)
     if num.nil?
       0
@@ -216,7 +211,7 @@ class TableFu
     
     # Our standard formatter for the datum
     #
-    # == Returns:
+    # Returns:
     # the formatted value, macro value, or a empty string
     #
     # First we test to see if this Datum has a macro attached to it. If so
@@ -238,7 +233,7 @@ class TableFu
     
     # Returns the macro'd format if there is one 
     #
-    # == Returns:
+    # Returns:
     # The macro value if it exists, otherwise nil
     def macro_value
       # Grab the macro method first
@@ -259,7 +254,7 @@ class TableFu
     
     # Returns the raw value of a datum 
     #
-    # == Returns:
+    # Returns:
     # raw value of the datum, could be nil  
     def value
       @datum
@@ -267,34 +262,34 @@ class TableFu
 
     # This method missing looks for 4 matches
     #
-    # == First Option
+    # First Option
     # We have a column option by that method name and it applies to this column
     # Example - 
-    # >> @data.column_name
-    # => 'Total'
-    # >> @datum.style
+    #   >> @data.column_name
+    #   => 'Total'
+    #   >> @datum.style
     # Finds col_opt[:style] = {'Total' => 'text-align:left;'}
-    # => 'text-align:left;'
+    #   => 'text-align:left;'
     # 
-    # == Second Option
+    # Second Option
     # We have a column option by that method name, but no attribute
-    # >> @data.column_name
-    # => 'Total'
-    # >> @datum.style 
-    # Finds col_opt[:style] = {'State' => 'text-align:left;'}
-    # => ''
+    #   >> @data.column_name
+    #   => 'Total'
+    #   >> @datum.style 
+    #   Finds col_opt[:style] = {'State' => 'text-align:left;'}
+    #   => ''
     # 
-    # == Third Option
+    # Third Option
     # The boolean
-    # >> @data.invisible?
+    #   >> @data.invisible?
     # And we've set it col_opts[:invisible] = ['Total']
-    # => true
+    #   => true
     #
-    # == Fourth Option
+    # Fourth Option
     # The boolean that's false
-    # >> @data.invisible?
+    #   >> @data.invisible?
     # And it's not in the list col_opts[:invisible] = ['State']
-    # => false
+    #   => false
     #
     def method_missing(method)
       if val = @spreadsheet.col_opts[method] && @spreadsheet.col_opts[method][column_name]

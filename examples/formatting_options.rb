@@ -2,5 +2,5 @@
 
 # or
 
-{"Meta Column Name" => {"method" => "Method Name", "arguments" => ['Column 1', 'Column 2' ... 'Column N'] }}
+{"Meta Column Name" => {"method" => "Method Name", "arguments" => ['Column 1', 'Column 2' ... 'Column N']}}
  

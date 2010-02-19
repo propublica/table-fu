@@ -1,0 +1,497 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=UTF-8" />
+<title>Class: TableFu::Row</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (R)</a> &raquo; 
+    <span class='title'><a href="../TableFu.html" title="TableFu (class)">TableFu</a></span>
+     &raquo; 
+    <span class="title">Row</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: TableFu::Row 
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Array</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Array</li>
+          
+            <li class="next">TableFu::Row</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/table_fu.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+  
+  <h2>Instance Attribute Summary</h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#row_num-instance_method" title="#row_num (instance method)">- (Object) <strong>row_num</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Returns the value of attribute row_num.
+
+</span>
+  
+</li>
+
+    
+  </ul>
+
+
+  <h2>Instance Method Summary</h2>
+
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3C%3D%3E-instance_method" title="#&lt;=&gt; (instance method)">- (Object) <strong>&lt;=&gt;</strong>(b) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+Comparator for sorting a spreadsheet row.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#columns-instance_method" title="#columns (instance method)">- (Object) <strong>columns</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#datum_for-instance_method" title="#datum_for (instance method)">- (Object) <strong>datum_for</strong>(col_name) </a>
+    
+
+    
+      (also: #column_for)
+    
+  </span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+This returns a Datum object for a header name.
+
+</span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Row) <strong>initialize</strong>(row, row_num, spreadsheet) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc">
+A new instance of Row.
+
+</span>
+  
+</li>
+
+    
+  </ul>
+
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><a href="" title="TableFu::Row (class)">Row</a></tt>) <strong>initialize</strong>(row, row_num, spreadsheet) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of Row
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149
+150
+151</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 147</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='row identifier id'>row</span><span class='comma token'>,</span> <span class='row_num identifier id'>row_num</span><span class='comma token'>,</span> <span class='spreadsheet identifier id'>spreadsheet</span><span class='rparen token'>)</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='replace identifier id'>replace</span> <span class='row identifier id'>row</span>
+  <span class='@row_num ivar id'>@row_num</span> <span class='assign token'>=</span> <span class='row_num identifier id'>row_num</span>
+  <span class='@spreadsheet ivar id'>@spreadsheet</span> <span class='assign token'>=</span> <span class='spreadsheet identifier id'>spreadsheet</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="row_num-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="row_num-instance_method">
+  
+    - (<tt>Object</tt>) <strong>row_num</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute row_num
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 145</span>
+
+<span class='def def kw'>def</span> <span class='row_num identifier id'>row_num</span>
+  <span class='@row_num ivar id'>@row_num</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="<=>-instance_method">
+  
+    - (<tt>Object</tt>) <strong>&lt;=&gt;</strong>(b) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Comparator for sorting a spreadsheet row.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 181</span>
+
+<span class='def def kw'>def</span> <span class='cmp op'>&lt;=&gt;</span><span class='lparen token'>(</span><span class='b identifier id'>b</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='sorted_by identifier id'>sorted_by</span>
+    
+    <span class='column identifier id'>column</span> <span class='assign token'>=</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='sorted_by identifier id'>sorted_by</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+    <span class='order identifier id'>order</span> <span class='assign token'>=</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='sorted_by identifier id'>sorted_by</span><span class='lbrack token'>[</span><span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='sorted_by identifier id'>sorted_by</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;order&quot;</span><span class='rbrack token'>]</span>
+    <span class='format identifier id'>format</span> <span class='assign token'>=</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='sorted_by identifier id'>sorted_by</span><span class='lbrack token'>[</span><span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='sorted_by identifier id'>sorted_by</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='string val'>&quot;format&quot;</span><span class='rbrack token'>]</span>
+    <span class='a identifier id'>a</span> <span class='assign token'>=</span> <span class='column_for identifier id'>column_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span> <span class='orop op'>||</span> <span class='string val'>''</span>
+    <span class='b identifier id'>b</span> <span class='assign token'>=</span> <span class='b identifier id'>b</span><span class='dot token'>.</span><span class='column_for identifier id'>column_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span> <span class='orop op'>||</span> <span class='string val'>''</span>
+    <span class='if if kw'>if</span> <span class='format identifier id'>format</span>
+      <span class='a identifier id'>a</span> <span class='assign token'>=</span> <span class='TableFu constant id'>TableFu</span><span class='colon2 op'>::</span><span class='Formatting constant id'>Formatting</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='format identifier id'>format</span><span class='comma token'>,</span> <span class='a identifier id'>a</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='string val'>''</span>
+      <span class='b identifier id'>b</span> <span class='assign token'>=</span> <span class='TableFu constant id'>TableFu</span><span class='colon2 op'>::</span><span class='Formatting constant id'>Formatting</span><span class='dot token'>.</span><span class='send identifier id'>send</span><span class='lparen token'>(</span><span class='format identifier id'>format</span><span class='comma token'>,</span> <span class='b identifier id'>b</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='string val'>''</span>
+    <span class='end end kw'>end</span>
+    <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='a identifier id'>a</span> <span class='cmp op'>&lt;=&gt;</span> <span class='b identifier id'>b</span>
+    <span class='result identifier id'>result</span> <span class='assign token'>=</span> <span class='result identifier id'>result</span> <span class='mult op'>*</span> <span class='integer val'>-1</span> <span class='if if_mod kw'>if</span> <span class='order identifier id'>order</span> <span class='eq op'>==</span> <span class='string val'>'descending'</span>
+    <span class='result identifier id'>result</span>
+  <span class='else else kw'>else</span>
+    <span class='integer val'>-1</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="columns-instance_method">
+  
+    - (<tt>Object</tt>) <strong>columns</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+153
+154
+155
+156
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 153</span>
+
+<span class='def def kw'>def</span> <span class='columns identifier id'>columns</span>
+  <span class='all_cols identifier id'>all_cols</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='columns identifier id'>columns</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='c identifier id'>c</span><span class='bitor op'>|</span>
+    <span class='all_cols identifier id'>all_cols</span> <span class='lshft op'>&lt;&lt;</span> <span class='datum_for identifier id'>datum_for</span><span class='lparen token'>(</span><span class='c identifier id'>c</span><span class='rparen token'>)</span>    
+  <span class='end end kw'>end</span>         
+  <span class='all_cols identifier id'>all_cols</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="datum_for-instance_method">
+  
+    - (<tt>Object</tt>) <strong>datum_for</strong>(col_name) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='column_for-instance_method'>column_for</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+This returns a Datum object for a header name. Will return a nil Datum
+object for nonexistant column names
+</p>
+<p>
+Parameters: header name
+</p>
+<p>
+Returns: Datum object
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+170
+171
+172
+173
+174
+175
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 170</span>
+
+<span class='def def kw'>def</span> <span class='datum_for identifier id'>datum_for</span><span class='lparen token'>(</span><span class='col_name identifier id'>col_name</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='col_num identifier id'>col_num</span> <span class='assign token'>=</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='column_headers identifier id'>column_headers</span><span class='dot token'>.</span><span class='index identifier id'>index</span><span class='lparen token'>(</span><span class='col_name identifier id'>col_name</span><span class='rparen token'>)</span>
+    <span class='TableFu constant id'>TableFu</span><span class='colon2 op'>::</span><span class='Datum constant id'>Datum</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='lbrack token'>[</span><span class='col_num identifier id'>col_num</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='col_name identifier id'>col_name</span><span class='comma token'>,</span> <span class='@row_num ivar id'>@row_num</span><span class='comma token'>,</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='rparen token'>)</span>
+  <span class='else else kw'>else</span> <span class='comment val'># Return a nil Datum object for non existant column names</span>
+    <span class='TableFu constant id'>TableFu</span><span class='colon2 op'>::</span><span class='Datum constant id'>Datum</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='col_name identifier id'>col_name</span><span class='comma token'>,</span> <span class='@row_num ivar id'>@row_num</span><span class='comma token'>,</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Fri Feb 19 17:51:11 2010 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
+  0.5.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
