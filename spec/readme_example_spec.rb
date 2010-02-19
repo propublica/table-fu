@@ -26,7 +26,7 @@ CSV
   it "should just work" do
     @spreadsheet.rows[0].column_for('Cost').to_s.should == '$45.00'
     @spreadsheet.rows[0].columns[1].to_s.should == 'Motorized Bar Stool'
-    @spreadsheet.rows[0].column_for('Link').to_s.should == "<a href='http://project.com', title='Build Supercollider'>Build Supercollider</a>"
+    @spreadsheet.rows[0].column_for('Link').to_s.should == "<a href='http://project.com' title='Build Supercollider'>Build Supercollider</a>"
   end
 
 

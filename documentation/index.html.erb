@@ -9,8 +9,19 @@ def code_for(file, output=true)
   html = Uv.parse(file, "xhtml", "ruby", false, "dawn", false)
   out = ''
   if output
-    out = yield eval(file) if block_given?
-    out = "<p><em>Produces:</em></p>" + Uv.parse(out, 'xhtml', 'ruby', false, 'dawn', false)
+    csv =<<-CSV
+Author,Best Book,Number of Pages,Style
+Samuel Beckett,Malone Muert,120,Modernism
+James Joyce,Ulysses,644,Modernism
+Nicholson Baker,Mezannine,150,Minimalism
+Vladimir Sorokin,The Queue,263,Satire
+    CSV
+    if block_given?
+      out = yield instance_eval(file)
+    else
+      out = instance_eval(file).inspect
+    end
+    out = "<em>Produces:</em>" + Uv.parse(out, 'xhtml', 'ruby', false, 'dawn', false)
   end
   "#{html}#{out}"
 end
@@ -40,34 +51,52 @@ end
             end
         %>
     </p>
-    <h2>Table of Contents</h2>
+    <h2><a name="toc">Table of Contents</a></h2>
     <ul>
-      <li>Installation</li>
-      <li>Usage</li>
-      <li>Faceting</li>
-      <li>Macros / Formatting</li>
-      <li>Credits</li>
-      <li>License</li>
+      <li><a href="#installation">Installation</a></li>
+      <li><a href="#usage">Usage</a></li>
+      <li><a href="#faceting">Faceting</a></li>
+      <li><a href="#macros">Macros / Formatting</a></li>
+      <li><a href="#manipulation">Manipulation</a></li>
+      <li><a href="#credits">Credits</a></li>
+      <li><a href="#license">License</a></li>
     </ul>
-    <h2>Installation</h2>
+    <h2><a name="installation" href="#toc">Installation</a></h2>
     <p><strong>TableFu</strong> is available as a rubygem:
 <pre class="dawn">
  gem install table_fu</pre>
-  
-    or from the actual source:
-    
+      or from the actual source:
 <pre class="dawn">
  git clone git://github.com/propublica/table-fu.git
  cd table-fu
  rake install</pre>
-    </p>
-    <h2>Usage</h2>
+</p>
+    <h2><a name="usage" href="#toc">Usage</a></h2>
     <p>
-      
+      The <strong>TableFu</strong> constructor takes two arguments: a 2 dimensional array and a hash of column options or a block. The simple options are:
+      <ul>
+        <li><code>=> sorted_by</code> the column to sort by.
+          <%= code_for "sort_by_column" do |ret|
+                ret.rows.inspect
+              end
+          %>
+        </li>
+        <li><code>=> columns</code> the columns to include in the table, useful when reordering and filtering extraneous columns.
+        <%= code_for "columns" %>
+        Note that the columns are still accessible directly even if they're not in the columns array.
+        <%= code_for "columns_hidden" %>
+        
+        </li>
+      </ul>
+      The other two options <code>faceting</code> and <code>formatting</code> are described below.
     </p>
+    <h2><a name="faceting" href="#toc">Faceting</a></h2>
     
+    <h2><a name="macros" href="#toc">Macros / Formatting</a></h2>
     
-    <h2>License</h2>
+    <h2><a name="manipulation" href="#toc">Manipulation</a></h2>
+    <h2><a name="credits" href="#toc">Credits</a></h2>
+    <h2><a name="license" href="#toc">License</a></h2>
     <pre><%= File.open("LICENSE").read %></pre>
   </body>
 </html>
