@@ -1,12 +1,12 @@
-class TableFu::Formatting
-
 # Override this class to add more formatting methods
 # 
 # Methods expect one or more arguments, which could be nil, and should return the appropriate
 # formatting and style.
-# a method that
+
+class TableFu::Formatting
 
   class << self
+    
     # Returns a currency formatted number
     def currency(num)
       "$#{num.to_s}"

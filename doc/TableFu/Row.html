@@ -240,14 +240,14 @@ A new instance of Row
       <pre class="lines">
 
 
-147
-148
-149
-150
-151</pre>
+152
+153
+154
+155
+156</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 152</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='row identifier id'>row</span><span class='comma token'>,</span> <span class='row_num identifier id'>row_num</span><span class='comma token'>,</span> <span class='spreadsheet identifier id'>spreadsheet</span><span class='rparen token'>)</span>
   <span class='self self kw'>self</span><span class='dot token'>.</span><span class='replace identifier id'>replace</span> <span class='row identifier id'>row</span>
@@ -292,12 +292,12 @@ Returns the value of attribute row_num
       <pre class="lines">
 
 
-145
-146
-147</pre>
+150
+151
+152</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 145</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 150</span>
 
 <span class='def def kw'>def</span> <span class='row_num identifier id'>row_num</span>
   <span class='@row_num ivar id'>@row_num</span>
@@ -339,11 +339,6 @@ Comparator for sorting a spreadsheet row.
       <pre class="lines">
 
 
-181
-182
-183
-184
-185
 186
 187
 188
@@ -357,10 +352,15 @@ Comparator for sorting a spreadsheet row.
 196
 197
 198
-199</pre>
+199
+200
+201
+202
+203
+204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 181</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 186</span>
 
 <span class='def def kw'>def</span> <span class='cmp op'>&lt;=&gt;</span><span class='lparen token'>(</span><span class='b identifier id'>b</span><span class='rparen token'>)</span>
   <span class='if if kw'>if</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='sorted_by identifier id'>sorted_by</span>
@@ -400,16 +400,16 @@ Comparator for sorting a spreadsheet row.
       <pre class="lines">
 
 
-153
-154
-155
-156
-157
 158
-159</pre>
+159
+160
+161
+162
+163
+164</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 153</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 158</span>
 
 <span class='def def kw'>def</span> <span class='columns identifier id'>columns</span>
   <span class='all_cols identifier id'>all_cols</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
@@ -459,16 +459,16 @@ Returns: Datum object
       <pre class="lines">
 
 
-170
-171
-172
-173
-174
 175
-176</pre>
+176
+177
+178
+179
+180
+181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 170</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 175</span>
 
 <span class='def def kw'>def</span> <span class='datum_for identifier id'>datum_for</span><span class='lparen token'>(</span><span class='col_name identifier id'>col_name</span><span class='rparen token'>)</span>
   <span class='if if kw'>if</span> <span class='col_num identifier id'>col_num</span> <span class='assign token'>=</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='column_headers identifier id'>column_headers</span><span class='dot token'>.</span><span class='index identifier id'>index</span><span class='lparen token'>(</span><span class='col_name identifier id'>col_name</span><span class='rparen token'>)</span>
@@ -488,7 +488,7 @@ Returns: Datum object
 </div>
     
     <div id="footer">
-  Generated on Fri Feb 19 17:51:11 2010 by 
+  Generated on Fri Feb 19 18:16:18 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.3 (ruby-1.8.7).
 </div>

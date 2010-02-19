@@ -139,7 +139,7 @@ table<span class="PunctuationSeparator">.</span><span class="Entity">faceted_on<
 </pre>
     </p>
     <h2><a name="manipulation" href="#toc">Manipulation</a></h2>
-    <p>In addition to hiding columns and faceting <strong>TableFu</strong> can delete rows from the csv. Let's get rid of James Joyce (no one ever finished Ulysses anyway):
+    <p>In addition to hiding columns and faceting <strong>TableFu</strong> can delete rows from the csv. Let's get rid of James Joyce (no one ever finished <em>Ulysses</em> anyway):
       <pre class="dawn">spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(<span class="Support">FasterCSV</span><span class="PunctuationSeparator">.</span><span class="Entity">parse</span>(csv)) <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">s</span><span class="PunctuationSeparator">|</span>
   s<span class="PunctuationSeparator">.</span><span class="Entity">delete_rows!</span> [<span class="Constant">1</span>]
 <span class="Keyword">end</span>
@@ -154,8 +154,8 @@ table<span class="PunctuationSeparator">.</span><span class="Entity">faceted_on<
     </p>
     <p>TableFu can also provide a total row for numeric values:
       <pre class="dawn">spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(<span class="Support">FasterCSV</span><span class="PunctuationSeparator">.</span><span class="Entity">parse</span>(csv))
-spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">sum_totals_for</span>('Number of Pages')
-</pre><em>Returns:</em><pre class="dawn"><span class="Constant">1177</span>
+spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">total_for</span>('Number of Pages')
+</pre><em>Returns:</em><pre class="dawn"><span class="Comment"><span class="Comment">#</span>&lt;TableFu::Datum:0x102255b90 @spreadsheet=#&lt;TableFu:0x1022576c0 @col_opts={}, @totals={}, @column_headers=[&quot;Author&quot;, &quot;Best Book&quot;, &quot;Number of Pages&quot;, &quot;Style&quot;], @table=[[&quot;Samuel Beckett&quot;, &quot;Malone Muert&quot;, &quot;120&quot;, &quot;Modernism&quot;], [&quot;James Joyce&quot;, &quot;Ulysses&quot;, &quot;644&quot;, &quot;Modernism&quot;], [&quot;Nicholson Baker&quot;, &quot;Mezannine&quot;, &quot;150&quot;, &quot;Minimalism&quot;], [&quot;Vladimir Sorokin&quot;, &quot;The Queue&quot;, &quot;263&quot;, &quot;Satire&quot;]]&gt;, @datum=nil, @row_num=nil, @column_name=&quot;Number of Pages&quot;&gt;</span>
 </pre>
     </p>
     <h2><a name="links" href="#toc">Links</a></h2>

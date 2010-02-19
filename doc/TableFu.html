@@ -79,7 +79,18 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+Adds spreadsheet functionality to an Array
+</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
 
   <h2>Instance Attribute Summary</h2>
   <ul class="summary">
@@ -129,7 +140,7 @@ Returns the value of attribute col_opts.
 
   
     <span class="summary_desc">
-Adds spreadsheet functionality to an Array.
+Returns the value of attribute column_headers.
 
 </span>
   
@@ -155,7 +166,7 @@ Adds spreadsheet functionality to an Array.
 
   
     <span class="summary_desc">
-Adds spreadsheet functionality to an Array.
+Returns the value of attribute deleted_rows.
 
 </span>
   
@@ -207,7 +218,7 @@ Returns the value of attribute faceted_on.
 
   
     <span class="summary_desc">
-Adds spreadsheet functionality to an Array.
+Returns the value of attribute table.
 
 </span>
   
@@ -233,7 +244,7 @@ Adds spreadsheet functionality to an Array.
 
   
     <span class="summary_desc">
-Adds spreadsheet functionality to an Array.
+Returns the value of attribute totals.
 
 </span>
   
@@ -262,7 +273,11 @@ Adds spreadsheet functionality to an Array.
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Return the headers defined in column headers or cherry picked from
+@col_opts.
+
+</span>
   
 </li>
 
@@ -282,7 +297,10 @@ Adds spreadsheet functionality to an Array.
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Set up the cherry picked columns.
+
+</span>
   
 </li>
 
@@ -326,7 +344,10 @@ Pass it an array and it will delete it from the table, but save the data in
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Return true if this table is faceted.
+
+</span>
   
 </li>
 
@@ -346,7 +367,10 @@ Pass it an array and it will delete it from the table, but save the data in
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Return an array of TableFu instances grouped by a column.
+
+</span>
   
 </li>
 
@@ -366,7 +390,10 @@ Pass it an array and it will delete it from the table, but save the data in
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Return the formatting hash.
+
+</span>
   
 </li>
 
@@ -386,7 +413,10 @@ Pass it an array and it will delete it from the table, but save the data in
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Set the formatting hash.
+
+</span>
   
 </li>
 
@@ -406,7 +436,10 @@ Pass it an array and it will delete it from the table, but save the data in
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Return the headers of the array.
+
+</span>
   
 </li>
 
@@ -498,7 +531,10 @@ Returns all the Row objects for this object as a collection.
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Return the sorted_by column.
+
+</span>
   
 </li>
 
@@ -518,7 +554,10 @@ Returns all the Row objects for this object as a collection.
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Set the sorted_by column.
+
+</span>
   
 </li>
 
@@ -538,7 +577,10 @@ Returns all the Row objects for this object as a collection.
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Sum the values of a particular column.
+
+</span>
   
 </li>
 
@@ -559,9 +601,8 @@ Returns all the Row objects for this object as a collection.
 
   
     <span class="summary_desc">
-This returns a numeric instance for a string number, or if it&#8217;s a
-string we return 1, this way if we total up a series of strings it&#8217;s
-a count.
+Return a numeric instance for a string number, or if it&#8217;s a string we
+return 1, this way if we total up a series of strings it&#8217;s a count.
 
 </span>
   
@@ -583,7 +624,10 @@ a count.
   
 
   
-    <span class="summary_desc"></span>
+    <span class="summary_desc">
+Sum the values of a particular column and return a Datum.
+
+</span>
   
 </li>
 
@@ -651,16 +695,16 @@ the object that the method was called on
       <pre class="lines">
 
 
+9
 10
 11
 12
 13
 14
-15
-16</pre>
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 9</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='table identifier id'>table</span><span class='comma token'>,</span> <span class='column_opts identifier id'>column_opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='@column_headers ivar id'>@column_headers</span> <span class='assign token'>=</span> <span class='table identifier id'>table</span><span class='dot token'>.</span><span class='slice! fid id'>slice!</span><span class='lparen token'>(</span><span class='integer val'>0</span><span class='rparen token'>)</span>
@@ -736,7 +780,7 @@ Returns the value of attribute col_opts
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Adds spreadsheet functionality to an Array
+Returns the value of attribute column_headers
 </p>
 
 
@@ -779,7 +823,7 @@ Adds spreadsheet functionality to an Array
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Adds spreadsheet functionality to an Array
+Returns the value of attribute deleted_rows
 </p>
 
 
@@ -865,7 +909,7 @@ Returns the value of attribute faceted_on
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Adds spreadsheet functionality to an Array
+Returns the value of attribute table
 </p>
 
 
@@ -908,7 +952,7 @@ Adds spreadsheet functionality to an Array
 </p><div class="docstring">
   <div class="discussion">
     <p>
-Adds spreadsheet functionality to an Array
+Returns the value of attribute totals
 </p>
 
 
@@ -952,18 +996,30 @@ Adds spreadsheet functionality to an Array
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Return the headers defined in column headers or cherry picked from
+@col_opts
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-49
-50
-51</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 46</span>
 
 <span class='def def kw'>def</span> <span class='columns identifier id'>columns</span>
   <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:columns</span><span class='rbrack token'>]</span> <span class='orop op'>||</span> <span class='column_headers identifier id'>column_headers</span>
@@ -981,18 +1037,29 @@ Adds spreadsheet functionality to an Array
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set up the cherry picked columns
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-136
-137
-138</pre>
+141
+142
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 141</span>
 
 <span class='def def kw'>def</span> <span class='columns= identifier id'>columns=</span><span class='lparen token'>(</span><span class='a identifier id'>a</span><span class='rparen token'>)</span>
   <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:columns</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='a identifier id'>a</span>
@@ -1031,15 +1098,15 @@ Returns: nothing
       <pre class="lines">
 
 
+24
+25
 26
 27
 28
-29
-30
-31</pre>
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 24</span>
 
 <span class='def def kw'>def</span> <span class='delete_rows! fid id'>delete_rows!</span><span class='lparen token'>(</span><span class='arr identifier id'>arr</span><span class='rparen token'>)</span>
   <span class='@deleted_rows ivar id'>@deleted_rows</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
@@ -1062,7 +1129,10 @@ Returns: nothing
   
 </p><div class="docstring">
   <div class="discussion">
-    
+    <p>
+Return true if this table is faceted
+</p>
+
 
   </div>
 </div>
@@ -1110,7 +1180,18 @@ Returns: nothing
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Return an array of TableFu instances grouped by a column.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
@@ -1199,18 +1280,29 @@ Returns: nothing
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Return the formatting hash
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-128
-129
-130</pre>
+131
+132
+133</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 128</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 131</span>
 
 <span class='def def kw'>def</span> <span class='formatting identifier id'>formatting</span>
   <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:formatting</span><span class='rbrack token'>]</span>
@@ -1228,18 +1320,29 @@ Returns: nothing
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set the formatting hash
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-132
-133
-134</pre>
+136
+137
+138</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 136</span>
 
 <span class='def def kw'>def</span> <span class='formatting= identifier id'>formatting=</span><span class='lparen token'>(</span><span class='h identifier id'>h</span><span class='rparen token'>)</span>
   <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:formatting</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='h identifier id'>h</span>
@@ -1257,22 +1360,33 @@ Returns: nothing
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Return the headers of the array
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+51
+52
 53
 54
 55
 56
-57
-58
-59</pre>
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 51</span>
 
 <span class='def def kw'>def</span> <span class='headers identifier id'>headers</span>
   <span class='all_columns identifier id'>all_columns</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
@@ -1311,12 +1425,12 @@ Returns a Row object for the row at a certain index
       <pre class="lines">
 
 
-35
-36
-37</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 32</span>
 
 <span class='def def kw'>def</span> <span class='row_at identifier id'>row_at</span><span class='lparen token'>(</span><span class='row_num identifier id'>row_num</span><span class='rparen token'>)</span>
   <span class='TableFu constant id'>TableFu</span><span class='colon2 op'>::</span><span class='Row constant id'>Row</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@table ivar id'>@table</span><span class='lbrack token'>[</span><span class='row_num identifier id'>row_num</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='row_num identifier id'>row_num</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='rparen token'>)</span>
@@ -1351,16 +1465,16 @@ Returns all the Row objects for this object as a collection
       <pre class="lines">
 
 
+37
+38
+39
+40
 41
 42
-43
-44
-45
-46
-47</pre>
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 37</span>
 
 <span class='def def kw'>def</span> <span class='rows identifier id'>rows</span>
   <span class='all_rows identifier id'>all_rows</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
@@ -1382,18 +1496,29 @@ Returns all the Row objects for this object as a collection
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Return the sorted_by column
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-120
 121
-122</pre>
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 121</span>
 
 <span class='def def kw'>def</span> <span class='sorted_by identifier id'>sorted_by</span>
   <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:sorted_by</span><span class='rbrack token'>]</span>
@@ -1411,18 +1536,29 @@ Returns all the Row objects for this object as a collection
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set the sorted_by column
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-124
-125
-126</pre>
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 126</span>
 
 <span class='def def kw'>def</span> <span class='sorted_by= identifier id'>sorted_by=</span><span class='lparen token'>(</span><span class='h identifier id'>h</span><span class='rparen token'>)</span>
   <span class='@col_opts ivar id'>@col_opts</span><span class='lbrack token'>[</span><span class='symbol val'>:sorted_by</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='h identifier id'>h</span>
@@ -1440,18 +1576,29 @@ Returns all the Row objects for this object as a collection
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Sum the values of a particular column
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-61
-62
-63</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 59</span>
 
 <span class='def def kw'>def</span> <span class='sum_totals_for identifier id'>sum_totals_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span>
   <span class='@totals ivar id'>@totals</span><span class='lbrack token'>[</span><span class='column identifier id'>column</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rows identifier id'>rows</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span><span class='lparen token'>(</span><span class='integer val'>0</span><span class='rparen token'>)</span> <span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='sum identifier id'>sum</span><span class='comma token'>,</span> <span class='r identifier id'>r</span><span class='bitor op'>|</span> <span class='to_numeric identifier id'>to_numeric</span><span class='lparen token'>(</span><span class='r identifier id'>r</span><span class='dot token'>.</span><span class='datum_for identifier id'>datum_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='value identifier id'>value</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='sum identifier id'>sum</span> <span class='rbrace token'>}</span>
@@ -1472,9 +1619,8 @@ Returns all the Row objects for this object as a collection
 </p><div class="docstring">
   <div class="discussion">
     <p>
-This returns a numeric instance for a string number, or if it&#8217;s a
-string we return 1, this way if we total up a series of strings it&#8217;s
-a count
+Return a numeric instance for a string number, or if it&#8217;s a string we
+return 1, this way if we total up a series of strings it&#8217;s a count
 </p>
 
 
@@ -1488,6 +1634,7 @@ a count
       <pre class="lines">
 
 
+105
 106
 107
 108
@@ -1495,11 +1642,10 @@ a count
 110
 111
 112
-113
-114</pre>
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 105</span>
 
 <span class='def def kw'>def</span> <span class='to_numeric identifier id'>to_numeric</span><span class='lparen token'>(</span><span class='num identifier id'>num</span><span class='rparen token'>)</span>
   <span class='if if kw'>if</span> <span class='num identifier id'>num</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
@@ -1523,18 +1669,29 @@ a count
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Sum the values of a particular column and return a Datum
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+64
 65
-66
-67</pre>
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 64</span>
 
 <span class='def def kw'>def</span> <span class='total_for identifier id'>total_for</span><span class='lparen token'>(</span><span class='column identifier id'>column</span><span class='rparen token'>)</span>
   <span class='Datum constant id'>Datum</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='@totals ivar id'>@totals</span><span class='lbrack token'>[</span><span class='column identifier id'>column</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='column identifier id'>column</span><span class='comma token'>,</span> <span class='nil nil kw'>nil</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='rparen token'>)</span>
@@ -1550,7 +1707,7 @@ a count
 </div>
     
     <div id="footer">
-  Generated on Fri Feb 19 17:51:12 2010 by 
+  Generated on Fri Feb 19 18:16:19 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.3 (ruby-1.8.7).
 </div>

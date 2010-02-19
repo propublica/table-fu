@@ -42,10 +42,12 @@ class TableFu
     all_rows.sort
   end
   
+  # Return the headers defined in column headers or cherry picked from @col_opts
   def columns
     @col_opts[:columns] || column_headers
   end
   
+  # Return the headers of the array 
   def headers
     all_columns = []
     columns.each do |h|
@@ -53,15 +55,17 @@ class TableFu
     end
     all_columns
   end
-  
+  # Sum the values of a particular column
   def sum_totals_for(column)
     @totals[column.to_s] = rows.inject(0) { |sum, r| to_numeric(r.datum_for(column).value) + sum }
   end
   
+  # Sum the values of a particular column and return a Datum
   def total_for(column)
     Datum.new(@totals[column], column, nil, self)
   end
   
+  # Return an array of TableFu instances grouped by a column.
   def faceted_by(column, opts = {})
     faceted_spreadsheets = {}
     rows.each do |r|
@@ -96,7 +100,7 @@ class TableFu
     tables
   end
   
-  # This returns a numeric instance for a string number, or if it's a string we
+  # Return a numeric instance for a string number, or if it's a string we
   # return 1, this way if we total up a series of strings it's a count
   def to_numeric(num)
     if num.nil?
@@ -108,26 +112,32 @@ class TableFu
     end
   end
   
+  # Return true if this table is faceted
   def faceted?
     not faceted_on.nil?
   end
   
+  # Return the sorted_by column
   def sorted_by
     @col_opts[:sorted_by]
   end
   
+  # Set the sorted_by column
   def sorted_by=(h)
     @col_opts[:sorted_by] = h
   end
   
+  # Return the formatting hash
   def formatting
     @col_opts[:formatting]
   end
   
+  # Set the formatting hash
   def formatting=(h)
     @col_opts[:formatting] = h
   end
   
+  # Set up the cherry picked columns
   def columns=(a)
     @col_opts[:columns] = a
   end
