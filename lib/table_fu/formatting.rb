@@ -22,6 +22,14 @@ class TableFu::Formatting
         name
       end
     end
+    # Returns that last name first of a name
+    # => last_name_first_name("Jeff Larson")
+    # >> Larson, Jeff
+    def last_name_first_name(name)
+      last = last_name(name)
+      first = name.gsub(last, '').strip    
+      "#{last}, #{first}"
+    end
     
     # Returns an html link constructed from link, linkname
     def link(linkname, href)

@@ -20,8 +20,7 @@ gem install table-fu
     Motorized Bar Stool,45.00,09/17/2009,http://project3.com
     CSV
     
-    matrix = FasterCSV.parse(csv)
-    @spreadsheet = TableFu.new(matrix) do |s|
+    @spreadsheet = TableFu.new(csv) do |s|
       s.formatting = {'Cost' => 'currency',
                       'Link' => {'method'=> 'link', 'arguments' => ['Project', 'URL']}}
       s.sorted_by = {'Project' => {'order' => 'descending'}}

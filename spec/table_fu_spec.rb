@@ -47,17 +47,18 @@ describe TableFu, 'with a complicated setup' do
   before :all do
     csv = FasterCSV.parse(File.open('spec/assets/test.csv'))
     @spreadsheet = TableFu.new(csv)
-    @spreadsheet.col_opts[:formatting] = {'Total Appropriation' => :currency}
+    @spreadsheet.col_opts[:formatting] = {'Total Appropriation' => :currency, 
+                                          "Representative" => :last_name_first_name}
     @spreadsheet.col_opts[:style] = {'Leadership' => "text-align: left;", 'URL' => 'text-align: right;'}
-    @spreadsheet.col_opts[:foo] = ['Leadership', 'URL']
+    @spreadsheet.col_opts[:invisible] = ['URL']
     @spreadsheet.delete_rows! [8]
     @spreadsheet.sorted_by = {'State' => {"order" => 'descending'}}
     @spreadsheet.col_opts[:columns] = ['State', 'Leadership', 'Total Appropriation', 'Party', 'URL']
   end
 
   it 'Leadership column should be marked invisible' do
-    @spreadsheet.rows[0].column_for('URL').foo?.should be_true
-    @spreadsheet.rows[0].column_for('State').foo?.should be_false
+    @spreadsheet.rows[0].column_for('URL').invisible?.should be_true
+    @spreadsheet.rows[0].column_for('State').invisible?.should be_false
   end
 
   it 'should give me back a Row object' do
@@ -79,6 +80,7 @@ describe TableFu, 'with a complicated setup' do
   it 'should format a column' do
     @spreadsheet.rows[0].column_for("Total Appropriation").to_s.should eql "$138526141"
     @spreadsheet.rows[0].column_for("Total Appropriation").value.should eql "138526141"
+    @spreadsheet.rows[4].column_for("Representative").to_s.should eql "Nunes, Devin"
   end
   
   it 'should format a header' do
