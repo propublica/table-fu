@@ -145,7 +145,7 @@ describe TableFu, 'with macro columns' do
 
 
   before :all do
-    csv = FasterCSV.parse(File.open('spec/assets/test_macro.csv'))
+    csv = FasterCSV.parse(File.open('spec/assets/test_macro.csv').read)
     @spreadsheet = TableFu.new(csv)
     @spreadsheet.col_opts[:style] = {'Projects' => 'text-align:left;'}
     @spreadsheet.col_opts[:formatting] = {'Total Appropriation' => :currency,

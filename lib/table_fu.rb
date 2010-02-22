@@ -1,15 +1,22 @@
+require 'rubygems'
+require 'fastercsv'
+
 # Adds spreadsheet functionality to an Array
 class TableFu
   
   attr_reader :deleted_rows, :table, :totals, :column_headers
   attr_accessor :faceted_on, :col_opts
   
-  # Should be initialized with a matrix array, and expects the first
+  # Should be initialized with a matrix array or a string containing a csv, and expects the first
   # array in the matrix to be column headers.
   def initialize(table, column_opts = {})
+    # Assume if we're past a string or filehandle we need to parse a csv
+    if table.is_a?(String) || table.is_a?(File)
+      table = FasterCSV.parse(table)
+    end
     @column_headers = table.slice!(0)
-    @table = table
     @totals = {}
+    @table = table
     @col_opts = column_opts
     yield self if block_given?
   end

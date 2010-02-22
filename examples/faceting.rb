@@ -1,2 +1,2 @@
-spreadsheet = TableFu.new(FasterCSV.parse(csv))
+spreadsheet = TableFu.new(csv)
 spreadsheet.faceted_by "Style"

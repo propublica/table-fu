@@ -10,6 +10,7 @@ begin
     gem.email = "jeff.larson@gmail.com"
     gem.homepage = "http://github.com/propublica/table_fu"
     gem.authors = ["Mark Percival", "Jeff Larson"]
+    gem.add_dependency 'fastercsv'
     gem.add_development_dependency "spec"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
