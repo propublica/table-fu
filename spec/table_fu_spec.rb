@@ -88,11 +88,11 @@ describe TableFu, 'with a complicated setup' do
   
   it 'should total a column' do
     @spreadsheet.total_for("Total Appropriation").value.should eql 16640189309
-    @spreadsheet.total_for("Total Appropriation").to_s.should eql "$16640189309"
+    @spreadsheet.total_for("Total Appropriation").to_s.should eql "$16,640,189,309"
   end
 
   it 'should format a column' do
-    @spreadsheet.rows[0].column_for("Total Appropriation").to_s.should eql "$138526141"
+    @spreadsheet.rows[0].column_for("Total Appropriation").to_s.should eql "$138,526,141"
     @spreadsheet.rows[0].column_for("Total Appropriation").value.should eql 138526141
     @spreadsheet.rows[4].column_for("Representative").to_s.should eql "Nunes, Devin"
   end
@@ -137,7 +137,7 @@ describe TableFu, "with faceting" do
   end
 
   it "should keep formatting on totals" do
-    @faceted_spreadsheets[1].total_for("Total Appropriation").to_s.should eql "$175142465"
+    @faceted_spreadsheets[1].total_for("Total Appropriation").to_s.should eql "$175,142,465"
   end
 
   it "should remember what facet it belongs to" do
@@ -146,7 +146,7 @@ describe TableFu, "with faceting" do
   end
 
   it "should keep the formatting" do
-    @faceted_spreadsheets[1].rows[1].column_for('Total Appropriation').to_s.should eql "$25320127"
+    @faceted_spreadsheets[1].rows[1].column_for('Total Appropriation').to_s.should eql "$25,320,127"
     @faceted_spreadsheets[1].rows[1].column_for('Projects').style.should eql "text-align:left;"
   end
 

@@ -8,7 +8,13 @@ class TableFu::Formatting
     
     # Returns a currency formatted number
     def currency(num)
-      "$#{num.to_s}"
+      begin
+        parts = num.to_s.split('.')
+        parts[0].gsub!(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1,")
+        "$#{parts.join('.')}"
+      rescue
+        num
+      end
     end
     
     # Returns the last name of a name 
