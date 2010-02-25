@@ -10,7 +10,7 @@
   
   <body>
     <a href="http://www.propublica.org" class="propublica">&nbsp;</a>
-    <h1>TableFu <small>&ndash; Version: 0.1.0</small></h1>
+    <h1>TableFu <small>&ndash; Version: 0.1.1</small></h1>
 
     <p><strong><a href="http://github.com/propublica/table-fu">TableFu</a></strong> is a utility for spreadsheet-style handling of arrays (e.g. filtering, formatting, and sorting). In addition, it has the ability to <a href="#facet">facet</a> &mdash; or group &mdash; rows according to cell value. It was developed as a backend for its sister project <a href="http://www.github.com/propublica/table-setter">TableSetter</a>.</p>
     <p>For example, <strong>TableFu</strong> can consume a csv file and sort on a column:
@@ -157,7 +157,7 @@ table<span class="PunctuationSeparator">.</span><span class="Entity">faceted_on<
     <p>TableFu can also provide sum a column of numeric values:
       <pre class="dawn">spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(csv)
 spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">total_for</span>('Number of Pages')<span class="PunctuationSeparator">.</span>to_s
-</pre><em>Returns:</em><pre class="dawn">&quot;&quot;
+</pre><em>Returns:</em><pre class="dawn"><span class="Constant">1177</span>
 </pre>
     </p>
     <h2><a name="links" href="#toc">Links</a></h2>
