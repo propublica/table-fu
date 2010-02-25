@@ -27,6 +27,8 @@ describe TableFu do
     @spreadsheet.rows[0].column_for("Party").to_s.should eql "Republican"
     @spreadsheet.sorted_by = {'Representative' => {"order" => 'ascending', "format" => 'last_name'}}
     @spreadsheet.rows[2].column_for("Representative").to_s.should eql "Jo Bonner"
+
+    
     @spreadsheet.col_opts[:columns] = {'State', 'Party', 'Total Appropriations', 'URL'}
     @spreadsheet.rows.each do |row|
       row.columns.each do |column|
@@ -39,7 +41,15 @@ describe TableFu do
       end
     end
   end
-
+  
+  it 'should sort rows' do
+    @spreadsheet.sorted_by = {'Projects' => {"order" => 'ascending'}}
+    sorted = @spreadsheet.rows.map do |row|
+      row.column_for("Projects").value
+    end
+    sorted.should eql [4, 5, 10, 10, 12, 20, 49]
+    
+  end
 end
 
 describe TableFu, 'with a complicated setup' do
@@ -84,7 +94,7 @@ describe TableFu, 'with a complicated setup' do
 
   it 'should format a column' do
     @spreadsheet.rows[0].column_for("Total Appropriation").to_s.should eql "$138526141"
-    @spreadsheet.rows[0].column_for("Total Appropriation").value.should eql "138526141"
+    @spreadsheet.rows[0].column_for("Total Appropriation").value.should eql 138526141
     @spreadsheet.rows[4].column_for("Representative").to_s.should eql "Nunes, Devin"
   end
   

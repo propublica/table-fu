@@ -114,8 +114,8 @@ class TableFu
   def to_numeric(num)
     if num.nil?
       0
-    elsif num.match(/[0-9]+/)
-      num.to_i
+    elsif num.kind_of? Integer
+      num
     else
       1 # We count each instance of a string this way
     end
@@ -196,13 +196,12 @@ class TableFu
     #
     def <=>(b)
       if @spreadsheet.sorted_by
-        
         column = @spreadsheet.sorted_by.keys.first
         order = @spreadsheet.sorted_by[@spreadsheet.sorted_by.keys.first]["order"]
         format = @spreadsheet.sorted_by[@spreadsheet.sorted_by.keys.first]["format"]
         a = column_for(column).value || ''
         b = b.column_for(column).value || ''
-        if format
+        if format 
           a = TableFu::Formatting.send(format, a) || ''
           b = TableFu::Formatting.send(format, b) || ''
         end
@@ -225,7 +224,7 @@ class TableFu
     # about doing this. Subclass?
     def initialize(datum, col_name, row_num, spreadsheet)
       @datum = datum
-      @column_name =  col_name
+      @column_name = col_name
       @row_num = row_num
       @spreadsheet = spreadsheet
     end
@@ -278,7 +277,11 @@ class TableFu
     # Returns:
     # raw value of the datum, could be nil  
     def value
-      @datum
+      if @datum =~ /[0-9]+/
+        @datum.to_i
+      else
+        @datum
+      end
     end
 
     # This method missing looks for 4 matches
