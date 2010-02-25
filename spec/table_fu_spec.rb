@@ -47,8 +47,7 @@ describe TableFu do
     sorted = @spreadsheet.rows.map do |row|
       row.column_for("Projects").value
     end
-    sorted.should eql [4, 5, 10, 10, 12, 20, 49]
-    
+    sorted.should eql [4, 5, 10, 12, 20, 49, nil]
   end
 end
 

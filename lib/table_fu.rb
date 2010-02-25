@@ -206,6 +206,7 @@ class TableFu
           b = TableFu::Formatting.send(format, b) || ''
         end
         result = a <=> b
+        result = -1 if result.nil?
         result = result * -1 if order == 'descending'
         result
       else
