@@ -76,6 +76,11 @@ describe TableFu, 'with a complicated setup' do
     @spreadsheet.rows[2].column_for('State').to_s.should eql "New Jersey"
     @spreadsheet.rows[0].column_for('State').to_s.should eql "Wyoming"
   end
+  
+  it 'should total a column' do
+    @spreadsheet.total_for("Total Appropriation").value.should eql 16640189309
+    @spreadsheet.total_for("Total Appropriation").to_s.should eql "$16640189309"
+  end
 
   it 'should format a column' do
     @spreadsheet.rows[0].column_for("Total Appropriation").to_s.should eql "$138526141"
@@ -86,6 +91,14 @@ describe TableFu, 'with a complicated setup' do
   it 'should format a header' do
     @spreadsheet.headers[1].style.should eql 'text-align: left;'
     @spreadsheet.headers[4].style.should eql 'text-align: right;'
+  end
+  
+  it 'should not care what kind of keys the hash has' do
+    @spreadsheet = TableFu.new(File.open('spec/assets/test.csv'))
+    @spreadsheet.col_opts["style"] = {'Leadership' => "text-align: left;", 'URL' => 'text-align: right;'}
+
+    @spreadsheet.rows[0].column_for('Leadership').style.should ==
+                          @spreadsheet.col_opts["style"]['Leadership']
   end
 
 end
@@ -110,7 +123,7 @@ describe TableFu, "with faceting" do
   it "should total up the projects and expenses" do
     @faceted_spreadsheets[1].total_for("Projects").value.should eql 63
     @faceted_spreadsheets[0].total_for("Projects").value.should eql 32
-    @faceted_spreadsheets[1].total_for("State").value.should be_nil
+    @faceted_spreadsheets[1].total_for("State").value.should eql 3
     @faceted_spreadsheets[1].total_for("Total Appropriation").value.should eql 175142465
   end
 

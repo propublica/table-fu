@@ -1,2 +1,2 @@
 spreadsheet = TableFu.new(csv)
-spreadsheet.sum_totals_for('Number of Pages')
+spreadsheet.total_for('Number of Pages').to_s

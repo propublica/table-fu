@@ -63,8 +63,7 @@ Installation: gem install table-fu
 <pre class="code">
     <span class='csv identifier id'>csv</span> <span class='assign token'>=</span><span class='string val'>&quot;Project,Cost,Date,URL\nBuild Supercollider,500_000_000.50,09/15/2009,http://project.com\nHarness Power of Fusion,25_000_000,09/16/2009,http://project2.com\nMotorized Bar Stool,45.00,09/17/2009,http://project3.com\n&quot;</span>
 
-    <span class='matrix identifier id'>matrix</span> <span class='assign token'>=</span> <span class='FasterCSV constant id'>FasterCSV</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='csv identifier id'>csv</span><span class='rparen token'>)</span>
-    <span class='@spreadsheet ivar id'>@spreadsheet</span> <span class='assign token'>=</span> <span class='TableFu constant id'>TableFu</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='matrix identifier id'>matrix</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='s identifier id'>s</span><span class='bitor op'>|</span>
+    <span class='@spreadsheet ivar id'>@spreadsheet</span> <span class='assign token'>=</span> <span class='TableFu constant id'>TableFu</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='csv identifier id'>csv</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='s identifier id'>s</span><span class='bitor op'>|</span>
       <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='formatting identifier id'>formatting</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='string val'>'Cost'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'currency'</span><span class='comma token'>,</span>
                       <span class='string val'>'Link'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='string val'>'method'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'link'</span><span class='comma token'>,</span> <span class='string val'>'arguments'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='string val'>'Project'</span><span class='comma token'>,</span> <span class='string val'>'URL'</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span><span class='rbrace token'>}</span>
       <span class='s identifier id'>s</span><span class='dot token'>.</span><span class='sorted_by identifier id'>sorted_by</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='string val'>'Project'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='string val'>'order'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'descending'</span><span class='rbrace token'>}</span><span class='rbrace token'>}</span>
@@ -81,7 +80,7 @@ Installation: gem install table-fu
 </div></div>
     
     <div id="footer">
-  Generated on Fri Feb 19 18:22:29 2010 by 
+  Generated on Thu Feb 25 14:55:10 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.3 (ruby-1.8.7).
 </div>

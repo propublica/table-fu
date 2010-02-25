@@ -70,7 +70,8 @@ class TableFu
   
   # Sum the values of a particular column and return a Datum
   def total_for(column)
-    Datum.new(@totals[column], column, nil, self)
+    sum_totals_for(column)
+    Datum.new(@totals[column.to_s], column, nil, self)
   end
   
   # Return an array of TableFu instances grouped by a column.
@@ -149,6 +150,8 @@ class TableFu
   def columns=(a)
     @col_opts[:columns] = a
   end
+  
+
   
 end
 
@@ -240,7 +243,7 @@ class TableFu
     # And finally we return a empty string object or the value.
     #
     def to_s
-      if macro_value 
+      if macro_value
         macro_value
       elsif @spreadsheet.formatting && format_method = @spreadsheet.formatting[column_name]
         TableFu::Formatting.send(format_method, @datum) || ''
@@ -310,19 +313,35 @@ class TableFu
     #   => false
     #
     def method_missing(method)
-      if val = @spreadsheet.col_opts[method] && @spreadsheet.col_opts[method][column_name]
+      opts = indifferent_access @spreadsheet.col_opts
+      if val = opts[method] && opts[method][column_name]
         val
-      elsif val = @spreadsheet.col_opts[method] && !@spreadsheet.col_opts[method][column_name]
+      elsif val = opts[method] && !opts[method][column_name]
         ''
-      elsif method.to_s =~ /\?$/ && col_opts = @spreadsheet.col_opts[method.to_s.chop.to_sym]
+      elsif method.to_s =~ /\?$/ && col_opts = opts[method.to_s.chop.to_sym]
         col_opts.index(column_name) || false
-      elsif method.to_s =~ /\?$/ && !@spreadsheet.col_opts[method.to_s.chop.to_sym]
+      elsif method.to_s =~ /\?$/ && !opts[method.to_s.chop.to_sym]
         nil
       else
         super
       end
     end
+    
+    private
 
+    # Enable string or symbol key access to col_opts
+    # from sinatra
+    def indifferent_access(params)
+      params = indifferent_hash.merge(params)
+      params.each do |key, value|
+        next unless value.is_a?(Hash)
+        params[key] = indifferent_access(value)
+      end
+    end
+
+    def indifferent_hash
+      Hash.new {|hash,key| hash[key.to_s] if Symbol === key }
+    end
   end
   
   class Header < Datum
