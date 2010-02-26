@@ -147,13 +147,25 @@ table<span class="PunctuationSeparator">.</span><span class="Entity">faceted_on<
 <span class="Keyword">end</span>
 </pre><em>Returns:</em><pre class="dawn">[[&quot;Samuel Beckett&quot;<span class="PunctuationSeparator">,</span> &quot;Malone Muert&quot;<span class="PunctuationSeparator">,</span> &quot;120&quot;<span class="PunctuationSeparator">,</span> &quot;Modernism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Nicholson Baker&quot;<span class="PunctuationSeparator">,</span> &quot;Mezannine&quot;<span class="PunctuationSeparator">,</span> &quot;150&quot;<span class="PunctuationSeparator">,</span> &quot;Minimalism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Vladimir Sorokin&quot;<span class="PunctuationSeparator">,</span> &quot;The Queue&quot;<span class="PunctuationSeparator">,</span> &quot;263&quot;<span class="PunctuationSeparator">,</span> &quot;Satire&quot;]]
 </pre>
-      The deleted rows are still available in <strong>deleted_rows</strong> for later access:
+      The deleted rows are still available in <strong>@deleted_rows</strong> for later access:
       <pre class="dawn">spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(csv) <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">s</span><span class="PunctuationSeparator">|</span>
   s<span class="PunctuationSeparator">.</span><span class="Entity">delete_rows!</span> [<span class="Constant">1</span>]
 <span class="Keyword">end</span>
 </pre><em>Returns:</em><pre class="dawn">table<span class="PunctuationSeparator">.</span><span class="Entity">deleted_rows</span> <span class="PunctuationSeparator">=&gt;</span> [[&quot;James Joyce&quot;<span class="PunctuationSeparator">,</span> &quot;Ulysses&quot;<span class="PunctuationSeparator">,</span> &quot;644&quot;<span class="PunctuationSeparator">,</span> &quot;Modernism&quot;]]
 </pre>
     </p>
+    
+    <p>If you want only a chunk of the data, say to paginate your table, you can call <strong>only!</strong> with the range of values you want to keep:
+      <pre class="dawn">spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(csv) <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">s</span><span class="PunctuationSeparator">|</span>
+  s<span class="PunctuationSeparator">.</span><span class="Entity">sorted_by</span> <span class="Keyword">=</span> {'Style' <span class="PunctuationSeparator">=&gt;</span> {&quot;order&quot; <span class="PunctuationSeparator">=&gt;</span> 'ascending'}}
+<span class="Keyword">end</span>
+
+spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">only!</span>(<span class="Constant">2</span><span class="PunctuationSeparator">.</span><span class="PunctuationSeparator">.</span><span class="Constant">4</span>)
+spreadsheet<span class="PunctuationSeparator">.</span>rows
+</pre><em>Returns:</em><pre class="dawn">[[&quot;Nicholson Baker&quot;<span class="PunctuationSeparator">,</span> &quot;Mezannine&quot;<span class="PunctuationSeparator">,</span> &quot;150&quot;<span class="PunctuationSeparator">,</span> &quot;Minimalism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Vladimir Sorokin&quot;<span class="PunctuationSeparator">,</span> &quot;The Queue&quot;<span class="PunctuationSeparator">,</span> &quot;263&quot;<span class="PunctuationSeparator">,</span> &quot;Satire&quot;]]
+</pre>
+    </p>
+    
     <p>TableFu can also sum a column of values:
       <pre class="dawn">spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(csv)
 spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">total_for</span>('Number of Pages')<span class="PunctuationSeparator">.</span>to_s

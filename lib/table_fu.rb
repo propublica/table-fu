@@ -30,9 +30,20 @@ class TableFu
   # nothing
   def delete_rows!(arr)
     @deleted_rows ||= []
-    arr.each do |a|
-      @deleted_rows << @table.slice!(a) #account for header and 0 index
+    arr.map do |a|
+      @deleted_rows << @table[a] #account for header and 0 index
+      @table[a] = nil
     end
+    @table.compact!
+  end
+  
+  
+  # Inverse slice: Only keep the rows in the range after sorting
+  def only!(range)
+    rows_to_exclude = rows.map do |row|
+      range.include?(row.row_num) ? nil : row.row_num
+    end
+    delete_rows!(rows_to_exclude.compact)
   end
 
   # Returns a Row object for the row at a certain index

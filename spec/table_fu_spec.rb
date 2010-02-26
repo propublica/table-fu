@@ -40,14 +40,24 @@ describe TableFu do
         column.style.should_not be_nil
       end
     end
+    
   end
   
-  it 'should sort rows' do
+  it 'should sort rows with numerals' do
     @spreadsheet.sorted_by = {'Projects' => {"order" => 'ascending'}}
     sorted = @spreadsheet.rows.map do |row|
       row.column_for("Projects").value
     end
     sorted.should eql [4, 5, 10, 12, 20, 49, nil]
+  end
+  
+  it 'should be able to contain only the rows I want, after sorting' do
+    @spreadsheet.sorted_by = {'State' => {"order" => 'ascending'}}
+    @spreadsheet.only!(1..2)
+    @spreadsheet.rows[0].column_for('State').to_s.should eql 'Arizona'
+    @spreadsheet.rows[1].column_for('State').to_s.should eql 'California'
+    @spreadsheet.deleted_rows.length.should eql 5
+    @spreadsheet.rows.length.should eql 2
   end
 end
 
@@ -109,6 +119,8 @@ describe TableFu, 'with a complicated setup' do
     @spreadsheet.rows[0].column_for('Leadership').style.should ==
                           @spreadsheet.col_opts["style"]['Leadership']
   end
+  
+
 
 end
 
@@ -146,6 +158,7 @@ describe TableFu, "with faceting" do
   end
 
   it "should keep the formatting" do
+    
     @faceted_spreadsheets[1].rows[1].column_for('Total Appropriation').to_s.should eql "$25,320,127"
     @faceted_spreadsheets[1].rows[1].column_for('Projects').style.should eql "text-align:left;"
   end

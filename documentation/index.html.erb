@@ -1,4 +1,6 @@
 <%
+$:.unshift File.expand_path(File.dirname(__FILE__), "/../lib/table_fu")
+
 require 'uv'
 require 'FasterCSV'
 require 'table_fu'
@@ -115,11 +117,16 @@ end %>
       <%= code_for "zap_joyce" do |s|
         s.rows.inspect
       end %>
-      The deleted rows are still available in <strong>deleted_rows</strong> for later access:
+      The deleted rows are still available in <strong>@deleted_rows</strong> for later access:
       <%= code_for "zap_joyce" do |s|
         "table.deleted_rows => #{s.deleted_rows.inspect}"
       end %>
     </p>
+    
+    <p>If you want only a chunk of the data, say to paginate your table, you can call <strong>only!</strong> with the range of values you want to keep:
+      <%= code_for "only" %>
+    </p>
+    
     <p>TableFu can also sum a column of values:
       <%= code_for "totals" %>
     </p>
