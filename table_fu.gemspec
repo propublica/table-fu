@@ -51,6 +51,7 @@ Gem::Specification.new do |s|
      "examples/formatting_options.rb",
      "examples/last_name.rb",
      "examples/link.rb",
+     "examples/only.rb",
      "examples/rails_helpers.rb",
      "examples/sort_by_column.rb",
      "examples/sort_by_number.rb",
