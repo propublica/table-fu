@@ -1,7 +1,13 @@
 require 'rubygems'
 require 'fastercsv'
 
-# Adds spreadsheet functionality to an Array
+
+# TableFu turns a matric array(from a csv file for example) into a spreadsheet.
+#
+# Allows formatting, macros, sorting, and faceting.
+#
+# Documentation:
+# http://propublica.github.com/table-fu
 class TableFu
   
   attr_reader :deleted_rows, :table, :totals, :column_headers
@@ -30,9 +36,9 @@ class TableFu
   # nothing
   def delete_rows!(arr)
     @deleted_rows ||= []
-    arr.map do |a|
-      @deleted_rows << @table[a] #account for header and 0 index
-      @table[a] = nil
+    arr.map do |item|
+      @deleted_rows << @table[item] #account for header and 0 index
+      @table[item] = nil
     end
     @table.compact!
   end
@@ -54,8 +60,8 @@ class TableFu
   # Returns all the Row objects for this object as a collection
   def rows
     all_rows = []
-    @table.each_with_index do |r, i|
-      all_rows << TableFu::Row.new(r, i, self)
+    @table.each_with_index do |row, index|
+      all_rows << TableFu::Row.new(row, index, self)
     end    
     all_rows.sort
   end
@@ -68,8 +74,8 @@ class TableFu
   # Return the headers of the array 
   def headers
     all_columns = []
-    columns.each do |h|
-      all_columns << TableFu::Header.new(h, h, nil, self)
+    columns.each do |header|
+      all_columns << TableFu::Header.new(header, header, nil, self)
     end
     all_columns
   end
@@ -88,21 +94,21 @@ class TableFu
   # Return an array of TableFu instances grouped by a column.
   def faceted_by(column, opts = {})
     faceted_spreadsheets = {}
-    rows.each do |r|
-      unless r.column_for(column).value.nil?
-        faceted_spreadsheets[r.column_for(column).value] ||= []
-        faceted_spreadsheets[r.column_for(column).value] << r
+    rows.each do |row|
+      unless row.column_for(column).value.nil?
+        faceted_spreadsheets[row.column_for(column).value] ||= []
+        faceted_spreadsheets[row.column_for(column).value] << row
       end
     end
     
     # Create new table_fu instances for each facet
     tables = []
-    faceted_spreadsheets.each do |k,v|
-      new_table = [@column_headers] + v
-      t = TableFu.new(new_table)
-      t.faceted_on = k
-      t.col_opts = @col_opts #formatting should be carried through
-      tables << t
+    faceted_spreadsheets.each do |key,value|
+      new_table = [@column_headers] + value
+      table = TableFu.new(new_table)
+      table.faceted_on = key
+      table.col_opts = @col_opts #formatting should be carried through
+      tables << table
     end
     
     tables.sort! do |a,b|
@@ -143,8 +149,8 @@ class TableFu
   end
   
   # Set the sorted_by column
-  def sorted_by=(h)
-    @col_opts[:sorted_by] = h
+  def sorted_by=(header)
+    @col_opts[:sorted_by] = header
   end
   
   # Return the formatting hash
@@ -153,13 +159,13 @@ class TableFu
   end
   
   # Set the formatting hash
-  def formatting=(h)
-    @col_opts[:formatting] = h
+  def formatting=(headers)
+    @col_opts[:formatting] = headers
   end
   
   # Set up the cherry picked columns
-  def columns=(a)
-    @col_opts[:columns] = a
+  def columns=(array)
+    @col_opts[:columns] = array
   end
   
 
@@ -167,6 +173,7 @@ class TableFu
 end
 
 class TableFu
+  # TableFu::Row adds functionality to an row array in a TableFu instance
   class Row < Array
     
     attr_reader :row_num
@@ -179,8 +186,8 @@ class TableFu
     
     def columns
       all_cols = []
-      @spreadsheet.columns.each do |c|
-        all_cols << datum_for(c)    
+      @spreadsheet.columns.each do |column|
+        all_cols << datum_for(column)    
       end         
       all_cols
     end
@@ -226,7 +233,7 @@ class TableFu
     end
     
   end
-  
+  # A Datum is an individual cell in the TableFu::Row
   class Datum
 
     attr_reader :options, :column_name
@@ -359,13 +366,12 @@ class TableFu
     end
   end
   
+  # A header object needs to be a special kind of Datum, and
+  # we may want to extend this further, but currently we just
+  # need to ensure that when to_s is called on a @Header@ object
+  # that we don't run it through a macro, or a formatter.
   class Header < Datum
-    
-    # A header object needs to be a special kind of Datum, and
-    # we may want to extend this further, but currently we just
-    # need to ensure that when to_s is called on a @Header@ object
-    # that we don't run it through a macro, or a formatter.
-    #
+
     def to_s
       @datum
     end
