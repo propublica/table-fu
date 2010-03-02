@@ -12,7 +12,7 @@ a.propublica{
   background: transparent url(../images/proplogo.png) no-repeat -40px -20px;
   top: 0;
   left: 0;
-  width: 351px;
+  width: 135px;
   height: 141px;
 }
 pre {
@@ -24,17 +24,17 @@ pre {
   border-left: 4px solid #143D8D;
   margin-left: 1em;
 }
-a{
+a {
   color: #143D8D;
   text-decoration: none;
   font-weight: bold;
 }
-ul{
+ul {
   margin:0 1em;
   padding:0;
   list-style: none;
 }
-li{
+li {
   margin:0;
   padding:0;
 }
