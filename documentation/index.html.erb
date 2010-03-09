@@ -43,7 +43,7 @@ end %>
     "#{config[:major]}.#{config[:minor]}.#{config[:patch]}"
     %></small></h1>
 
-    <p><strong><a href="http://github.com/propublica/table-fu">TableFu</a></strong> is a utility for spreadsheet-style handling of arrays (e.g. filtering, formatting, and sorting). In addition, it has the ability to <a href="#facet">facet</a> &mdash; or group &mdash; rows according to cell value. It was developed as a backend for its sister project <a href="http://www.github.com/propublica/table-setter">TableSetter</a>.</p>
+    <p><strong><a href="http://github.com/propublica/table-fu">TableFu</a></strong> is a ruby gem for spreadsheet-style handling of arrays (e.g. filtering, formatting, and sorting by "column" or "row"). In addition, it has the ability to <a href="#facet">facet</a> &mdash; or group &mdash; rows according to cell value. It was developed as a backend for its companion project <a href="http://www.github.com/propublica/table-setter">TableSetter</a>.</p>
     <p>For example, <strong>TableFu</strong> can consume a csv file and sort on a column:
         <%= code_for "sort_by_column" do |ret|
               ret.rows.inspect
@@ -73,14 +73,14 @@ end %>
 </p>
     <h2><a name="usage" href="#toc">Usage</a></h2>
     <p>
-      The <strong>TableFu</strong> constructor takes two arguments; a 2 dimensional array or csv (file object or string) and a hash of column options or a block. The simple options are:</p>
+      The <strong>TableFu</strong> constructor takes two arguments; a 2 dimensional array or csv (file object or string) and a hash of column options or a block. TableFu will assume that the first row of the array contains the column headers. The simple options are:</p>
       <p><strong>sorted_by:</strong> the column to sort by, it defaults to no sorting at all.
       <%= code_for "sort_by_column" do |ret|
             ret.rows.inspect
           end
       %>
     </p>
-    <p><strong>columns:</strong> the columns to include in the table, useful when reordering and filtering extraneous columns. TableFu will assume that the first row of the array contains the column headers. If no arguments are provided, <strong>TableFu</strong> will include all columns by default.
+    <p><strong>columns:</strong> the columns to include in the table, useful when reordering and filtering extraneous columns.  If no arguments are provided, <strong>TableFu</strong> will include all columns by default.
     <%= code_for "columns" %>
     Note that the columns are still accessible directly even if they're not in the columns array.
     <%= code_for "columns_hidden" %>
@@ -113,6 +113,7 @@ end %>
     end %>
     </p>
     <h2><a name="manipulation" href="#toc">Manipulation / Output</a></h2>
+    <h3>Deleting Rows</h3>
     <p>In addition to hiding columns and faceting <strong>TableFu</strong> can delete rows from the csv. Let's get rid of James Joyce (no one ever finished <em>Ulysses</em> anyway):
       <%= code_for "zap_joyce" do |s|
         s.rows.inspect
@@ -122,17 +123,20 @@ end %>
         "table.deleted_rows => #{s.deleted_rows.inspect}"
       end %>
     </p>
-    
+    <h3>Pagination</h3>
     <p>If you want only a chunk of the data, say to paginate your table, you can call <strong>only!</strong> with the range of values you want to keep:
       <%= code_for "only" %>
     </p>
-    
+    <h3>Sum</h3>
     <p>TableFu can also sum a column of values:
       <%= code_for "totals" %>
     </p>
     <h2><a name="links" href="#toc">Links</a></h2>
     <ul>
       <li><a href="http://github.com/propublica/table-setter">TableSetter</a><br>A Sinatra app that uses <strong>TableFu</strong> to render public Google Spreadsheets in custom HTML.</li>
+      <li><a href="http://github.com/propublica/table-setter-generator">TableSetter Generator</a><br>
+        A rails generator that allows you to create a rails app like TableSetter.
+      </li>
       <li><a href="http://github.com/propublica/table-fu/issues">Issues</a><br>Post bug reports and feature requests here.</li>
       <li><a href="doc/index.html">API Docs</a></li>
     </ul>

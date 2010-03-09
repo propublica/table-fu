@@ -12,7 +12,7 @@
     <a href="http://www.propublica.org" class="propublica">&nbsp;</a>
     <h1>TableFu <small>&ndash; Version: 0.1.1</small></h1>
 
-    <p><strong><a href="http://github.com/propublica/table-fu">TableFu</a></strong> is a utility for spreadsheet-style handling of arrays (e.g. filtering, formatting, and sorting). In addition, it has the ability to <a href="#facet">facet</a> &mdash; or group &mdash; rows according to cell value. It was developed as a backend for its sister project <a href="http://www.github.com/propublica/table-setter">TableSetter</a>.</p>
+    <p><strong><a href="http://github.com/propublica/table-fu">TableFu</a></strong> is a ruby gem for spreadsheet-style handling of arrays (e.g. filtering, formatting, and sorting by "column" or "row"). In addition, it has the ability to <a href="#facet">facet</a> &mdash; or group &mdash; rows according to cell value. It was developed as a backend for its companion project <a href="http://www.github.com/propublica/table-setter">TableSetter</a>.</p>
     <p>For example, <strong>TableFu</strong> can consume a csv file and sort on a column:
         <pre class="dawn">csv <span class="Keyword">=</span>&lt;&lt;-CSV
 Author,Best Book,Number of Pages,Style
@@ -51,7 +51,7 @@ spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><
 </p>
     <h2><a name="usage" href="#toc">Usage</a></h2>
     <p>
-      The <strong>TableFu</strong> constructor takes two arguments; a 2 dimensional array or csv (file object or string) and a hash of column options or a block. The simple options are:</p>
+      The <strong>TableFu</strong> constructor takes two arguments; a 2 dimensional array or csv (file object or string) and a hash of column options or a block. TableFu will assume that the first row of the array contains the column headers. The simple options are:</p>
       <p><strong>sorted_by:</strong> the column to sort by, it defaults to no sorting at all.
       <pre class="dawn">csv <span class="Keyword">=</span>&lt;&lt;-CSV
 Author,Best Book,Number of Pages,Style
@@ -67,7 +67,7 @@ spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><
 </pre><em>Returns:</em><pre class="dawn">[[&quot;Samuel Beckett&quot;<span class="PunctuationSeparator">,</span> &quot;Malone Muert&quot;<span class="PunctuationSeparator">,</span> &quot;120&quot;<span class="PunctuationSeparator">,</span> &quot;Modernism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Nicholson Baker&quot;<span class="PunctuationSeparator">,</span> &quot;Mezannine&quot;<span class="PunctuationSeparator">,</span> &quot;150&quot;<span class="PunctuationSeparator">,</span> &quot;Minimalism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Vladimir Sorokin&quot;<span class="PunctuationSeparator">,</span> &quot;The Queue&quot;<span class="PunctuationSeparator">,</span> &quot;263&quot;<span class="PunctuationSeparator">,</span> &quot;Satire&quot;]<span class="PunctuationSeparator">,</span> [&quot;James Joyce&quot;<span class="PunctuationSeparator">,</span> &quot;Ulysses&quot;<span class="PunctuationSeparator">,</span> &quot;644&quot;<span class="PunctuationSeparator">,</span> &quot;Modernism&quot;]]
 </pre>
     </p>
-    <p><strong>columns:</strong> the columns to include in the table, useful when reordering and filtering extraneous columns. TableFu will assume that the first row of the array contains the column headers. If no arguments are provided, <strong>TableFu</strong> will include all columns by default.
+    <p><strong>columns:</strong> the columns to include in the table, useful when reordering and filtering extraneous columns.  If no arguments are provided, <strong>TableFu</strong> will include all columns by default.
     <pre class="dawn">spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(csv) <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">s</span><span class="PunctuationSeparator">|</span>
   s<span class="PunctuationSeparator">.</span><span class="Entity">columns</span> <span class="Keyword">=</span> [&quot;Best Book&quot;<span class="PunctuationSeparator">,</span> &quot;Author&quot;]
 <span class="Keyword">end</span>
@@ -141,6 +141,7 @@ table<span class="PunctuationSeparator">.</span><span class="Entity">faceted_on<
 </pre>
     </p>
     <h2><a name="manipulation" href="#toc">Manipulation / Output</a></h2>
+    <h3>Deleting Rows</h3>
     <p>In addition to hiding columns and faceting <strong>TableFu</strong> can delete rows from the csv. Let's get rid of James Joyce (no one ever finished <em>Ulysses</em> anyway):
       <pre class="dawn">spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(csv) <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">s</span><span class="PunctuationSeparator">|</span>
   s<span class="PunctuationSeparator">.</span><span class="Entity">delete_rows!</span> [<span class="Constant">1</span>]
@@ -154,7 +155,7 @@ table<span class="PunctuationSeparator">.</span><span class="Entity">faceted_on<
 </pre><em>Returns:</em><pre class="dawn">table<span class="PunctuationSeparator">.</span><span class="Entity">deleted_rows</span> <span class="PunctuationSeparator">=&gt;</span> [[&quot;James Joyce&quot;<span class="PunctuationSeparator">,</span> &quot;Ulysses&quot;<span class="PunctuationSeparator">,</span> &quot;644&quot;<span class="PunctuationSeparator">,</span> &quot;Modernism&quot;]]
 </pre>
     </p>
-    
+    <h3>Pagination</h3>
     <p>If you want only a chunk of the data, say to paginate your table, you can call <strong>only!</strong> with the range of values you want to keep:
       <pre class="dawn">spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(csv) <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">s</span><span class="PunctuationSeparator">|</span>
   s<span class="PunctuationSeparator">.</span><span class="Entity">sorted_by</span> <span class="Keyword">=</span> {'Style' <span class="PunctuationSeparator">=&gt;</span> {&quot;order&quot; <span class="PunctuationSeparator">=&gt;</span> 'ascending'}}
@@ -165,7 +166,7 @@ spreadsheet<span class="PunctuationSeparator">.</span>rows
 </pre><em>Returns:</em><pre class="dawn">[[&quot;Nicholson Baker&quot;<span class="PunctuationSeparator">,</span> &quot;Mezannine&quot;<span class="PunctuationSeparator">,</span> &quot;150&quot;<span class="PunctuationSeparator">,</span> &quot;Minimalism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Vladimir Sorokin&quot;<span class="PunctuationSeparator">,</span> &quot;The Queue&quot;<span class="PunctuationSeparator">,</span> &quot;263&quot;<span class="PunctuationSeparator">,</span> &quot;Satire&quot;]]
 </pre>
     </p>
-    
+    <h3>Sum</h3>
     <p>TableFu can also sum a column of values:
       <pre class="dawn">spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(csv)
 spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">total_for</span>('Number of Pages')<span class="PunctuationSeparator">.</span>to_s
@@ -175,6 +176,9 @@ spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">total
     <h2><a name="links" href="#toc">Links</a></h2>
     <ul>
       <li><a href="http://github.com/propublica/table-setter">TableSetter</a><br>A Sinatra app that uses <strong>TableFu</strong> to render public Google Spreadsheets in custom HTML.</li>
+      <li><a href="http://github.com/propublica/table-setter-generator">TableSetter Generator</a><br>
+        A rails generator that allows you to create a rails app like TableSetter.
+      </li>
       <li><a href="http://github.com/propublica/table-fu/issues">Issues</a><br>Post bug reports and feature requests here.</li>
       <li><a href="doc/index.html">API Docs</a></li>
     </ul>
