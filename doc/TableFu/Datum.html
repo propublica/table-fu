@@ -77,7 +77,18 @@
 </dl>
 <div class="clear"></div>
 
-<div id="subclasses">
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+A Datum is an individual cell in the TableFu::Row
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
   <p class="children"><a href="Header.html" title="TableFu::Header (class)">Header</a></p>
 </div>
@@ -293,19 +304,19 @@ way to go about doing this. Subclass?
       <pre class="lines">
 
 
-226
-227
-228
-229
-230
-231</pre>
+244
+245
+246
+247
+248
+249</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 226</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 244</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='datum identifier id'>datum</span><span class='comma token'>,</span> <span class='col_name identifier id'>col_name</span><span class='comma token'>,</span> <span class='row_num identifier id'>row_num</span><span class='comma token'>,</span> <span class='spreadsheet identifier id'>spreadsheet</span><span class='rparen token'>)</span>
   <span class='@datum ivar id'>@datum</span> <span class='assign token'>=</span> <span class='datum identifier id'>datum</span>
-  <span class='@column_name ivar id'>@column_name</span> <span class='assign token'>=</span>  <span class='col_name identifier id'>col_name</span>
+  <span class='@column_name ivar id'>@column_name</span> <span class='assign token'>=</span> <span class='col_name identifier id'>col_name</span>
   <span class='@row_num ivar id'>@row_num</span> <span class='assign token'>=</span> <span class='row_num identifier id'>row_num</span>
   <span class='@spreadsheet ivar id'>@spreadsheet</span> <span class='assign token'>=</span> <span class='spreadsheet identifier id'>spreadsheet</span>
 <span class='end end kw'>end</span>
@@ -397,23 +408,23 @@ And it&#8217;s not in the list col_opts[:invisible] = [&#8216;State&#8217;]
       <pre class="lines">
 
 
-315
-316
-317
-318
-319
-320
-321
-322
-323
-324
-325
-326
-327
-328</pre>
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 315</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 337</span>
 
 <span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span><span class='lparen token'>(</span><span class='method identifier id'>method</span><span class='rparen token'>)</span>
   <span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='indifferent_access identifier id'>indifferent_access</span> <span class='@spreadsheet ivar id'>@spreadsheet</span><span class='dot token'>.</span><span class='col_opts identifier id'>col_opts</span>
@@ -467,12 +478,12 @@ Returns the value of attribute column_name
       <pre class="lines">
 
 
-221
-222
-223</pre>
+239
+240
+241</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 221</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 239</span>
 
 <span class='def def kw'>def</span> <span class='column_name identifier id'>column_name</span>
   <span class='@column_name ivar id'>@column_name</span>
@@ -510,12 +521,12 @@ Returns the value of attribute options
       <pre class="lines">
 
 
-221
-222
-223</pre>
+239
+240
+241</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 221</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 239</span>
 
 <span class='def def kw'>def</span> <span class='options identifier id'>options</span>
   <span class='@options ivar id'>@options</span>
@@ -560,25 +571,25 @@ Returns: The macro value if it exists, otherwise nil
       <pre class="lines">
 
 
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272
-273
-274</pre>
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 259</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 277</span>
 
 <span class='def def kw'>def</span> <span class='macro_value identifier id'>macro_value</span>
   <span class='comment val'># Grab the macro method first</span>
@@ -639,18 +650,18 @@ And finally we return a empty string object or the value.
       <pre class="lines">
 
 
-245
-246
-247
-248
-249
-250
-251
-252
-253</pre>
+263
+264
+265
+266
+267
+268
+269
+270
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 245</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 263</span>
 
 <span class='def def kw'>def</span> <span class='to_s identifier id'>to_s</span>
   <span class='if if kw'>if</span> <span class='macro_value identifier id'>macro_value</span>
@@ -694,15 +705,23 @@ Returns: raw value of the datum, could be nil
       <pre class="lines">
 
 
-280
-281
-282</pre>
+298
+299
+300
+301
+302
+303
+304</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 280</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 298</span>
 
 <span class='def def kw'>def</span> <span class='value identifier id'>value</span>
-  <span class='@datum ivar id'>@datum</span>
+  <span class='if if kw'>if</span> <span class='@datum ivar id'>@datum</span> <span class='match op'>=~</span> <span class='regexp val'>/[0-9]+/</span>
+    <span class='@datum ivar id'>@datum</span><span class='dot token'>.</span><span class='to_i identifier id'>to_i</span>
+  <span class='else else kw'>else</span>
+    <span class='@datum ivar id'>@datum</span>
+  <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -715,7 +734,7 @@ Returns: raw value of the datum, could be nil
 </div>
     
     <div id="footer">
-  Generated on Thu Feb 25 14:55:11 2010 by 
+  Generated on Tue Mar  9 17:16:37 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.3 (ruby-1.8.7).
 </div>

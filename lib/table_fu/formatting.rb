@@ -18,8 +18,8 @@ class TableFu::Formatting
     end
     
     # Returns the last name of a name 
-    # => last_name("Jeff Larson")
-    # >> Larson
+    #   => last_name("Jeff Larson")
+    #   >> Larson
     def last_name(name)
       name.strip!
       if name.match(/\s(\w+)$/)
@@ -29,8 +29,8 @@ class TableFu::Formatting
       end
     end
     # Returns that last name first of a name
-    # => last_name_first_name("Jeff Larson")
-    # >> Larson, Jeff
+    #   => last_name_first_name("Jeff Larson")
+    #   >> Larson, Jeff
     def last_name_first_name(name)
       last = last_name(name)
       first = name.gsub(last, '').strip    

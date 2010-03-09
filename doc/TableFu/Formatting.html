@@ -138,11 +138,7 @@ Returns a currency formatted number.
 
   
     <span class="summary_desc">
-Returns the last name of a name
-
-<h1>&gt; last_name(&quot;Jeff Larson&quot;)</h1>
-
-&gt;&gt; Larson.
+Returns the last name of a name .
 
 </span>
   
@@ -165,11 +161,7 @@ Returns the last name of a name
 
   
     <span class="summary_desc">
-Returns that last name first of a name
-
-<h1>&gt; last_name_first_name(&quot;Jeff Larson&quot;)</h1>
-
-&gt;&gt; Larson, Jeff.
+Returns that last name first of a name.
 
 </span>
   
@@ -255,13 +247,25 @@ Returns a currency formatted number
 
 10
 11
-12</pre>
+12
+13
+14
+15
+16
+17
+18</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/table_fu/formatting.rb', line 10</span>
 
 <span class='def def kw'>def</span> <span class='currency identifier id'>currency</span><span class='lparen token'>(</span><span class='num identifier id'>num</span><span class='rparen token'>)</span>
-  <span class='dstring node'>&quot;$#{num.to_s}&quot;</span>
+  <span class='begin begin kw'>begin</span>
+    <span class='parts identifier id'>parts</span> <span class='assign token'>=</span> <span class='num identifier id'>num</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='split identifier id'>split</span><span class='lparen token'>(</span><span class='string val'>'.'</span><span class='rparen token'>)</span>
+    <span class='parts identifier id'>parts</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='gsub! fid id'>gsub!</span><span class='lparen token'>(</span><span class='regexp val'>/(\d)(?=(\d\d\d)+(?!\d))/</span><span class='comma token'>,</span> <span class='string val'>&quot;\\1,&quot;</span><span class='rparen token'>)</span>
+    <span class='dstring node'>&quot;$#{parts.join('.')}&quot;</span>
+  <span class='rescue rescue kw'>rescue</span>
+    <span class='num identifier id'>num</span>
+  <span class='end end kw'>end</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -281,10 +285,10 @@ Returns a currency formatted number
     <p>
 Returns the last name of a name
 </p>
-<h1>&gt; last_name(&quot;Jeff Larson&quot;)</h1>
-<p>
-&gt;&gt; Larson
-</p>
+<pre class="code">
+  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='last_name identifier id'>last_name</span><span class='lparen token'>(</span><span class='string val'>&quot;Jeff Larson&quot;</span><span class='rparen token'>)</span>
+  <span class='rshft op'>&gt;&gt;</span> <span class='Larson constant id'>Larson</span>
+</pre>
 
 
   </div>
@@ -297,17 +301,17 @@ Returns the last name of a name
       <pre class="lines">
 
 
-17
-18
-19
-20
-21
-22
 23
-24</pre>
+24
+25
+26
+27
+28
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu/formatting.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu/formatting.rb', line 23</span>
 
 <span class='def def kw'>def</span> <span class='last_name identifier id'>last_name</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='rparen token'>)</span>
   <span class='name identifier id'>name</span><span class='dot token'>.</span><span class='strip! fid id'>strip!</span>
@@ -335,10 +339,10 @@ Returns the last name of a name
     <p>
 Returns that last name first of a name
 </p>
-<h1>&gt; last_name_first_name(&quot;Jeff Larson&quot;)</h1>
-<p>
-&gt;&gt; Larson, Jeff
-</p>
+<pre class="code">
+  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='last_name_first_name identifier id'>last_name_first_name</span><span class='lparen token'>(</span><span class='string val'>&quot;Jeff Larson&quot;</span><span class='rparen token'>)</span>
+  <span class='rshft op'>&gt;&gt;</span> <span class='Larson constant id'>Larson</span><span class='comma token'>,</span> <span class='Jeff constant id'>Jeff</span>
+</pre>
 
 
   </div>
@@ -351,14 +355,14 @@ Returns that last name first of a name
       <pre class="lines">
 
 
-28
-29
-30
-31
-32</pre>
+34
+35
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu/formatting.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu/formatting.rb', line 34</span>
 
 <span class='def def kw'>def</span> <span class='last_name_first_name identifier id'>last_name_first_name</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='rparen token'>)</span>
   <span class='last identifier id'>last</span> <span class='assign token'>=</span> <span class='last_name identifier id'>last_name</span><span class='lparen token'>(</span><span class='name identifier id'>name</span><span class='rparen token'>)</span>
@@ -395,12 +399,12 @@ Returns an html link constructed from link, linkname
       <pre class="lines">
 
 
-35
-36
-37</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu/formatting.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu/formatting.rb', line 41</span>
 
 <span class='def def kw'>def</span> <span class='link identifier id'>link</span><span class='lparen token'>(</span><span class='linkname identifier id'>linkname</span><span class='comma token'>,</span> <span class='href identifier id'>href</span><span class='rparen token'>)</span>
   <span class='dstring node'>&quot;&lt;a href='#{href}' title='#{linkname}'&gt;#{linkname}&lt;/a&gt;&quot;</span>
@@ -435,12 +439,12 @@ Returns an error message if the given formatter isn&#8217;t available
       <pre class="lines">
 
 
-40
-41
-42</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu/formatting.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu/formatting.rb', line 46</span>
 
 <span class='def def kw'>def</span> <span class='method_missing identifier id'>method_missing</span><span class='lparen token'>(</span><span class='method identifier id'>method</span><span class='rparen token'>)</span>
   <span class='dstring node'>&quot;#{method.to_s} not a valid formatter!&quot;</span>
@@ -456,7 +460,7 @@ Returns an error message if the given formatter isn&#8217;t available
 </div>
     
     <div id="footer">
-  Generated on Thu Feb 25 14:55:11 2010 by 
+  Generated on Tue Mar  9 17:16:38 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.3 (ruby-1.8.7).
 </div>

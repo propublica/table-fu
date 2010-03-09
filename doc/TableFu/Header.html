@@ -79,7 +79,21 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+A header object needs to be a special kind of Datum, and we may want to
+extend this further, but currently we just need to ensure that when to_s is
+called on a @Header@ object that we don&#8217;t run it through a macro, or
+a formatter.
+</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
 
   
   
@@ -105,13 +119,7 @@
   
 
   
-    <span class="summary_desc">
-A header object needs to be a special kind of Datum, and we may want to
-extend this further, but currently we just need to ensure that when to_s is
-called on a @Header@ object that we don&#8217;t run it through a macro, or
-a formatter.
-
-</span>
+    <span class="summary_desc"></span>
   
 </li>
 
@@ -154,32 +162,18 @@ a formatter.
   
 
   
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-A header object needs to be a special kind of Datum, and we may want to
-extend this further, but currently we just need to ensure that when to_s is
-called on a @Header@ object that we don&#8217;t run it through a macro, or
-a formatter.
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-</div><table class="source_code">
+</p><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-354
-355
-356</pre>
+375
+376
+377</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 354</span>
+      <pre class="code"><span class="info file"># File 'lib/table_fu.rb', line 375</span>
 
 <span class='def def kw'>def</span> <span class='to_s identifier id'>to_s</span>
   <span class='@datum ivar id'>@datum</span>
@@ -195,7 +189,7 @@ a formatter.
 </div>
     
     <div id="footer">
-  Generated on Thu Feb 25 14:55:10 2010 by 
+  Generated on Tue Mar  9 17:16:36 2010 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool">yard</a>
   0.5.3 (ruby-1.8.7).
 </div>
