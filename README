@@ -32,6 +32,6 @@ gem install table-fu
     @spreadsheet.rows[0].columns[1].to_s #=> 'Motorized Bar Stool'
     
     @spreadsheet.rows[0].column_for('Link').to_s 
-    #=> "<a href='http://project.com', title='Build Supercollider'>Build Supercollider</a>"
+    #=> "<a href='http://project.com' title='Build Supercollider'>Build Supercollider</a>"
     
 
