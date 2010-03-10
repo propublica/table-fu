@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mark Percival", "Jeff Larson"]
-  s.date = %q{2010-02-26}
+  s.date = %q{2010-03-10}
   s.description = %q{A library for manipulating tables as arrays}
   s.email = %q{jeff.larson@gmail.com}
   s.extra_rdoc_files = [
