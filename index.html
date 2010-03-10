@@ -28,7 +28,7 @@ spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><
 </pre><em>Returns:</em><pre class="dawn">[[&quot;Samuel Beckett&quot;<span class="PunctuationSeparator">,</span> &quot;Malone Muert&quot;<span class="PunctuationSeparator">,</span> &quot;120&quot;<span class="PunctuationSeparator">,</span> &quot;Modernism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Nicholson Baker&quot;<span class="PunctuationSeparator">,</span> &quot;Mezannine&quot;<span class="PunctuationSeparator">,</span> &quot;150&quot;<span class="PunctuationSeparator">,</span> &quot;Minimalism&quot;]<span class="PunctuationSeparator">,</span> [&quot;Vladimir Sorokin&quot;<span class="PunctuationSeparator">,</span> &quot;The Queue&quot;<span class="PunctuationSeparator">,</span> &quot;263&quot;<span class="PunctuationSeparator">,</span> &quot;Satire&quot;]<span class="PunctuationSeparator">,</span> [&quot;James Joyce&quot;<span class="PunctuationSeparator">,</span> &quot;Ulysses&quot;<span class="PunctuationSeparator">,</span> &quot;644&quot;<span class="PunctuationSeparator">,</span> &quot;Modernism&quot;]]
 </pre>
     </p>
-    <h2><a name="toc">Table of Contents</a></h2>
+    <h2><a id="toc">Table of Contents</a></h2>
     <ul>
       <li><a href="#installation">Installation</a></li>
       <li><a href="#usage">Usage</a></li>
@@ -39,7 +39,7 @@ spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><
       <li><a href="#credits">Credits</a></li>
       <li><a href="#license">License</a></li>
     </ul>
-    <h2><a name="installation" href="#toc">Installation</a></h2>
+    <h2><a id="installation" href="#toc">Installation</a></h2>
     <p><strong>TableFu</strong> is available as a rubygem:
 <pre class="dawn">
  gem install table_fu</pre>
@@ -49,7 +49,7 @@ spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><
  cd table-fu
  rake install</pre>
 </p>
-    <h2><a name="usage" href="#toc">Usage</a></h2>
+    <h2><a id="usage" href="#toc">Usage</a></h2>
     <p>
       The <strong>TableFu</strong> constructor takes two arguments; a 2 dimensional array or csv (file object or string) and a hash of column options or a block. TableFu will assume that the first row of the array contains the column headers. The simple options are:</p>
       <p><strong>sorted_by:</strong> the column to sort by, it defaults to no sorting at all.
@@ -87,7 +87,7 @@ spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">rows<
 </pre>
     </p>
     
-    <h2><a name="macros" href="#toc">Macros / Formatting</a></h2>
+    <h2><a id="macros" href="#toc">Macros / Formatting</a></h2>
     <p><strong>TableFu</strong> allows you to format columns of cells through the use of macros. See <a href="http://github.com/propublica/table-fu/blob/master/lib/table_fu/formatting.rb"><strong>TableFu::Formatting</strong></a> for the predefined macros available. </p>
     <p>The <strong>formatting</strong> attribute should be a hash of the form: 
         <pre class="dawn">{&quot;Column Name&quot; <span class="PunctuationSeparator">=&gt;</span> 'Formatting Method Name'}
@@ -122,14 +122,14 @@ spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">rows<
 </pre><em>Returns:</em><pre class="dawn">&quot;&lt;a href='http://www.propublica.org/' title='Propublica'&gt;Propublica&lt;/a&gt;&quot;
 </pre>
     </p>
-    <p>Of course, you can provide your own macros by patching <a href="http://github.com/propublica/table-fu/blob/master/lib/table_fu/formatting.rb"><strong>TableFu::Formatting</strong></a>. <a href="http://www.github.com/propublica/table-setter">TableSetter</a> includes rails view helpers directly in <strong>TableFu::Formatting</strong>.
+    <p>Of course, you can provide your own macros by patching <a href="http://github.com/propublica/table-fu/blob/master/lib/table_fu/formatting.rb">TableFu::Formatting</a>. <a href="http://www.github.com/propublica/table-setter">TableSetter</a> includes rails view helpers directly in <strong>TableFu::Formatting</strong>.
       <pre class="dawn"><span class="Keyword">class</span> <span class="Entity">TableFu::Formatting</span>
   <span class="Keyword">extend</span> <span class="Support">ActionView</span><span class="PunctuationSeparator">::</span><span class="Entity">Helpers</span><span class="PunctuationSeparator">::</span><span class="Entity">NumberHelper</span>
 <span class="Keyword">end</span>
 </pre>
     </p>
     
-    <h2><a name="faceting" href="#toc">Faceting</a></h2>
+    <h2><a id="faceting" href="#toc">Faceting</a></h2>
     <p>Faceting provides a way to group rows together using a cell value they share in common. Calling <strong>TableFu#faceted_by</strong> returns an array of table fu instances each with a <strong>faceted_on</strong> attribute and with only the rows where that value appears.
     </p>
     <p>In this example there are 2 rows where "Modernism" appears in the style column, so calling <strong>faceted_on</strong> with the argument <strong>"Style"</strong> returns a <strong>TableFu</strong> instance with those rows grouped together:
@@ -140,7 +140,7 @@ table<span class="PunctuationSeparator">.</span><span class="Entity">faceted_on<
 table<span class="PunctuationSeparator">.</span><span class="Entity">faceted_on</span> <span class="PunctuationSeparator">=&gt;</span> <span class="Variable">Satire</span><span class="PunctuationSeparator">,</span> table<span class="PunctuationSeparator">.</span><span class="Entity">rows</span> <span class="PunctuationSeparator">=&gt;</span> [[&quot;Vladimir Sorokin&quot;<span class="PunctuationSeparator">,</span> &quot;The Queue&quot;<span class="PunctuationSeparator">,</span> &quot;263&quot;<span class="PunctuationSeparator">,</span> &quot;Satire&quot;]]
 </pre>
     </p>
-    <h2><a name="manipulation" href="#toc">Manipulation / Output</a></h2>
+    <h2><a id="manipulation" href="#toc">Manipulation / Output</a></h2>
     <h3>Deleting Rows</h3>
     <p>In addition to hiding columns and faceting <strong>TableFu</strong> can delete rows from the csv. Let's get rid of James Joyce (no one ever finished <em>Ulysses</em> anyway):
       <pre class="dawn">spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(csv) <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">s</span><span class="PunctuationSeparator">|</span>
@@ -173,7 +173,7 @@ spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">total
 </pre><em>Returns:</em><pre class="dawn"><span class="Constant">1177</span>
 </pre>
     </p>
-    <h2><a name="links" href="#toc">Links</a></h2>
+    <h2><a id="links" href="#toc">Links</a></h2>
     <ul>
       <li><a href="http://github.com/propublica/table-setter">TableSetter</a><br>A Sinatra app that uses <strong>TableFu</strong> to render public Google Spreadsheets in custom HTML.</li>
       <li><a href="http://github.com/propublica/table-setter-generator">TableSetter Generator</a><br>
@@ -182,9 +182,9 @@ spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">total
       <li><a href="http://github.com/propublica/table-fu/issues">Issues</a><br>Post bug reports and feature requests here.</li>
       <li><a href="doc/index.html">API Docs</a></li>
     </ul>
-    <h2><a name="credits" href="#toc">Credits</a></h2>
+    <h2><a id="credits" href="#toc">Credits</a></h2>
     <p><a href="http://github.com/thejefflarson">Jeff Larson</a> (Maintainer), <a href="http://github.com/brianboyer/">Brian Boyer</a>, <a href="http://github.com/kleinmatic">Scott Klein</a>, <a href="http://github.com/markpercival">Mark Percival</a>, and <a href="http://github.com/seebq">Charles Brian Quinn</a>.</p>
-    <h2><a name="license" href="#toc">License</a></h2>
+    <h2><a id="license" href="#toc">License</a></h2>
     <pre>Copyright (c) 2010 ProPublica
 
 Permission is hereby granted, free of charge, to any person obtaining
