@@ -95,9 +95,7 @@ end %>
     <p>For example, you can use the <strong>last_name</strong> formatter to extract the last name of a cell containing a person's name:
       <%= code_for "last_name" %>
     </p>
-    <p>Or you can build a meta column from two others containing an html link like so:
-      <%= code_for "link" %>
-    </p>
+
     <p>Of course, you can provide your own macros by patching <a href="http://github.com/propublica/table-fu/blob/master/lib/table_fu/formatting.rb">TableFu::Formatting</a>. <a href="http://www.github.com/propublica/table-setter">TableSetter</a> includes rails view helpers directly in <strong>TableFu::Formatting</strong>.
       <%= code_for "rails_helpers", false %>
     </p>

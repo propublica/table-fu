@@ -107,21 +107,7 @@ spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">rows<
 </pre><em>Returns:</em><pre class="dawn">&quot;Beckett&quot;
 </pre>
     </p>
-    <p>Or you can build a meta column from two others containing an html link like so:
-      <pre class="dawn">csv <span class="Keyword">=</span> &lt;&lt;-EOF
-Website,URL
-Propublica,http://www.propublica.org/
-EOF
 
-spreadsheet <span class="Keyword">=</span> <span class="Support">TableFu</span><span class="PunctuationSeparator">.</span><span class="Entity">new</span>(csv) <span class="Keyword">do </span><span class="PunctuationSeparator">|</span><span class="Variable">s</span><span class="PunctuationSeparator">|</span>
-  s<span class="PunctuationSeparator">.</span><span class="Entity">formatting</span> <span class="Keyword">=</span> {&quot;Link&quot; <span class="PunctuationSeparator">=&gt;</span> {'method' <span class="PunctuationSeparator">=&gt;</span> 'link'<span class="PunctuationSeparator">,</span> 'arguments' <span class="PunctuationSeparator">=&gt;</span> ['Website'<span class="PunctuationSeparator">,</span>'URL']}}
-  s<span class="PunctuationSeparator">.</span><span class="Entity">columns</span> <span class="Keyword">=</span> [&quot;Link&quot;]
-<span class="Keyword">end</span>
-
-spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">rows</span>[<span class="Constant">0</span>]<span class="PunctuationSeparator">.</span><span class="Entity">column_for</span>('Link')<span class="PunctuationSeparator">.</span>to_s
-</pre><em>Returns:</em><pre class="dawn">&quot;&lt;a href='http://www.propublica.org/' title='Propublica'&gt;Propublica&lt;/a&gt;&quot;
-</pre>
-    </p>
     <p>Of course, you can provide your own macros by patching <a href="http://github.com/propublica/table-fu/blob/master/lib/table_fu/formatting.rb">TableFu::Formatting</a>. <a href="http://www.github.com/propublica/table-setter">TableSetter</a> includes rails view helpers directly in <strong>TableFu::Formatting</strong>.
       <pre class="dawn"><span class="Keyword">class</span> <span class="Entity">TableFu::Formatting</span>
   <span class="Keyword">extend</span> <span class="Support">ActionView</span><span class="PunctuationSeparator">::</span><span class="Entity">Helpers</span><span class="PunctuationSeparator">::</span><span class="Entity">NumberHelper</span>
