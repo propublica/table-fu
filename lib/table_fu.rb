@@ -62,7 +62,7 @@ class TableFu
     all_rows = []
     @table.each_with_index do |row, index|
       all_rows << TableFu::Row.new(row, index, self)
-    end    
+    end
     all_rows.sort
   end
   
