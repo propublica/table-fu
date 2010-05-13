@@ -37,11 +37,6 @@ class TableFu::Formatting
       "#{last}, #{first}"
     end
     
-    # Returns an html link constructed from link, linkname
-    def link(linkname, href)
-      "<a href='#{href}' title='#{linkname}'>#{linkname}</a>"
-    end
-    
     # Returns an error message if the given formatter isn't available
     def method_missing(method)
       "#{method.to_s} not a valid formatter!"

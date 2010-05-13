@@ -8,7 +8,7 @@ begin
     gem.summary = %Q{TableFu makes arrays act like spreadsheets}
     gem.description = %Q{A library for manipulating tables as arrays}
     gem.email = "jeff.larson@gmail.com"
-    gem.homepage = "http://github.com/propublica/table_fu"
+    gem.homepage = "http://propublica.github.com/table-fu/"
     gem.authors = ["Mark Percival", "Jeff Larson"]
     gem.add_dependency 'fastercsv'
     gem.add_development_dependency "spec"

@@ -14,10 +14,9 @@ Motorized Bar Stool,45.00,09/17/2009,http://project3.com
 CSV
 
     @spreadsheet = TableFu.new(@csv) do |s|
-      s.formatting = {'Cost' => 'currency',
-                      'Link' => {'method'=> 'link', 'arguments' => ['Project', 'URL']}}
+      s.formatting = {'Cost' => 'currency'}
       s.sorted_by = {'Project' => {'order' => 'descending'}}
-      s.columns = ['Date', 'Project', 'Cost', 'Link']
+      s.columns = ['Date', 'Project', 'Cost']
     end 
     
   end
@@ -25,7 +24,6 @@ CSV
   it "should just work" do
     @spreadsheet.rows[0].column_for('Cost').to_s.should == '$45.00'
     @spreadsheet.rows[0].columns[1].to_s.should == 'Motorized Bar Stool'
-    @spreadsheet.rows[0].column_for('Link').to_s.should == "<a href='http://project.com' title='Build Supercollider'>Build Supercollider</a>"
   end
   
   it 'should open a file if passed one' do
