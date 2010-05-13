@@ -187,13 +187,17 @@ describe TableFu, 'with macro columns' do
     @spreadsheet.col_opts[:style] = {'Projects' => 'text-align:left;'}
     @spreadsheet.col_opts[:formatting] = {'Total Appropriation' => :currency,
                                           'MacroColumn' => {'method' => 'append', 'arguments' => ['Projects','State']}}
-    @spreadsheet.sorted_by = {'State' => {:order => 'ascending'}}
-    @spreadsheet.col_opts[:columns] = ['State', 'Total Appropriation', 'MacroColumn']
+    @spreadsheet.sorted_by = {'Projects' => {'order' => 'descending'}}
+    @spreadsheet.col_opts[:columns] = ['State', 'Total Appropriation', 'Projects', 'MacroColumn']
   end
-
-
+  
   it "should let us specify a macro for a column" do
-    @spreadsheet.rows[0].column_for('MacroColumn').to_s.should eql '10Alabama'
+    @spreadsheet.rows[1].column_for('MacroColumn').to_s.should eql '20Arizona'
+  end
+  
+  it "should keep the rows in order" do
+    @spreadsheet.rows[0].column_for('Projects').value.should eql 49    
+    @spreadsheet.rows[1].column_for('Total Appropriation').to_s.should eql '$42,367,198'
   end
 
 end

@@ -203,9 +203,9 @@ class TableFu
     # 
     def datum_for(col_name)
       if col_num = @spreadsheet.column_headers.index(col_name)
-        TableFu::Datum.new(self[col_num], col_name, @row_num, @spreadsheet)
+        TableFu::Datum.new(self[col_num], col_name, self, @spreadsheet)
       else # Return a nil Datum object for non existant column names
-        TableFu::Datum.new(nil, col_name, @row_num, @spreadsheet)
+        TableFu::Datum.new(nil, col_name, self, @spreadsheet)
       end
     end
     alias_method :column_for, :datum_for
@@ -215,8 +215,8 @@ class TableFu
     def <=>(b)
       if @spreadsheet.sorted_by
         column = @spreadsheet.sorted_by.keys.first
-        order = @spreadsheet.sorted_by[@spreadsheet.sorted_by.keys.first]["order"]
-        format = @spreadsheet.sorted_by[@spreadsheet.sorted_by.keys.first]["format"]
+        order = @spreadsheet.sorted_by[column]["order"]
+        format = @spreadsheet.sorted_by[column]["format"]
         a = column_for(column).value || ''
         b = b.column_for(column).value || ''
         if format 
@@ -225,7 +225,7 @@ class TableFu
         end
         result = a <=> b
         result = -1 if result.nil?
-        result = result * -1 if order == 'descending'
+        result = result * -1 if order == 'descending'        
         result
       else
         -1
@@ -241,10 +241,10 @@ class TableFu
     # Each piece of datum should know where it is by column and row number, along
     # with the spreadsheet it's apart of. There's probably a better way to go
     # about doing this. Subclass?
-    def initialize(datum, col_name, row_num, spreadsheet)
+    def initialize(datum, col_name, row, spreadsheet)
       @datum = datum
       @column_name = col_name
-      @row_num = row_num
+      @row = row
       @spreadsheet = spreadsheet
     end
     
@@ -284,9 +284,13 @@ class TableFu
       #     'AppendedColumn' => {'method' => 'append', 'arguments' => ['Projects','State']}}
       # 
       # in the above case we handle the AppendedColumn in this method
-      if @row_num && @spreadsheet.formatting && @spreadsheet.formatting[@column_name].is_a?(Hash)
+
+      if @spreadsheet.formatting && @spreadsheet.formatting[@column_name].is_a?(Hash)
         method = @spreadsheet.formatting[@column_name]['method']
-        arguments =  @spreadsheet.formatting[@column_name]['arguments'].inject([]){|arr,arg| arr << @spreadsheet.rows[@row_num].column_for(arg); arr}
+        arguments = @spreadsheet.formatting[@column_name]['arguments'].inject([]) do |arr,arg|
+          arr << @row.column_for(arg) 
+          arr
+        end
         TableFu::Formatting.send(method, *arguments)
       end
     end
