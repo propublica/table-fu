@@ -96,6 +96,11 @@ describe TableFu, 'with a complicated setup' do
     @spreadsheet.rows[0].column_for('State').to_s.should eql "Wyoming"
   end
   
+  it 'should have some sugar' do
+    @spreadsheet.rows[3]['State'].to_s.should eql "Georgia"
+    
+  end
+  
   it 'should total a column' do
     @spreadsheet.total_for("Total Appropriation").value.should eql 16640189309
     @spreadsheet.total_for("Total Appropriation").to_s.should eql "$16,640,189,309"

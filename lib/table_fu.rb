@@ -210,6 +210,15 @@ class TableFu
     end
     alias_method :column_for, :datum_for
     
+    # sugar
+    def [](col)
+      if col.is_a?(String)
+        column_for(col)
+      else
+        super(col)
+      end
+    end
+    
     # Comparator for sorting a spreadsheet row.
     #
     def <=>(b)
