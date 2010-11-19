@@ -1,8 +1,9 @@
 <%
 $:.unshift File.expand_path(File.dirname(__FILE__), "/../lib/table_fu")
 require 'rubygems'
-require 'uv'
 require 'table_fu'
+
+require 'uv'
 
 def code_for(file, output=true)
   return '' unless File.exists?("examples/#{file}.rb")
