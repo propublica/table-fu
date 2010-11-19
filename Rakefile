@@ -1,3 +1,5 @@
+$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
+
 require 'rubygems'
 require 'rake'
 
@@ -37,6 +39,7 @@ task :default => :spec
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
   if File.exist?('VERSION.yml')
+    require 'yaml'
     config = YAML.load(File.read('VERSION.yml'))
     version = "#{config[:major]}.#{config[:minor]}.#{config[:patch]}"
   else
@@ -50,7 +53,7 @@ Rake::RDocTask.new do |rdoc|
 end
 
 desc "render documentation for gh-pages"
-task :gh do 
+task :gh do
   require 'erb'
   File.open("index.html", "w") do |f|
     f.write ERB.new(File.open("documentation/index.html.erb").read).result

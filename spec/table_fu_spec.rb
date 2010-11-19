@@ -1,6 +1,5 @@
 require 'spec'
-require 'spec/spec_helper'
-require 'fastercsv'
+require 'spec_helper'
 
 
 describe TableFu do
@@ -19,7 +18,7 @@ describe TableFu do
   it 'should give me back a column by it\'s header name' do
     @spreadsheet.rows[0].column_for("State").to_s.should == "Alabama"
   end
-  
+
   it 'should sort rows' do
     @spreadsheet.sorted_by = {'State' => {"order" => 'descending'}}
     @spreadsheet.rows[0].column_for("State").to_s.should eql "Wyoming"
@@ -28,8 +27,8 @@ describe TableFu do
     @spreadsheet.sorted_by = {'Representative' => {"order" => 'ascending', "format" => 'last_name'}}
     @spreadsheet.rows[2].column_for("Representative").to_s.should eql "Jo Bonner"
 
-    
-    @spreadsheet.col_opts[:columns] = {'State', 'Party', 'Total Appropriations', 'URL'}
+
+    @spreadsheet.col_opts[:columns] = ['State', 'Party', 'Total Appropriations', 'URL']
     @spreadsheet.rows.each do |row|
       row.columns.each do |column|
         if column.column_name == 'URL'
@@ -40,9 +39,9 @@ describe TableFu do
         column.style.should_not be_nil
       end
     end
-    
+
   end
-  
+
   it 'should sort rows with numerals' do
     @spreadsheet.sorted_by = {'Projects' => {"order" => 'ascending'}}
     sorted = @spreadsheet.rows.map do |row|
@@ -50,7 +49,7 @@ describe TableFu do
     end
     sorted.should eql [4, 5, 10, 12, 20, 49, nil]
   end
-  
+
   it 'should be able to contain only the rows I want, after sorting' do
     @spreadsheet.sorted_by = {'State' => {"order" => 'ascending'}}
     @spreadsheet.only!(1..2)
@@ -66,7 +65,7 @@ describe TableFu, 'with a complicated setup' do
   before :all do
     csv = FasterCSV.parse(File.open('spec/assets/test.csv'))
     @spreadsheet = TableFu.new(csv)
-    @spreadsheet.col_opts[:formatting] = {'Total Appropriation' => :currency, 
+    @spreadsheet.col_opts[:formatting] = {'Total Appropriation' => :currency,
                                           "Representative" => :last_name_first_name}
     @spreadsheet.col_opts[:style] = {'Leadership' => "text-align: left;", 'URL' => 'text-align: right;'}
     @spreadsheet.col_opts[:invisible] = ['URL']
@@ -95,12 +94,12 @@ describe TableFu, 'with a complicated setup' do
     @spreadsheet.rows[2].column_for('State').to_s.should eql "New Jersey"
     @spreadsheet.rows[0].column_for('State').to_s.should eql "Wyoming"
   end
-  
+
   it 'should have some sugar' do
     @spreadsheet.rows[3]['State'].to_s.should eql "Georgia"
-    
+
   end
-  
+
   it 'should total a column' do
     @spreadsheet.total_for("Total Appropriation").value.should eql 16640189309
     @spreadsheet.total_for("Total Appropriation").to_s.should eql "$16,640,189,309"
@@ -111,12 +110,12 @@ describe TableFu, 'with a complicated setup' do
     @spreadsheet.rows[0].column_for("Total Appropriation").value.should eql 138526141
     @spreadsheet.rows[4].column_for("Representative").to_s.should eql "Nunes, Devin"
   end
-  
+
   it 'should format a header' do
     @spreadsheet.headers[1].style.should eql 'text-align: left;'
     @spreadsheet.headers[4].style.should eql 'text-align: right;'
   end
-  
+
   it 'should not care what kind of keys the hash has' do
     @spreadsheet = TableFu.new(File.open('spec/assets/test.csv'))
     @spreadsheet.col_opts["style"] = {'Leadership' => "text-align: left;", 'URL' => 'text-align: right;'}
@@ -124,7 +123,7 @@ describe TableFu, 'with a complicated setup' do
     @spreadsheet.rows[0].column_for('Leadership').style.should ==
                           @spreadsheet.col_opts["style"]['Leadership']
   end
-  
+
 
 
 end
@@ -163,7 +162,7 @@ describe TableFu, "with faceting" do
   end
 
   it "should keep the formatting" do
-    
+
     @faceted_spreadsheets[1].rows[1].column_for('Total Appropriation').to_s.should eql "$25,320,127"
     @faceted_spreadsheets[1].rows[1].column_for('Projects').style.should eql "text-align:left;"
   end
@@ -174,15 +173,15 @@ end
 describe TableFu, 'with macro columns' do
 
   class TableFu::Formatting
-   
+
     class<<self
 
       def append(first, second)
         "#{first}#{second}"
       end
-      
+
     end
-    
+
   end
 
 
@@ -195,13 +194,13 @@ describe TableFu, 'with macro columns' do
     @spreadsheet.sorted_by = {'Projects' => {'order' => 'descending'}}
     @spreadsheet.col_opts[:columns] = ['State', 'Total Appropriation', 'Projects', 'MacroColumn']
   end
-  
+
   it "should let us specify a macro for a column" do
     @spreadsheet.rows[1].column_for('MacroColumn').to_s.should eql '20Arizona'
   end
-  
+
   it "should keep the rows in order" do
-    @spreadsheet.rows[0].column_for('Projects').value.should eql 49    
+    @spreadsheet.rows[0].column_for('Projects').value.should eql 49
     @spreadsheet.rows[1].column_for('Total Appropriation').to_s.should eql '$42,367,198'
   end
 

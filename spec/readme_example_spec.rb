@@ -1,6 +1,5 @@
 require 'spec'
-require 'spec/spec_helper'
-require 'fastercsv'
+require 'spec_helper.rb'
 
 
 describe TableFu do
@@ -17,19 +16,19 @@ CSV
       s.formatting = {'Cost' => 'currency'}
       s.sorted_by = {'Project' => {'order' => 'descending'}}
       s.columns = ['Date', 'Project', 'Cost']
-    end 
-    
+    end
+
   end
 
   it "should just work" do
     @spreadsheet.rows[0].column_for('Cost').to_s.should == '$45.00'
     @spreadsheet.rows[0].columns[1].to_s.should == 'Motorized Bar Stool'
   end
-  
+
   it 'should open a file if passed one' do
     @spreadsheet = TableFu.new(File.open('spec/assets/test.csv')).rows[0].column_for('State').to_s.should eql "Alabama"
   end
-  
+
   it "should populate headers if we don't tell it which headers to use" do
     TableFu.new(@csv).headers.should_not be_nil
   end
