@@ -1,6 +1,8 @@
 if RUBY_VERSION > "1.9"
   require 'csv'
-  ::FasterCSV = CSV
+  Encoding.default_external = Encoding::UTF_8
+  Encoding.default_internal = Encoding::UTF_8
+  ::FasterCSV = CSV unless defined? FasterCSV
 else
   require 'fastercsv'
 end
@@ -274,13 +276,15 @@ class TableFu
     # And finally we return a empty string object or the value.
     #
     def to_s
-      if macro_value
-        macro_value
-      elsif @spreadsheet.formatting && format_method = @spreadsheet.formatting[column_name]
-        TableFu::Formatting.send(format_method, @datum) || ''
-      else
-        @datum || ''
-      end
+      ret = if macro_value
+              macro_value
+            elsif @spreadsheet.formatting && format_method = @spreadsheet.formatting[column_name]
+              TableFu::Formatting.send(format_method, @datum) || ''
+            else
+              @datum || ''
+            end
+      ret.force_encoding("UTF-8") if RUBY_VERSION > "1.9"
+      ret
     end
 
     # Returns the macro'd format if there is one
