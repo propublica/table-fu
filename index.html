@@ -7,10 +7,10 @@
     <link rel="stylesheet" type="text/css" href="documentation/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="documentation/css/dawn.css" />
   </head>
-
+  
   <body>
     <a href="http://www.propublica.org" class="propublica">&nbsp;</a>
-    <h1>TableFu <small>&ndash; Version: 0.3.2</small></h1>
+    <h1>TableFu <small>&ndash; Version: 0.3.0</small></h1>
 
     <p><a href="http://github.com/propublica/table-fu">TableFu</a> is a ruby gem for spreadsheet-style handling of arrays (e.g. filtering, formatting, and sorting by "column" or "row"). In addition, it has the ability to <a href="#facet">facet</a> &mdash; or group &mdash; rows according to cell value. It was developed as a backend for its companion project <a href="http://www.github.com/propublica/table-setter">TableSetter</a>.</p>
     <p>For example, <strong>TableFu</strong> can consume a csv file and sort on a column:
@@ -86,10 +86,10 @@ spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">rows<
 </pre><em>Returns:</em><pre class="dawn">&quot;Modernism&quot;
 </pre>
     </p>
-
+    
     <h2><a id="macros" href="#toc">Macros / Formatting</a></h2>
     <p><strong>TableFu</strong> allows you to format columns of cells through the use of macros. See <a href="http://github.com/propublica/table-fu/blob/master/lib/table_fu/formatting.rb"><strong>TableFu::Formatting</strong></a> for the predefined macros available. </p>
-    <p>The <strong>formatting</strong> attribute should be a hash of the form:
+    <p>The <strong>formatting</strong> attribute should be a hash of the form: 
         <pre class="dawn">{&quot;Column Name&quot; <span class="PunctuationSeparator">=&gt;</span> 'Formatting Method Name'}
 
 <span class="Comment"><span class="Comment">#</span> or</span>
@@ -114,7 +114,7 @@ spreadsheet<span class="PunctuationSeparator">.</span><span class="Entity">rows<
 <span class="Keyword">end</span>
 </pre>
     </p>
-
+    
     <h2><a id="faceting" href="#toc">Faceting</a></h2>
     <p>Faceting provides a way to group rows together using a cell value they share in common. Calling <strong>TableFu#faceted_by</strong> returns an array of table fu instances each with a <strong>faceted_on</strong> attribute and with only the rows where that value appears.
     </p>
