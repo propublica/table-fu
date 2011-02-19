@@ -276,8 +276,8 @@ class TableFu
     # And finally we return a empty string object or the value.
     #
     def to_s
-      ret = if macro_value
-              macro_value
+      ret = if macro?
+              macro_value.to_s
             elsif @spreadsheet.formatting && format_method = @spreadsheet.formatting[column_name]
               TableFu::Formatting.send(format_method, @datum) || ''
             else
@@ -287,10 +287,18 @@ class TableFu
       ret
     end
 
-    # Returns the macro'd format if there is one
+    # Returns whether there is a macro format for this datum
     #
     # Returns:
-    # The macro value if it exists, otherwise nil
+    # true if there is a macro format, false or nil otherwise
+    def macro?
+      @spreadsheet.formatting && @spreadsheet.formatting[@column_name].is_a?(Hash)
+    end
+
+    # Returns the macro'd format
+    #
+    # Returns:
+    # The macro value
     def macro_value
       # Grab the macro method first
       # Then get a array of the values in the columns listed as arguments
@@ -302,14 +310,12 @@ class TableFu
       #
       # in the above case we handle the AppendedColumn in this method
 
-      if @spreadsheet.formatting && @spreadsheet.formatting[@column_name].is_a?(Hash)
-        method = @spreadsheet.formatting[@column_name]['method']
-        arguments = @spreadsheet.formatting[@column_name]['arguments'].inject([]) do |arr,arg|
-          arr << @row.column_for(arg)
-          arr
-        end
-        TableFu::Formatting.send(method, *arguments)
+      method = @spreadsheet.formatting[@column_name]['method']
+      arguments = @spreadsheet.formatting[@column_name]['arguments'].inject([]) do |arr,arg|
+        arr << @row.column_for(arg)
+        arr
       end
+      TableFu::Formatting.send(method, *arguments)
     end
 
     # Returns the raw value of a datum
