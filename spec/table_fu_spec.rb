@@ -58,6 +58,10 @@ describe TableFu do
     @spreadsheet.deleted_rows.length.should eql 5
     @spreadsheet.rows.length.should eql 2
   end
+
+  it 'should convert a total to a string' do
+    @spreadsheet.total_for('Projects').to_s.should eql '24'
+  end
 end
 
 describe TableFu, 'with a complicated setup' do
