@@ -365,6 +365,8 @@ class TableFu
         col_opts.index(column_name) || false
       elsif method.to_s =~ /\?$/ && !opts[method.to_s.chop.to_sym]
         nil
+      elsif method == :style
+        nil
       else
         super
       end
