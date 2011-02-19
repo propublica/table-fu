@@ -204,6 +204,11 @@ describe TableFu, 'with macro columns' do
     @spreadsheet.rows[1].column_for('Total Appropriation').to_s.should eql '$42,367,198'
   end
 
+  it "should not barf if we try a bad formatter" do
+    @spreadsheet.col_opts[:formatting] = {'Total Appropriation' => :bad_formatter }
+    @spreadsheet.rows[1].column_for('Total Appropriation').to_s.should eql "bad_formatter not a valid formatter!"
+  end
+
 end
 
 describe TableFu, 'with reordered columns' do
