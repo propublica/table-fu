@@ -281,7 +281,7 @@ class TableFu
             elsif @spreadsheet.formatting && format_method = @spreadsheet.formatting[column_name]
               TableFu::Formatting.send(format_method, @datum) || ''
             else
-              @datum || ''
+              @datum.to_s || ''
             end
       ret.force_encoding("UTF-8") if RUBY_VERSION > "1.9"
       ret
