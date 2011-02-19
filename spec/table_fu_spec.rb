@@ -58,6 +58,11 @@ describe TableFu do
     @spreadsheet.deleted_rows.length.should eql 5
     @spreadsheet.rows.length.should eql 2
   end
+
+  it 'should not require a style option' do
+    @spreadsheet.col_opts.delete :style
+    @spreadsheet.rows[0].columns[0].style.should be_nil
+  end
 end
 
 describe TableFu, 'with a complicated setup' do
