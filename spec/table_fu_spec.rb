@@ -180,6 +180,10 @@ describe TableFu, 'with macro columns' do
         "#{first}#{second}"
       end
 
+      def null(first)
+        nil
+      end
+
     end
 
   end
@@ -190,7 +194,8 @@ describe TableFu, 'with macro columns' do
     @spreadsheet = TableFu.new(csv)
     @spreadsheet.col_opts[:style] = {'Projects' => 'text-align:left;'}
     @spreadsheet.col_opts[:formatting] = {'Total Appropriation' => :currency,
-                                          'MacroColumn' => {'method' => 'append', 'arguments' => ['Projects','State']}}
+                                          'MacroColumn' => {'method' => 'append', 'arguments' => ['Projects','State']},
+                                          'NullColumn' => {'method' => 'null', 'arguments' => ['Projects']}}
     @spreadsheet.sorted_by = {'Projects' => {'order' => 'descending'}}
     @spreadsheet.col_opts[:columns] = ['State', 'Total Appropriation', 'Projects', 'MacroColumn']
   end
@@ -204,11 +209,14 @@ describe TableFu, 'with macro columns' do
     @spreadsheet.rows[1].column_for('Total Appropriation').to_s.should eql '$42,367,198'
   end
 
+  it "should allow macros that take arguments to return nil" do
+    @spreadsheet.rows[0].column_for('NullColumn').to_s.should eql ''
+  end
+
   it "should not barf if we try a bad formatter" do
     @spreadsheet.col_opts[:formatting] = {'Total Appropriation' => :bad_formatter }
     @spreadsheet.rows[1].column_for('Total Appropriation').to_s.should eql "bad_formatter not a valid formatter!"
   end
-
 end
 
 describe TableFu, 'with reordered columns' do
