@@ -287,7 +287,7 @@ class TableFu
       ret
     end
 
-    # Returns whether there is a macro format
+    # Returns whether there is a macro format for this datum
     #
     # Returns:
     # true if there is a macro format, false or nil otherwise
