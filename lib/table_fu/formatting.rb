@@ -38,7 +38,7 @@ class TableFu::Formatting
     end
     
     # Returns an error message if the given formatter isn't available
-    def method_missing(method)
+    def method_missing(method, *args)
       "#{method.to_s} not a valid formatter!"
     end
     
